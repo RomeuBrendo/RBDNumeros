@@ -15,8 +15,6 @@ namespace RBDNumeros.Infra.Repositories.MAP
 
             builder.Property(x => x.Nome).HasMaxLength(2000).IsRequired();
 
-            builder.HasOne(x => x.Rede).WithMany().HasForeignKey("RedeId");
-
             builder.Property(x => x.Carteira).HasMaxLength(1);
         }
     }

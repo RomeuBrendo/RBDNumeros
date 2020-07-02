@@ -23,31 +23,31 @@ namespace RBDNumeros.Viwer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IServiceCollection services = new ServiceCollection();
-            ConfigureRepositories(services);
+            //IServiceCollection services = new ServiceCollection();
+            //ConfigureRepositories(services);
             Application.Run(new FrmPrincipal());
             
         }
 
-        public static void ConfigureRepositories(IServiceCollection services)
-        {
-            services.AddScoped<RBDNumerosContext, RBDNumerosContext>();
+      //  public static void ConfigureRepositories(IServiceCollection services)
+      //  {
+      //      services.AddScoped<RBDNumerosContext, RBDNumerosContext>();
 
-      //      services.AddTransient<IUnitOfWork, UnitOfWork>();
+      ////      services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            services.AddTransient<IRepositoryCategoria, RepositoryCategoria>();
-            services.AddTransient<IRepositoryCliente, RepositoryCliente>();
-            services.AddTransient<IRepositoryRede, RepositoryRede>();
-            services.AddTransient<IRepositoryTecnico, RepositoryTecnico>();
-            services.AddTransient<IRepositoryTicket,  RepositoryTicket>();
+      //      services.AddTransient<IRepositoryCategoria, RepositoryCategoria>();
+      //      services.AddTransient<IRepositoryCliente, RepositoryCliente>();
+      //      services.AddTransient<IRepositoryRede, RepositoryRede>();
+      //      services.AddTransient<IRepositoryTecnico, RepositoryTecnico>();
+      //      services.AddTransient<IRepositoryTicket,  RepositoryTicket>();
 
-            //Services
-            services.AddTransient<IServiceCategoria, ServiceCategoria>();
-            services.AddTransient<IServiceCliente, ServiceCliente>();
-            services.AddTransient<IServiceRede, ServiceRede>();
-            services.AddTransient<IServiceTecnico, ServiceTecnico>();
-            services.AddTransient<IServiceTicket, ServiceTicket>();
+      //      //Services
+      //      services.AddTransient<IServiceCategoria, ServiceCategoria>();
+      //      services.AddTransient<IServiceCliente, ServiceCliente>();
+      //      services.AddTransient<IServiceRede, ServiceRede>();
+      //      services.AddTransient<IServiceTecnico, ServiceTecnico>();
+      //      services.AddTransient<IServiceTicket, ServiceTicket>();
 
-        }
+      //  }
     }
 }

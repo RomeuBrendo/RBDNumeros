@@ -288,22 +288,27 @@
     <Compile Include="Migrations\20200701012749_Inicial.designer.cs">
       <DependentUpon>20200701012749_Inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200702034656_Mudancas_estruturas.cs" />
+    <Compile Include="Migrations\20200702034656_Mudancas_estruturas.designer.cs">
+      <DependentUpon>20200702034656_Mudancas_estruturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RBDNumerosContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
     <Compile Include="Repositories\MAP\MapCategoria.cs" />
     <Compile Include="Repositories\MAP\MapCliente.cs" />
-    <Compile Include="Repositories\MAP\MapRede.cs" />
+    <Compile Include="Repositories\MAP\MapConfiguracaoPlanilha.cs" />
     <Compile Include="Repositories\MAP\MapTecnico.cs" />
     <Compile Include="Repositories\MAP\MapTicket.cs" />
     <Compile Include="Repositories\RBDNumerosContext.cs" />
     <Compile Include="Repositories\RepositoryCategoria.cs" />
     <Compile Include="Repositories\RepositoryCliente.cs" />
-    <Compile Include="Repositories\RepositoryRede.cs" />
+    <Compile Include="Repositories\RepositoryConfiguracaoPlanilha.cs" />
     <Compile Include="Repositories\RepositoryTecnico.cs" />
     <Compile Include="Repositories\RepositoryTicket.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -4,15 +4,13 @@ using RBDNumeros.Domain.Entities;
 
 namespace RBDNumeros.Infra.Repositories.MAP
 {
-    public class MapRede : IEntityTypeConfiguration<Rede>
+    public class MapConfiguracaoPlanilha : IEntityTypeConfiguration<ConfiguracaoPlanilha>
     {
-        public void Configure(EntityTypeBuilder<Rede> builder)
+        public void Configure(EntityTypeBuilder<ConfiguracaoPlanilha> builder)
         {
-            builder.ToTable("Rede");
+            builder.ToTable("ConfiguracaoPlanilha");
 
             builder.HasKey(x => x.Id);
-
-            builder.Property(x => x.Nome).HasMaxLength(1000);
         }
     }
 }

@@ -10,9 +10,9 @@ namespace RBDNumeros.Infra.Repositories
     {
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Domain.Entities.Cliente> Clientes { get; set; }
-        public DbSet<Rede> Redes { get; set; }
         public DbSet<Tecnico> Tecnicos { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<ConfiguracaoPlanilha> ConfiguracaoPlanilhas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,9 +33,9 @@ namespace RBDNumeros.Infra.Repositories
 
             modelBuilder.ApplyConfiguration(new MapCategoria());
             modelBuilder.ApplyConfiguration(new MapCliente());
-            modelBuilder.ApplyConfiguration(new MapRede());
             modelBuilder.ApplyConfiguration(new MapTecnico());
             modelBuilder.ApplyConfiguration(new MapTicket());
+            modelBuilder.ApplyConfiguration(new MapConfiguracaoPlanilha());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -5,10 +5,10 @@ using System;
 
 namespace RBDNumeros.Infra.Repositories
 {
-    public class RepositoryRede : RepositoryBase<Rede, Guid>, IRepositoryRede
+    public class RepositoryConfiguracaoPlanilha : RepositoryBase<ConfiguracaoPlanilha, Guid>, IRepositoryConfiguracaoPlanilha
     {
         private readonly RBDNumerosContext _context;
-        public RepositoryRede(RBDNumerosContext context) : base(context)
+        public RepositoryConfiguracaoPlanilha(RBDNumerosContext context) : base(context)
         {
             _context = context;
         }

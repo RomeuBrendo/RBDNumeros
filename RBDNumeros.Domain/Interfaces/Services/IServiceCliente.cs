@@ -1,4 +1,5 @@
-﻿using RBDNumeros.Domain.Interfaces.Services.Base;
+﻿using RBDNumeros.Domain.Commands;
+using RBDNumeros.Domain.Interfaces.Services.Base;
 
 namespace RBDNumeros.Domain.Interfaces.Services
 {

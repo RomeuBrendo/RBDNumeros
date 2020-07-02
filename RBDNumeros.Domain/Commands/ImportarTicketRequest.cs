@@ -8,7 +8,7 @@
         public string DataAberturaTicket { get; set; }
         public string DataResolvido { get; set; }
         public string Tecnico { get; set; }
-        public string Carteira { get; set; }
+        public int Carteira { get; set; }
     }
 }
 
