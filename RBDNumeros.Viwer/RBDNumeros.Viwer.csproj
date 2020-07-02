@@ -255,6 +255,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formulario\Configuracao\frmConfiguracaoExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\Configuracao\frmConfiguracaoExcel.Designer.cs">
+      <DependentUpon>frmConfiguracaoExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formulario\Configuracao\frmConfiguracaoExcel.resx">
+      <DependentUpon>frmConfiguracaoExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
