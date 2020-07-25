@@ -62,6 +62,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
             
             if(e.KeyChar == 13)
               txtNomeCliente.Focus();
+            
+            if ((txtNumeroTicket.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
 
         void validaCampos(KeyPressEventArgs e)
@@ -79,6 +82,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (e.KeyChar == 13)
                 txtCategoria.Focus();
+            
+            if ((txtNomeCliente.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
 
         private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
@@ -87,6 +93,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (e.KeyChar == 13)
                 txtDataAbertura.Focus();
+            
+            if ((txtCategoria.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
 
         private void txtDataAbertura_KeyPress(object sender, KeyPressEventArgs e)
@@ -95,6 +104,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (e.KeyChar == 13)
                 txtDataResolvido.Focus();
+
+            if ((txtDataAbertura.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
 
         private void txtDataResolvido_KeyPress(object sender, KeyPressEventArgs e)
@@ -103,6 +115,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (e.KeyChar == 13)
                 txtTecnico.Focus();
+
+            if ((txtDataResolvido.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
 
         private void txtTecnico_KeyPress(object sender, KeyPressEventArgs e)
@@ -111,6 +126,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (e.KeyChar == 13)
                 txtCarteira.Focus();
+
+            if ((txtTecnico.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
 
         private void txtCarteira_KeyPress(object sender, KeyPressEventArgs e)
@@ -119,6 +137,9 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (e.KeyChar == 13)
                 txtNumeroTicket.Focus();
+
+            if ((txtCarteira.TextLength > 0) && (e.KeyChar != 8))
+                e.Handled = true;
         }
     }
 }

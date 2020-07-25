@@ -26,6 +26,7 @@ namespace RBDNumeros.Viwer
         private void importaçãoPlanilhaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frmConf = new frmConfiguracaoExcel();
+            frmConf.MdiParent = this;
             frmConf.Show();
         }
     }
