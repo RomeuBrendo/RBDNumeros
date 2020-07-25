@@ -3,6 +3,7 @@ using RBDNumeros.Domain.Interfaces.Repositories;
 using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Domain.Services;
 using RBDNumeros.Infra.Repositories;
+using RBDNumeros.Viwer.Formulario.Configuracao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,5 +23,10 @@ namespace RBDNumeros.Viwer
             InitializeComponent();
         }
 
+        private void importaçãoPlanilhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmConf = new frmConfiguracaoExcel();
+            frmConf.Show();
+        }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using prmToolkit.NotificationPattern;
-using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities.Base;
-using System;
 
 namespace RBDNumeros.Domain.Entities
 {
@@ -16,15 +14,15 @@ namespace RBDNumeros.Domain.Entities
             DataResolvido = dataResolvido;
             Tecnico = tecnico;
             Carteira = carteira;
-
-            new AddNotifications<ConfiguracaoPlanilha>(this)
-                .IfNull(x => x.NumeroTicket)
-                .IfNull(x => x.ClienteNome)
-                .IfNull(x => x.Carteira)
-                .IfNull(x => x.Categoria)
-                .IfNull(x => x.DataAberturaTicket)
-                .IfNull(x => x.DataResolvido)
-                .IfNull(x => x.Tecnico);
+            
+            //new AddNotifications<ConfiguracaoPlanilha>(this)
+            //    .IfNullOrEmpty(x => x.NumeroTicket.ToString())
+            //    .IfNullOrEmpty(x => x.ClienteNome.ToString())
+            //    .IfNullOrEmpty(x => x.Carteira.ToString())
+            //    .IfNullOrEmpty(x => x.Categoria.ToString())
+            //    .IfNullOrEmpty(x => x.DataAberturaTicket.ToString())
+            //    .IfNullOrEmpty(x => x.DataResolvido.ToString())
+            //    .IfNullOrEmpty(x => x.Tecnico.ToString());
         }
 
         public char NumeroTicket { get; private set; }

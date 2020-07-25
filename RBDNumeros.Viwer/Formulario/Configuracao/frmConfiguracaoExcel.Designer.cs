@@ -127,6 +127,7 @@
             this.txtNumeroTicket.Name = "txtNumeroTicket";
             this.txtNumeroTicket.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroTicket.TabIndex = 8;
+            this.txtNumeroTicket.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroTicket_KeyPress);
             // 
             // txtNomeCliente
             // 
@@ -135,6 +136,7 @@
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(100, 20);
             this.txtNomeCliente.TabIndex = 9;
+            this.txtNomeCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeCliente_KeyPress);
             // 
             // txtCategoria
             // 
@@ -143,6 +145,7 @@
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(100, 20);
             this.txtCategoria.TabIndex = 10;
+            this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
             // 
             // txtDataAbertura
             // 
@@ -151,6 +154,7 @@
             this.txtDataAbertura.Name = "txtDataAbertura";
             this.txtDataAbertura.Size = new System.Drawing.Size(100, 20);
             this.txtDataAbertura.TabIndex = 11;
+            this.txtDataAbertura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataAbertura_KeyPress);
             // 
             // txtDataResolvido
             // 
@@ -159,6 +163,7 @@
             this.txtDataResolvido.Name = "txtDataResolvido";
             this.txtDataResolvido.Size = new System.Drawing.Size(100, 20);
             this.txtDataResolvido.TabIndex = 12;
+            this.txtDataResolvido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataResolvido_KeyPress);
             // 
             // txtTecnico
             // 
@@ -167,6 +172,7 @@
             this.txtTecnico.Name = "txtTecnico";
             this.txtTecnico.Size = new System.Drawing.Size(100, 20);
             this.txtTecnico.TabIndex = 13;
+            this.txtTecnico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTecnico_KeyPress);
             // 
             // txtCarteira
             // 
@@ -175,6 +181,7 @@
             this.txtCarteira.Name = "txtCarteira";
             this.txtCarteira.Size = new System.Drawing.Size(100, 20);
             this.txtCarteira.TabIndex = 14;
+            this.txtCarteira.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarteira_KeyPress);
             // 
             // btnSalvar
             // 

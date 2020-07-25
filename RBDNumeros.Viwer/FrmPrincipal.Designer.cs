@@ -40,6 +40,8 @@
             this.chamadosPorTécnicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientePorPrioridadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesRedeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importaçãoPlanilhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
             this.movimentaçõesToolStripMenuItem,
-            this.relátoriosToolStripMenuItem});
+            this.relátoriosToolStripMenuItem,
+            this.configuraçãoToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -134,6 +137,21 @@
             this.clientesRedeToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.clientesRedeToolStripMenuItem.Text = "Clientes Rede";
             // 
+            // configuraçãoToolStripMenuItem
+            // 
+            this.configuraçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importaçãoPlanilhaToolStripMenuItem});
+            this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
+            this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.configuraçãoToolStripMenuItem.Text = "Configuração";
+            // 
+            // importaçãoPlanilhaToolStripMenuItem
+            // 
+            this.importaçãoPlanilhaToolStripMenuItem.Name = "importaçãoPlanilhaToolStripMenuItem";
+            this.importaçãoPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importaçãoPlanilhaToolStripMenuItem.Text = "Importação Planilha";
+            this.importaçãoPlanilhaToolStripMenuItem.Click += new System.EventHandler(this.importaçãoPlanilhaToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,5 +185,7 @@
         private System.Windows.Forms.ToolStripMenuItem chamadosPorTécnicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientePorPrioridadeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesRedeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importaçãoPlanilhaToolStripMenuItem;
     }
 }

@@ -1,19 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using RBDNumeros.Domain.Interfaces.Repositories;
 using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Domain.Services;
 using RBDNumeros.Infra.Repositories;
+using RBDNumeros.Infra.Repositories.Transactions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace RBDNumeros.Viwer
 {
-    static class Program
+    public static class Program
     {
+        public static IServiceProvider ServiceProvider { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -23,31 +22,33 @@ namespace RBDNumeros.Viwer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //IServiceCollection services = new ServiceCollection();
-            //ConfigureRepositories(services);
+            ConfigureServices();
             Application.Run(new FrmPrincipal());
             
         }
+        static void ConfigureServices()
+        {
+            var services = new ServiceCollection();
 
-      //  public static void ConfigureRepositories(IServiceCollection services)
-      //  {
-      //      services.AddScoped<RBDNumerosContext, RBDNumerosContext>();
+            services.AddScoped<RBDNumerosContext, RBDNumerosContext>();
 
-      ////      services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-      //      services.AddTransient<IRepositoryCategoria, RepositoryCategoria>();
-      //      services.AddTransient<IRepositoryCliente, RepositoryCliente>();
-      //      services.AddTransient<IRepositoryRede, RepositoryRede>();
-      //      services.AddTransient<IRepositoryTecnico, RepositoryTecnico>();
-      //      services.AddTransient<IRepositoryTicket,  RepositoryTicket>();
+            services.AddTransient<IRepositoryConfiguracaoPlanilha, RepositoryConfiguracaoPlanilha>();
+            services.AddTransient<IRepositoryCategoria, RepositoryCategoria>();
+            services.AddTransient<IRepositoryCliente, RepositoryCliente>();
+            services.AddTransient<IRepositoryTecnico, RepositoryTecnico>();
+            services.AddTransient<IRepositoryTicket, RepositoryTicket>();
 
-      //      //Services
-      //      services.AddTransient<IServiceCategoria, ServiceCategoria>();
-      //      services.AddTransient<IServiceCliente, ServiceCliente>();
-      //      services.AddTransient<IServiceRede, ServiceRede>();
-      //      services.AddTransient<IServiceTecnico, ServiceTecnico>();
-      //      services.AddTransient<IServiceTicket, ServiceTicket>();
+            //Services
+            services.AddTransient<IServiceConfiguracaoPlanilha, ServiceConfiguracaoPlanilha>();
+            services.AddTransient<IServiceCategoria, ServiceCategoria>();
+            services.AddTransient<IServiceCliente, ServiceCliente>();
+            services.AddTransient<IServiceTecnico, ServiceTecnico>();
+            services.AddTransient<IServiceTicket, ServiceTicket>();
 
-      //  }
+            ServiceProvider = services.BuildServiceProvider();
+
+        }
     }
 }

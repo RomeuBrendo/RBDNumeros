@@ -306,6 +306,8 @@
     <Compile Include="Repositories\RepositoryConfiguracaoPlanilha.cs" />
     <Compile Include="Repositories\RepositoryTecnico.cs" />
     <Compile Include="Repositories\RepositoryTicket.cs" />
+    <Compile Include="Repositories\Transactions\IUnitOfWork.cs" />
+    <Compile Include="Repositories\Transactions\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
