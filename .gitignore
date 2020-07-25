@@ -398,3 +398,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
+/RBDNumeros.Infra/Migrations/

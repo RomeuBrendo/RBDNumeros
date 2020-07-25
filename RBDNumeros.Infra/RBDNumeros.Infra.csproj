@@ -284,13 +284,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20200701012749_Inicial.cs" />
-    <Compile Include="Migrations\20200701012749_Inicial.designer.cs">
-      <DependentUpon>20200701012749_Inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200702034656_Mudancas_estruturas.cs" />
-    <Compile Include="Migrations\20200702034656_Mudancas_estruturas.designer.cs">
-      <DependentUpon>20200702034656_Mudancas_estruturas.cs</DependentUpon>
+    <Compile Include="Migrations\20200725150048_G2.cs" />
+    <Compile Include="Migrations\20200725150048_G2.designer.cs">
+      <DependentUpon>20200725150048_G2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\RBDNumerosContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

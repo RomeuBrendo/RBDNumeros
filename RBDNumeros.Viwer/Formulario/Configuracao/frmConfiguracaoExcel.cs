@@ -19,8 +19,11 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
         public frmConfiguracaoExcel()
         {
+
             ConsultarDepedencias();
             InitializeComponent();
+            CarregarTela();
+
         }
 
 
@@ -47,13 +50,31 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
                 _unitOfWork.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
 
                 Close();
             }
 
 
+        }
+
+        void CarregarTela()
+        {
+            var conf = _serviceConfiguracaoPlanilha.CarregarConfiguracao();
+
+            if (conf != null)
+            {
+                txtNumeroTicket.Text = conf.NumeroTicket.ToString();
+                txtNomeCliente.Text = conf.ClienteNome.ToString();
+                txtCategoria.Text = conf.Categoria.ToString();
+                txtDataAbertura.Text = conf.DataAberturaTicket.ToString();
+                txtDataResolvido.Text = conf.DataResolvido.ToString();
+                txtTecnico.Text = conf.Tecnico.ToString();
+                txtCarteira.Text = conf.Carteira.ToString();
+             
+            }
         }
 
         private void txtNumeroTicket_KeyPress(object sender, KeyPressEventArgs e)
@@ -71,9 +92,6 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
         {
             if ((Char.IsNumber(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
                 e.Handled = true;
-
-            //if ((txtNumeroTicket.TextLength > 0) && (e.KeyChar != 8))
-            //    e.Handled = true;
         }
 
         private void txtNomeCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -141,5 +159,7 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
             if ((txtCarteira.TextLength > 0) && (e.KeyChar != 8))
                 e.Handled = true;
         }
+
+
     }
 }

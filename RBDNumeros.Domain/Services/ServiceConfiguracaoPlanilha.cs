@@ -1,4 +1,5 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using Org.BouncyCastle.Math.EC.Rfc7748;
+using prmToolkit.NotificationPattern;
 using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities;
 using RBDNumeros.Domain.Interfaces.Repositories;
@@ -15,15 +16,33 @@ namespace RBDNumeros.Domain.Services
             _repositoryConfiguracaoPlanilha = repositoryConfiguracaoPlanilha;
         }
 
-        public void Adicionar(AdicionarConfiguracaoPlanilhaRequest r)
+        public bool Adicionar(AdicionarConfiguracaoPlanilhaRequest r)
         {
-            var conf = new ConfiguracaoPlanilha(r.NumeroTicket, r.ClienteNome, r.Categoria, r.DataAberturaTicket, r.DataResolvido, r.Tecnico, r.Carteira);
+            try
+            {
+                var confSalvo = _repositoryConfiguracaoPlanilha.BuscarFirst();
 
-            AddNotifications(conf);
+                if (confSalvo != null)
+                    _repositoryConfiguracaoPlanilha.Remover(confSalvo);
 
-            if (IsInvalid()) return;
+                var conf = new ConfiguracaoPlanilha(r.NumeroTicket, r.ClienteNome, r.Categoria, r.DataAberturaTicket, r.DataResolvido, r.Tecnico, r.Carteira);
 
-            _repositoryConfiguracaoPlanilha.Adicionar(conf);
+                _repositoryConfiguracaoPlanilha.Adicionar(conf);
+
+                return true;
+            }
+            catch
+            {
+
+                return false; ;
+            }
+
+
+        }
+
+        public ConfiguracaoPlanilha CarregarConfiguracao()
+        {
+            return _repositoryConfiguracaoPlanilha.BuscarFirst();
         }
     }
 }

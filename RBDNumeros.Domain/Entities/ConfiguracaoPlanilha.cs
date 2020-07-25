@@ -1,5 +1,8 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using Microsoft.Extensions.Configuration;
+using prmToolkit.NotificationPattern;
+using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities.Base;
+using System;
 
 namespace RBDNumeros.Domain.Entities
 {
@@ -23,6 +26,10 @@ namespace RBDNumeros.Domain.Entities
             //    .IfNullOrEmpty(x => x.DataAberturaTicket.ToString())
             //    .IfNullOrEmpty(x => x.DataResolvido.ToString())
             //    .IfNullOrEmpty(x => x.Tecnico.ToString());
+        }
+
+        protected ConfiguracaoPlanilha()
+        {
         }
 
         public char NumeroTicket { get; private set; }
