@@ -29,32 +29,67 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            SalvarConfiguração();
+            if (!ValidaCampo())
+            {
+                MessageBox.Show("Verifique os campos!");
+                return;
+            }
+
+            if (SalvarConfiguração())
+            {
+                MessageBox.Show("Registro salvo com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Falha ao salvar registro!");
+            }
         }
 
-        public void SalvarConfiguração()
+        public Boolean ValidaCampo ()
+        {
+            if (CBNumeroTicket.Text == "" || 
+                CBNomeCliente.Text == "" ||  
+                CBCategoria.Text == "" ||  
+                CBDataAbertura.Text == "" || 
+                CBDataResolvido.Text == "" || 
+                CBTecnico.Text == "" || 
+                CBCarteira.Text == "")
+              {
+                 return false;
+              } 
+            else
+              {
+                 return true;
+              }
+                   
+        }
+
+        public Boolean SalvarConfiguração()
         {
             AdicionarConfiguracaoPlanilhaRequest confRequest = new AdicionarConfiguracaoPlanilhaRequest();
 
             try
             {
-                confRequest.NumeroTicket = char.Parse(txtNumeroTicket.Text);
-                confRequest.ClienteNome = char.Parse(txtNomeCliente.Text);
-                confRequest.Categoria = char.Parse(txtCategoria.Text);
-                confRequest.DataAberturaTicket = char.Parse(txtDataAbertura.Text);
-                confRequest.DataResolvido = char.Parse(txtDataResolvido.Text);
-                confRequest.Tecnico = char.Parse(txtTecnico.Text);
-                confRequest.Carteira = char.Parse(txtCarteira.Text);
+                confRequest.NumeroTicket = char.Parse(CBNumeroTicket.Text);
+                confRequest.ClienteNome = char.Parse(CBNomeCliente.Text);
+                confRequest.Categoria = char.Parse(CBCategoria.Text);
+                confRequest.DataAberturaTicket = char.Parse(CBDataAbertura.Text);
+                confRequest.DataResolvido = char.Parse(CBDataResolvido.Text);
+                confRequest.Tecnico = char.Parse(CBTecnico.Text);
+                confRequest.Carteira = char.Parse(CBCarteira.Text);
 
                 _serviceConfiguracaoPlanilha.Adicionar(confRequest);
 
                 _unitOfWork.SaveChanges();
+
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
 
-                Close();
+                return false;
+
             }
 
 
@@ -66,100 +101,113 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
             if (conf != null)
             {
-                txtNumeroTicket.Text = conf.NumeroTicket.ToString();
-                txtNomeCliente.Text = conf.ClienteNome.ToString();
-                txtCategoria.Text = conf.Categoria.ToString();
-                txtDataAbertura.Text = conf.DataAberturaTicket.ToString();
-                txtDataResolvido.Text = conf.DataResolvido.ToString();
-                txtTecnico.Text = conf.Tecnico.ToString();
-                txtCarteira.Text = conf.Carteira.ToString();
-             
+                CBNumeroTicket.Text = conf.NumeroTicket.ToString();
+                CBNomeCliente.Text = conf.ClienteNome.ToString();
+                CBCategoria.Text = conf.Categoria.ToString();
+                CBDataAbertura.Text = conf.DataAberturaTicket.ToString();
+                CBDataResolvido.Text = conf.DataResolvido.ToString();
+                CBTecnico.Text = conf.Tecnico.ToString();
+                CBCarteira.Text = conf.Carteira.ToString();
+
             }
         }
 
-        private void txtNumeroTicket_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            validaCampos(e);
+        //private void txtNumeroTicket_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
             
-            if(e.KeyChar == 13)
-              txtNomeCliente.Focus();
+        //    if(e.KeyChar == 13)
+        //      txtNomeCliente.Focus();
             
-            if ((txtNumeroTicket.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
-        }
+        //    if ((txtNumeroTicket.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
 
-        void validaCampos(KeyPressEventArgs e)
-        {
-            if ((Char.IsNumber(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
-                e.Handled = true;
-        }
+        //void validaCampos(KeyPressEventArgs e)
+        //{
+        //    if ((Char.IsNumber(e.KeyChar)) || (Char.IsWhiteSpace(e.KeyChar)))
+        //        e.Handled = true;
+        //}
 
-        private void txtNomeCliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            validaCampos(e);
+        //private void txtNomeCliente_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
 
-            if (e.KeyChar == 13)
-                txtCategoria.Focus();
+        //    if (e.KeyChar == 13)
+        //        txtCategoria.Focus();
             
-            if ((txtNomeCliente.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
-        }
+        //    if ((txtNomeCliente.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
 
-        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            validaCampos(e);
+        //private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
 
-            if (e.KeyChar == 13)
-                txtDataAbertura.Focus();
+        //    if (e.KeyChar == 13)
+        //        txtDataAbertura.Focus();
             
-            if ((txtCategoria.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
-        }
+        //    if ((txtCategoria.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
 
-        private void txtDataAbertura_KeyPress(object sender, KeyPressEventArgs e)
+        //private void txtDataAbertura_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
+
+        //    if (e.KeyChar == 13)
+        //        txtDataResolvido.Focus();
+
+        //    if ((txtDataAbertura.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
+
+        //private void txtDataResolvido_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
+
+        //    if (e.KeyChar == 13)
+        //        txtTecnico.Focus();
+
+        //    if ((txtDataResolvido.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
+
+        //private void txtTecnico_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
+
+        //    if (e.KeyChar == 13)
+        //        txtCarteira.Focus();
+
+        //    if ((txtTecnico.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
+
+        //private void txtCarteira_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    validaCampos(e);
+
+        //    if (e.KeyChar == 13)
+        //        txtNumeroTicket.Focus();
+
+        //    if ((txtCarteira.TextLength > 0) && (e.KeyChar != 8))
+        //        e.Handled = true;
+        //}
+
+        private void label8_Click(object sender, EventArgs e)
         {
-            validaCampos(e);
 
-            if (e.KeyChar == 13)
-                txtDataResolvido.Focus();
-
-            if ((txtDataAbertura.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
         }
 
-        private void txtDataResolvido_KeyPress(object sender, KeyPressEventArgs e)
+        private void frmConfiguracaoExcel_Load(object sender, EventArgs e)
         {
-            validaCampos(e);
 
-            if (e.KeyChar == 13)
-                txtTecnico.Focus();
-
-            if ((txtDataResolvido.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
         }
 
-        private void txtTecnico_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            validaCampos(e);
-
-            if (e.KeyChar == 13)
-                txtCarteira.Focus();
-
-            if ((txtTecnico.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
+            Close();
         }
-
-        private void txtCarteira_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            validaCampos(e);
-
-            if (e.KeyChar == 13)
-                txtNumeroTicket.Focus();
-
-            if ((txtCarteira.TextLength > 0) && (e.KeyChar != 8))
-                e.Handled = true;
-        }
-
-
     }
 }
