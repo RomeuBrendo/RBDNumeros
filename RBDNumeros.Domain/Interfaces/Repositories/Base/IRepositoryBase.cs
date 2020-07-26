@@ -24,6 +24,7 @@ namespace RBDNumeros.Domain.Interfaces.Repositories.Base
         TEntidade ObterPorId(TId id, params Expression<Func<TEntidade, object>>[] includeProperties);
 
         TEntidade Adicionar(TEntidade entidade);
+        TEntidade AdicionarCommitar(TEntidade entidade);
 
         TEntidade Editar(TEntidade entidade);
 

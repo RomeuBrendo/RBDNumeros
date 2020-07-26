@@ -69,6 +69,14 @@ namespace RBDNumeros.Infra.Repositories.Base
             //return _context.Set<TEntidade>().Add(entidade);
         }
 
+        public TEntidade AdicionarCommitar(TEntidade entidade)
+        {
+            var entity = _context.Add<TEntidade>(entidade);
+            _context.SaveChanges();           
+            return entity.Entity;
+            //return _context.Set<TEntidade>().Add(entidade);
+        }
+
         public TEntidade Editar(TEntidade entidade)
         {
             _context.Entry(entidade).State = EntityState.Modified;

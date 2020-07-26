@@ -21,9 +21,9 @@ namespace RBDNumeros.Domain.Entities
             Carteira = carteira;
             ContabilizarNumeros = contabilizarNumeros;
 
-            new AddNotifications<Tecnico>(this)
-                .IfNullOrEmpty(x => x.Nome)
-                .IfNull(x => x.Carteira);
+            //new AddNotifications<Tecnico>(this)
+            //    .IfNullOrEmpty(x => x.Nome)
+            //    .IfNull(x => x.Carteira);
         }
 
         public string Nome { get; private set; }

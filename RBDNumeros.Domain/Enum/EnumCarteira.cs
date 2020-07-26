@@ -6,7 +6,8 @@
         B = 1,
         C = 2,
         D = 3,
-        Outros = 4
+        N2 = 4,
+        Outros = 5
 
     }
 }

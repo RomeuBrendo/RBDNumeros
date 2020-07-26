@@ -3,6 +3,7 @@ using RBDNumeros.Domain.Interfaces.Repositories;
 using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Domain.Services;
 using RBDNumeros.Infra.Repositories;
+using RBDNumeros.Infra.Repositories.Transactions;
 using RBDNumeros.Viwer.Formulario.Configuracao;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,18 @@ namespace RBDNumeros.Viwer
 {
     public partial class FrmPrincipal : Form
     {
+        private IServiceTicket _serviceTicket;
+        private IUnitOfWork _unitOfWork;
+
+        void ConsultarDepedencias()
+        {
+            _serviceTicket = (IServiceTicket)Program.ServiceProvider.GetService(typeof(IServiceTicket));
+            _unitOfWork = (IUnitOfWork)Program.ServiceProvider.GetService(typeof(IUnitOfWork));
+        }
+
         public FrmPrincipal()
         {
+            ConsultarDepedencias();
             InitializeComponent();
         }
 
@@ -28,6 +39,25 @@ namespace RBDNumeros.Viwer
             var frmConf = new frmConfiguracaoExcel();
             frmConf.MdiParent = this;
             frmConf.Show();
+        }
+
+        private void importarPlanilhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.openFileCsv.ShowDialog();
+                _serviceTicket.ImportarCsv(this.openFileCsv.FileName);
+                _unitOfWork.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+
+                MessageBox.Show("Erro ao realizar importação." + ex);
+            }
+
+
+
+            
         }
     }
 }

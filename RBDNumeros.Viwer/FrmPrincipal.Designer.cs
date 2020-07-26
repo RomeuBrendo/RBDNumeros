@@ -42,6 +42,7 @@
             this.clientesRedeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importaçãoPlanilhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileCsv = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,19 +74,20 @@
             // importarPlanilhaToolStripMenuItem
             // 
             this.importarPlanilhaToolStripMenuItem.Name = "importarPlanilhaToolStripMenuItem";
-            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importarPlanilhaToolStripMenuItem.Text = "Importar Planilha";
+            this.importarPlanilhaToolStripMenuItem.Click += new System.EventHandler(this.importarPlanilhaToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // usúariosToolStripMenuItem
             // 
             this.usúariosToolStripMenuItem.Name = "usúariosToolStripMenuItem";
-            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usúariosToolStripMenuItem.Text = "Técnicos";
             // 
             // movimentaçõesToolStripMenuItem
@@ -152,6 +154,10 @@
             this.importaçãoPlanilhaToolStripMenuItem.Text = "Importação Planilha";
             this.importaçãoPlanilhaToolStripMenuItem.Click += new System.EventHandler(this.importaçãoPlanilhaToolStripMenuItem_Click);
             // 
+            // openFileCsv
+            // 
+            this.openFileCsv.Title = "Importação Planilha";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +193,6 @@
         private System.Windows.Forms.ToolStripMenuItem clientesRedeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importaçãoPlanilhaToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileCsv;
     }
 }

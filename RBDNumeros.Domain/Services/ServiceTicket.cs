@@ -18,6 +18,16 @@ namespace RBDNumeros.Domain.Services
         private readonly IRepositoryCliente _repositoryCliente; 
         private readonly IRepositoryTecnico _repositoryTecnico;
         private readonly IRepositoryConfiguracaoPlanilha _repositoryConfiguracaoPlanilha;
+
+        public ServiceTicket(IRepositoryTicket repositoryTicket, IRepositoryCategoria repositoryCategoria, IRepositoryCliente repositoryCliente, IRepositoryTecnico repositoryTecnico, IRepositoryConfiguracaoPlanilha repositoryConfiguracaoPlanilha)
+        {
+            _repositoryTicket = repositoryTicket;
+            _repositoryCategoria = repositoryCategoria;
+            _repositoryCliente = repositoryCliente;
+            _repositoryTecnico = repositoryTecnico;
+            _repositoryConfiguracaoPlanilha = repositoryConfiguracaoPlanilha;
+        }
+
         private int ImportarTickets(List<ImportarTicketRequest> request)
         {
             if ((request == null) || (request.Count == 0))
@@ -38,7 +48,7 @@ namespace RBDNumeros.Domain.Services
                 var categoria = VerificaCategoria(ticket.Categoria);
 
                 var dataAbertura = ConvertDataTime(ticket.DataAberturaTicket).Value;
-                var dataResolvido = ConvertDataTime(ticket.DataResolvido).Value;
+                var dataResolvido = ConvertDataTime(ticket.DataResolvido);
 
                 if (dataAbertura == null)
                     continue;
@@ -75,7 +85,7 @@ namespace RBDNumeros.Domain.Services
             if (categoria == null)
             {
                 var novaCategoria = new Categoria(nome);
-                return _repositoryCategoria.Adicionar(novaCategoria);
+                return _repositoryCategoria.AdicionarCommitar(novaCategoria);
             }
             return categoria;
         }
@@ -87,7 +97,7 @@ namespace RBDNumeros.Domain.Services
             if (tecnico == null)
             {
                 var novoTecnico = new Tecnico(nome, (EnumCarteira)carteira, true);
-                return _repositoryTecnico.Adicionar(novoTecnico);
+                return _repositoryTecnico.AdicionarCommitar(novoTecnico);
             }
 
             return tecnico;
@@ -101,7 +111,7 @@ namespace RBDNumeros.Domain.Services
             if (cliente == null)
             {
                 var novoCliente = new Cliente(clienteNome, (EnumCarteira)carteira);
-                return _repositoryCliente.Adicionar(novoCliente);
+                return _repositoryCliente.AdicionarCommitar(novoCliente);
             }
             return cliente;
         }
@@ -141,29 +151,34 @@ namespace RBDNumeros.Domain.Services
 
                 switch ((planilha.Cell(conf.Carteira + linha.ToString()).Value.ToString().Trim()))
                 {
-                    case "A":
+                    case "Carteira A":
                         ticket.Carteira = 0;
                         break;            
                    
-                    case "B":
+                    case "Carteira B":
                         ticket.Carteira = 1;
                         break;
                     
-                    case "C":
+                    case "Carteira C":
                         ticket.Carteira = 2;
                         break;
                     
-                    case "D":
+                    case "Carteira D":
                         ticket.Carteira = 3;
                         break;
-                    
-                    default:
+
+                    case "Nível II":
                         ticket.Carteira = 4;
+                        break;
+
+                    default:
+                        ticket.Carteira = 5;
                         break;
 
                 }
 
                 ListaTicket.Add(ticket);
+                linha++;
             }
 
 
