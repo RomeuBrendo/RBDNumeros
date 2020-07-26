@@ -1,4 +1,4 @@
-﻿using iText.IO.Util;
+﻿using ClosedXML.Excel;
 using prmToolkit.NotificationPattern;
 using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities;
@@ -8,8 +8,6 @@ using RBDNumeros.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks.Sources;
 
 namespace RBDNumeros.Domain.Services
 {
@@ -18,8 +16,9 @@ namespace RBDNumeros.Domain.Services
         private readonly IRepositoryTicket _repositoryTicket;
         private readonly IRepositoryCategoria _repositoryCategoria;
         private readonly IRepositoryCliente _repositoryCliente; 
-        private readonly IRepositoryTecnico _repositoryTecnico; 
-        public int ImportarTickets(List<ImportarTicketRequest> request)
+        private readonly IRepositoryTecnico _repositoryTecnico;
+        private readonly IRepositoryConfiguracaoPlanilha _repositoryConfiguracaoPlanilha;
+        private int ImportarTickets(List<ImportarTicketRequest> request)
         {
             if ((request == null) || (request.Count == 0))
             {
@@ -115,5 +114,61 @@ namespace RBDNumeros.Domain.Services
 
             return dataNova;
         }
+        
+        public int ImportarCsv(string caminho)
+        {
+            var wb = new XLWorkbook(@caminho);
+            var planilha = wb.Worksheet(1);
+            var linha = 2;
+
+            var conf = _repositoryConfiguracaoPlanilha.BuscarFirst();
+
+            var ListaTicket = new List<ImportarTicketRequest>();
+
+            while (true)
+            {
+                var ticket = new ImportarTicketRequest();
+
+                ticket.NumeroTicket = planilha.Cell(conf.NumeroTicket + linha.ToString()).Value.ToString().Trim();
+
+                if (string.IsNullOrEmpty(ticket.NumeroTicket)) break;
+
+                ticket.ClienteNome = planilha.Cell(conf.ClienteNome + linha.ToString()).Value.ToString().Trim();
+                ticket.Categoria = planilha.Cell(conf.Categoria + linha.ToString()).Value.ToString().Trim();
+                ticket.DataAberturaTicket = planilha.Cell(conf.DataAberturaTicket + linha.ToString()).Value.ToString().Trim();
+                ticket.DataResolvido = planilha.Cell(conf.DataResolvido + linha.ToString()).Value.ToString().Trim();
+                ticket.Tecnico = planilha.Cell(conf.Tecnico + linha.ToString()).Value.ToString().Trim();
+
+                switch ((planilha.Cell(conf.Carteira + linha.ToString()).Value.ToString().Trim()))
+                {
+                    case "A":
+                        ticket.Carteira = 0;
+                        break;            
+                   
+                    case "B":
+                        ticket.Carteira = 1;
+                        break;
+                    
+                    case "C":
+                        ticket.Carteira = 2;
+                        break;
+                    
+                    case "D":
+                        ticket.Carteira = 3;
+                        break;
+                    
+                    default:
+                        ticket.Carteira = 4;
+                        break;
+
+                }
+
+                ListaTicket.Add(ticket);
+            }
+
+
+            return ImportarTickets(ListaTicket);
+        }
+
     }
 }
