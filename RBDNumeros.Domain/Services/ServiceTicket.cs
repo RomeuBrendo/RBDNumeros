@@ -40,11 +40,21 @@ namespace RBDNumeros.Domain.Services
                 AddNotification("Resquest", "Invalido");
                 return 0;
             }
+
             _cancelarImportacao = false;
             this.proceso = "Salvando no Banco de dados, Aguarde...";
             this.porcentagem = 0;
+
+            //Trecho abaixo para otimizar tempo de importação, jogo todos na melhoria e vou consultando.
+            var clientes = _repositoryCliente.Listar().ToList();
+            var tecnicos = _repositoryTecnico.Listar().ToList();
+            var categorias = _repositoryCategoria.Listar().ToList();
+
             List<Ticket> listaTicket = new List<Ticket>();
-           
+            List<Cliente> clienteNovos = new List<Cliente>();
+            List<Tecnico> tecnicoNovos = new List<Tecnico>();
+            List<Categoria> categoriaNovas = new List<Categoria>();
+
             var quantidade = request.Count();
 
             foreach (var ticket in request)
@@ -56,9 +66,29 @@ namespace RBDNumeros.Domain.Services
                 if (!Int64.TryParse(ticket.NumeroTicket, out var numeroTicket))
                     continue;
 
-                var cliente = VerificaCliente(ticket.ClienteNome, ticket.Carteira);
-                var tecnico = VerificaTecnico(ticket.Tecnico, ticket.Carteira);
-                var categoria = VerificaCategoria(ticket.Categoria);
+                var cliente = clientes.FirstOrDefault(x => x.Nome == ticket.ClienteNome && x.Carteira == (EnumCarteira)ticket.Carteira);
+
+                if (cliente == null)
+                {
+                    cliente = new Cliente(ticket.ClienteNome, (EnumCarteira)ticket.Carteira);
+                    clienteNovos.Add(cliente);
+                }
+
+                var tecnico = tecnicos.FirstOrDefault(x => x.Nome == ticket.Tecnico && x.Carteira == (EnumCarteira)ticket.Carteira);
+
+                if (tecnico == null)
+                {
+                    tecnico = new Tecnico(ticket.Tecnico, (EnumCarteira)ticket.Carteira, true);
+                    tecnicoNovos.Add(tecnico);
+                }
+
+                var categoria = categorias.FirstOrDefault(x => x.Nome == ticket.Categoria);
+
+                if (categoria == null)
+                {
+                    categoria = new Categoria(ticket.Categoria);
+                    categoriaNovas.Add(categoria);
+                }
 
                 var dataAbertura = ConvertDataTime(ticket.DataAberturaTicket).Value;
                 var dataResolvido = ConvertDataTime(ticket.DataResolvido);
@@ -74,13 +104,24 @@ namespace RBDNumeros.Domain.Services
                     continue;
 
                 listaTicket.Add(ticketNovo);
+                clientes.Add(cliente);
             }
 
             int ticketsImportados = listaTicket.Count;
 
             if (ticketsImportados > 0)
             {
+                if (clienteNovos.Count > 0)
+                    _repositoryCliente.AdicionarLista(clienteNovos);
+
+                if (tecnicoNovos.Count > 0)
+                    _repositoryTecnico.AdicionarLista(tecnicoNovos);
+
+                if (categorias.Count > 0)
+                    _repositoryCategoria.AdicionarLista(categorias);
+
                 _repositoryTicket.AdicionarLista(listaTicket);
+
 
                 if (ticketsImportados < request.Count)
                     AddNotification("TICKET", "Alguns tickets não foram importados, verifique a planilha.");
@@ -90,44 +131,6 @@ namespace RBDNumeros.Domain.Services
             }
             else
                 return 0;
-        }
-
-        private Categoria VerificaCategoria(string nome)
-        {
-            var categoria = _repositoryCategoria.ObterPor(x => x.Nome == nome);
-
-            if (categoria == null)
-            {
-                var novaCategoria = new Categoria(nome);
-                return _repositoryCategoria.AdicionarCommitar(novaCategoria);
-            }
-            return categoria;
-        }
-
-        private Tecnico VerificaTecnico(string nome, int carteira)
-        {
-            var tecnico = _repositoryTecnico.ObterPor(x => x.Nome == nome && x.Carteira == (EnumCarteira)carteira);
-
-            if (tecnico == null)
-            {
-                var novoTecnico = new Tecnico(nome, (EnumCarteira)carteira, true);
-                return _repositoryTecnico.AdicionarCommitar(novoTecnico);
-            }
-
-            return tecnico;
-        }
-
-        private Cliente VerificaCliente(string clienteNome, int carteira)
-        {
-
-            var cliente = _repositoryCliente.ObterPor(x => x.Nome == clienteNome && x.Carteira == (EnumCarteira)carteira);
-
-            if (cliente == null)
-            {
-                var novoCliente = new Cliente(clienteNome, (EnumCarteira)carteira);
-                return _repositoryCliente.AdicionarCommitar(novoCliente);
-            }
-            return cliente;
         }
 
         public DateTime? ConvertDataTime(string data)
