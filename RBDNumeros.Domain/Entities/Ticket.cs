@@ -19,7 +19,7 @@ namespace RBDNumeros.Domain.Entities
             DataAberturaTicket = dataAberturaTicket;
             DataResolvido = dataResolvido;
             Tecnico = tecnico;
-
+            Carteira = tecnico.Carteira;
 
             if (NumeroTicket < 1)
                 AddNotification("NumeroTicket", "Invalido");

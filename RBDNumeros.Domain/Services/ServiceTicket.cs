@@ -8,6 +8,8 @@ using RBDNumeros.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Threading;
 
 namespace RBDNumeros.Domain.Services
 {
@@ -18,6 +20,9 @@ namespace RBDNumeros.Domain.Services
         private readonly IRepositoryCliente _repositoryCliente; 
         private readonly IRepositoryTecnico _repositoryTecnico;
         private readonly IRepositoryConfiguracaoPlanilha _repositoryConfiguracaoPlanilha;
+        public int porcentagem;
+        public string proceso;
+        public bool _cancelarImportacao = false;
 
         public ServiceTicket(IRepositoryTicket repositoryTicket, IRepositoryCategoria repositoryCategoria, IRepositoryCliente repositoryCliente, IRepositoryTecnico repositoryTecnico, IRepositoryConfiguracaoPlanilha repositoryConfiguracaoPlanilha)
         {
@@ -35,11 +40,19 @@ namespace RBDNumeros.Domain.Services
                 AddNotification("Resquest", "Invalido");
                 return 0;
             }
-
+            _cancelarImportacao = false;
+            this.proceso = "Salvando no Banco de dados, Aguarde...";
+            this.porcentagem = 0;
             List<Ticket> listaTicket = new List<Ticket>();
+           
+            var quantidade = request.Count();
 
             foreach (var ticket in request)
             {
+                if (_cancelarImportacao)
+                    return 0;
+
+                this.porcentagem = (listaTicket.Count * 90) / quantidade;
                 if (!Int64.TryParse(ticket.NumeroTicket, out var numeroTicket))
                     continue;
 
@@ -72,6 +85,7 @@ namespace RBDNumeros.Domain.Services
                 if (ticketsImportados < request.Count)
                     AddNotification("TICKET", "Alguns tickets não foram importados, verifique a planilha.");
 
+                porcentagem = 90;
                 return ticketsImportados;
             }
             else
@@ -127,18 +141,27 @@ namespace RBDNumeros.Domain.Services
         
         public int ImportarCsv(string caminho)
         {
+            _cancelarImportacao = false;
             var wb = new XLWorkbook(@caminho);
             var planilha = wb.Worksheet(1);
             var linha = 2;
 
             var conf = _repositoryConfiguracaoPlanilha.BuscarFirst();
 
+            this.proceso = "Lendo CSV, Aguarde...";
             var ListaTicket = new List<ImportarTicketRequest>();
+
+            var quantidade = planilha.Rows().Count();
 
             while (true)
             {
-                var ticket = new ImportarTicketRequest();
+                if (_cancelarImportacao)
+                    return 0;
 
+                this.porcentagem = (linha * 90) / quantidade;
+                
+                var ticket = new ImportarTicketRequest();
+                
                 ticket.NumeroTicket = planilha.Cell(conf.NumeroTicket + linha.ToString()).Value.ToString().Trim();
 
                 if (string.IsNullOrEmpty(ticket.NumeroTicket)) break;
@@ -181,8 +204,23 @@ namespace RBDNumeros.Domain.Services
                 linha++;
             }
 
-
+            
             return ImportarTickets(ListaTicket);
+        }
+
+        public int RetornaPorcentagem()
+        {
+            return porcentagem;
+        }
+
+        public string RetornaProcesso()
+        {
+            return proceso;
+        }
+
+        public void CancelarImportacao()
+        {
+            _cancelarImportacao = true;
         }
 
     }

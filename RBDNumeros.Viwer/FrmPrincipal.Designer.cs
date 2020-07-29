@@ -43,6 +43,7 @@
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importaçãoPlanilhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileCsv = new System.Windows.Forms.OpenFileDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,20 +75,20 @@
             // importarPlanilhaToolStripMenuItem
             // 
             this.importarPlanilhaToolStripMenuItem.Name = "importarPlanilhaToolStripMenuItem";
-            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.importarPlanilhaToolStripMenuItem.Text = "Importar Planilha";
             this.importarPlanilhaToolStripMenuItem.Click += new System.EventHandler(this.importarPlanilhaToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // usúariosToolStripMenuItem
             // 
             this.usúariosToolStripMenuItem.Name = "usúariosToolStripMenuItem";
-            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.usúariosToolStripMenuItem.Text = "Técnicos";
             // 
             // movimentaçõesToolStripMenuItem
@@ -158,6 +159,12 @@
             // 
             this.openFileCsv.Title = "Importação Planilha";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +201,6 @@
         private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importaçãoPlanilhaToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileCsv;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
