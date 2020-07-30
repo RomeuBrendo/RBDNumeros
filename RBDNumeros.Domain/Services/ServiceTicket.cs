@@ -74,11 +74,11 @@ namespace RBDNumeros.Domain.Services
                     clienteNovos.Add(cliente);
                 }
 
-                var tecnico = tecnicos.FirstOrDefault(x => x.Nome == ticket.Tecnico && x.Carteira == (EnumCarteira)ticket.Carteira);
+                var tecnico = tecnicos.FirstOrDefault(x => x.Nome == ticket.Tecnico);
 
                 if (tecnico == null)
                 {
-                    tecnico = new Tecnico(ticket.Tecnico, (EnumCarteira)ticket.Carteira, true);
+                    tecnico = new Tecnico(ticket.Tecnico, true);
                     tecnicoNovos.Add(tecnico);
                 }
 
@@ -96,7 +96,7 @@ namespace RBDNumeros.Domain.Services
                 if (dataAbertura == null)
                     continue;
 
-                var ticketNovo = new Ticket(numeroTicket, cliente, categoria, dataAbertura, dataResolvido, tecnico);
+                var ticketNovo = new Ticket(numeroTicket, cliente, categoria, dataAbertura, dataResolvido, tecnico, (EnumCarteira)ticket.Carteira);
 
                 AddNotifications(ticketNovo);
 

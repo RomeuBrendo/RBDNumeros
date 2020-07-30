@@ -288,6 +288,10 @@
     <Compile Include="Migrations\20200730122534_Sla.Designer.cs">
       <DependentUpon>20200730122534_Sla.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200730234224_RemocaoCarteira.cs" />
+    <Compile Include="Migrations\20200730234224_RemocaoCarteira.designer.cs">
+      <DependentUpon>20200730234224_RemocaoCarteira.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RBDNumerosContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />

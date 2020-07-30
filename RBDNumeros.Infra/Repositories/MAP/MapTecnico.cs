@@ -17,8 +17,6 @@ namespace RBDNumeros.Infra.Repositories.MAP
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Carteira).IsRequired();
-
             builder.Property(x => x.ContabilizarNumeros).HasColumnName("ContabilizarNumeros").IsRequired();
 
         }
