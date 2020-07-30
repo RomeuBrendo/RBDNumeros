@@ -28,6 +28,6 @@ namespace RBDNumeros.Domain.Entities
 
         public string Nome { get; private set; }
         public EnumCarteira Carteira { get; private set; }
-        public bool ContabilizarNumeros { get; private set; }
+        public bool ContabilizarNumeros { get; set; }
     }
 }

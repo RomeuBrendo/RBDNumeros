@@ -6,6 +6,7 @@ using RBDNumeros.Infra.Repositories;
 using RBDNumeros.Infra.Repositories.Transactions;
 using RBDNumeros.Viwer.Formulario.Barra;
 using RBDNumeros.Viwer.Formulario.Configuracao;
+using RBDNumeros.Viwer.Formulario.Tecnico;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,6 +103,13 @@ namespace RBDNumeros.Viwer
                 frmBarra.CarregaBarraProgresso(100, "Importação Realizada com sucesso!");
             }
 
+        }
+
+        private void usúariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTecnico frmTecnico = new frmTecnico();
+            frmTecnico.MdiParent = this;
+            frmTecnico.Show();
         }
     }
 }

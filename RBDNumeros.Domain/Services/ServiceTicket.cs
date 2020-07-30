@@ -105,6 +105,8 @@ namespace RBDNumeros.Domain.Services
 
                 listaTicket.Add(ticketNovo);
                 clientes.Add(cliente);
+                tecnicos.Add(tecnico);
+                categorias.Add(categoria);
             }
 
             int ticketsImportados = listaTicket.Count;

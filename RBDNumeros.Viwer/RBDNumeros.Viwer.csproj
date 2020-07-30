@@ -267,6 +267,12 @@
     <Compile Include="Formulario\Configuracao\frmConfiguracaoExcel.Designer.cs">
       <DependentUpon>frmConfiguracaoExcel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Tecnico\frmTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\Tecnico\frmTecnico.Designer.cs">
+      <DependentUpon>frmTecnico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\Configuracao\frmConfiguracaoExcel.resx">
       <DependentUpon>frmConfiguracaoExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\Tecnico\frmTecnico.resx">
+      <DependentUpon>frmTecnico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

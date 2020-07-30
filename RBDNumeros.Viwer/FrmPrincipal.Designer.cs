@@ -75,21 +75,22 @@
             // importarPlanilhaToolStripMenuItem
             // 
             this.importarPlanilhaToolStripMenuItem.Name = "importarPlanilhaToolStripMenuItem";
-            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importarPlanilhaToolStripMenuItem.Text = "Importar Planilha";
             this.importarPlanilhaToolStripMenuItem.Click += new System.EventHandler(this.importarPlanilhaToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // usúariosToolStripMenuItem
             // 
             this.usúariosToolStripMenuItem.Name = "usúariosToolStripMenuItem";
-            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usúariosToolStripMenuItem.Text = "Técnicos";
+            this.usúariosToolStripMenuItem.Click += new System.EventHandler(this.usúariosToolStripMenuItem_Click);
             // 
             // movimentaçõesToolStripMenuItem
             // 
