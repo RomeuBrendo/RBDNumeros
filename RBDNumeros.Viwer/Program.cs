@@ -39,6 +39,7 @@ namespace RBDNumeros.Viwer
             services.AddTransient<IRepositoryCliente, RepositoryCliente>();
             services.AddTransient<IRepositoryTecnico, RepositoryTecnico>();
             services.AddTransient<IRepositoryTicket, RepositoryTicket>();
+            services.AddTransient<IRepositorySla, RepositorySla>();
 
             //Services
             services.AddTransient<IServiceConfiguracaoPlanilha, ServiceConfiguracaoPlanilha>();
@@ -46,6 +47,7 @@ namespace RBDNumeros.Viwer
             services.AddTransient<IServiceCliente, ServiceCliente>();
             services.AddTransient<IServiceTecnico, ServiceTecnico>();
             services.AddTransient<IServiceTicket, ServiceTicket>();
+            services.AddTransient<IServiceSla, ServiceSla>();
 
             ServiceProvider = services.BuildServiceProvider();
 

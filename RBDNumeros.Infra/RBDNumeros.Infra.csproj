@@ -284,17 +284,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\20200730122534_Sla.cs" />
+    <Compile Include="Migrations\20200730122534_Sla.Designer.cs">
+      <DependentUpon>20200730122534_Sla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\RBDNumerosContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />
     <Compile Include="Repositories\MAP\MapCategoria.cs" />
     <Compile Include="Repositories\MAP\MapCliente.cs" />
     <Compile Include="Repositories\MAP\MapConfiguracaoPlanilha.cs" />
+    <Compile Include="Repositories\MAP\MapSla.cs" />
     <Compile Include="Repositories\MAP\MapTecnico.cs" />
     <Compile Include="Repositories\MAP\MapTicket.cs" />
     <Compile Include="Repositories\RBDNumerosContext.cs" />
     <Compile Include="Repositories\RepositoryCategoria.cs" />
     <Compile Include="Repositories\RepositoryCliente.cs" />
     <Compile Include="Repositories\RepositoryConfiguracaoPlanilha.cs" />
+    <Compile Include="Repositories\RepositorySla.cs" />
     <Compile Include="Repositories\RepositoryTecnico.cs" />
     <Compile Include="Repositories\RepositoryTicket.cs" />
     <Compile Include="Repositories\Transactions\IUnitOfWork.cs" />
