@@ -19,8 +19,13 @@ using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
+
     {
+        int glb_PosicaoBotaoBase1, glb_PosicaoBotaoBase2, glb_PosicaoBotaoBase3;
+        int glb_TopCadastro, glb_TopMovimentacao, glb_TopRelatorio, glb_TopConfiguracao;
+        bool glb_HideMenu;
+
         private IServiceTicket _serviceTicket;
         private IUnitOfWork _unitOfWork;
         frmBarraProgresso frmBarra = new frmBarraProgresso();
@@ -34,13 +39,68 @@ namespace RBDNumeros.Viwer
         {
             ConsultarDepedencias();
             InitializeComponent();
+
+            glb_PosicaoBotaoBase1 = pnCadastro.Top;
+            glb_PosicaoBotaoBase2 = btnMovimentacao.Height;
+            glb_PosicaoBotaoBase3 = btnRelatorio.Height;
+
+            glb_TopCadastro = pnCadastro.Top;
+            glb_TopMovimentacao = pnMovimentacao.Top;
+            glb_TopRelatorio = pnRelatorio.Top;
+            glb_TopConfiguracao = pnConfiguracao.Top;
+
+            HideAllMenu();
+
+            this.StyleManager = metroStyleManager1;
+            pnMenu.Left = -272;
+            
+            glb_HideMenu = true;
+            
         }
 
-        private void importaçãoPlanilhaToolStripMenuItem_Click(object sender, EventArgs e)
+        public void HideAllMenu()
         {
-            var frmConf = new frmConfiguracaoExcel();
-            frmConf.MdiParent = this;
-            frmConf.Show();
+            pnCadastro.Visible = false;
+            pnMovimentacao.Visible = false;
+            pnRelatorio.Visible = false;
+            pnConfiguracao.Visible = false;
+            btnMovimentacao.Top = glb_PosicaoBotaoBase1;
+            btnRelatorio.Top = glb_PosicaoBotaoBase1 + glb_PosicaoBotaoBase2;
+            btnConfiguracao.Top = glb_PosicaoBotaoBase1 + glb_PosicaoBotaoBase2 + glb_PosicaoBotaoBase3;
+
+
+        }
+
+        public void ShowSubMenu(Panel Painel)
+        {
+            HideAllMenu();
+            if (Painel.Name == "pnCadastro")
+            {
+                btnMovimentacao.Top = btnMovimentacao.Top + pnCadastro.Height;
+                btnRelatorio.Top = btnRelatorio.Top + pnCadastro.Height;
+                btnConfiguracao.Top = btnConfiguracao.Top + pnCadastro.Height;
+                Painel.Top = glb_TopCadastro;
+                Painel.Visible = true;
+            }
+            if (Painel.Name == "pnMovimentacao")
+            {
+                btnRelatorio.Top = btnRelatorio.Top + pnMovimentacao.Height;
+                btnConfiguracao.Top = btnConfiguracao.Top + pnMovimentacao.Height;
+                Painel.Top = glb_TopMovimentacao - pnCadastro.Height;
+                Painel.Visible = true;
+            }
+            if (Painel.Name == "pnRelatorio")
+            {
+                btnConfiguracao.Top = btnConfiguracao.Top + pnRelatorio.Height;
+                Painel.Top = glb_TopRelatorio - pnMovimentacao.Height - pnCadastro.Height;
+                Painel.Visible = true;
+            }
+            if (Painel.Name == "pnConfiguracao")
+            {
+                Painel.Top = glb_TopConfiguracao - pnRelatorio.Height - pnMovimentacao.Height - pnCadastro.Height + 10;
+                Painel.Visible = true;
+            }
+
         }
 
         private void importarPlanilhaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,6 +162,67 @@ namespace RBDNumeros.Viwer
                 frmBarra.CarregaBarraProgresso(100, "Importação Realizada com sucesso!");
             }
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            tmMenu.Start();
+            HideAllMenu();
+        }
+
+        private void btnConfPlanilha_Click(object sender, EventArgs e)
+        {
+            var frmConf = new frmConfiguracaoExcel();
+            //frmConf.MdiParent = this;
+           // frmConf.Show();
+            frmConf.ShowInTaskbar = false;
+            frmConf.StartPosition = FormStartPosition.CenterParent;
+            DialogResult result = frmConf.ShowDialog(FrmPrincipal.ActiveForm);
+        }
+
+        private void tmMenu_Tick(object sender, EventArgs e)
+        {
+            if (glb_HideMenu)
+            {
+                pnMenu.Left += 16;
+                if (pnMenu.Left == 0)
+                {
+                    glb_HideMenu = false;
+                    this.Refresh();
+                    tmMenu.Stop();
+                }
+            }
+            else
+            {
+                pnMenu.Left -= 16;
+                if (pnMenu.Left == -272)
+                {
+                    glb_HideMenu = true;
+                    this.Refresh();
+                    tmMenu.Stop();
+                    
+                }
+            }
+        }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(pnCadastro);
+        }
+
+        private void btnMovimentacao_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(pnMovimentacao);
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(pnRelatorio);
+        }
+
+        private void btnConfiguracao_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(pnConfiguracao);
         }
     }
 }

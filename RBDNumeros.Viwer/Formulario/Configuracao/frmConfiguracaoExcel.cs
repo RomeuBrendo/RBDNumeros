@@ -1,12 +1,13 @@
 ﻿using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
+using RBDNumeros.Viwer;
 using System;
 using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer.Formulario.Configuracao
 {
-    public partial class frmConfiguracaoExcel : Form
+    public partial class frmConfiguracaoExcel : MetroFramework.Forms.MetroForm
     {
         private IServiceConfiguracaoPlanilha _serviceConfiguracaoPlanilha;
         private IUnitOfWork _unitOfWork;
@@ -18,10 +19,10 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
         }
 
         public frmConfiguracaoExcel()
-        {
-
+        { 
             ConsultarDepedencias();
             InitializeComponent();
+            this.StyleManager = metroStyleManager1;
             CarregarTela();
 
         }

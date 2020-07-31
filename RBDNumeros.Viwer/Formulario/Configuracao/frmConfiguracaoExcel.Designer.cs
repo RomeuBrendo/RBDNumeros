@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,12 +46,14 @@
             this.CBDataResolvido = new System.Windows.Forms.ComboBox();
             this.CBTecnico = new System.Windows.Forms.ComboBox();
             this.CBCarteira = new System.Windows.Forms.ComboBox();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(201, 87);
+            this.label1.Location = new System.Drawing.Point(194, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 0;
@@ -59,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 124);
+            this.label2.Location = new System.Drawing.Point(194, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 1;
@@ -68,7 +71,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(201, 161);
+            this.label3.Location = new System.Drawing.Point(194, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 2;
@@ -77,7 +80,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(201, 198);
+            this.label4.Location = new System.Drawing.Point(194, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 13);
             this.label4.TabIndex = 3;
@@ -86,7 +89,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(201, 235);
+            this.label5.Location = new System.Drawing.Point(194, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 4;
@@ -95,7 +98,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(201, 272);
+            this.label6.Location = new System.Drawing.Point(194, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 5;
@@ -104,7 +107,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(201, 310);
+            this.label7.Location = new System.Drawing.Point(194, 340);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 6;
@@ -114,7 +117,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(69, 23);
+            this.label8.Location = new System.Drawing.Point(104, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(487, 24);
             this.label8.TabIndex = 7;
@@ -124,7 +127,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(204, 359);
+            this.btnSalvar.Location = new System.Drawing.Point(197, 389);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(76, 23);
             this.btnSalvar.TabIndex = 7;
@@ -134,7 +137,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(364, 359);
+            this.btnCancelar.Location = new System.Drawing.Point(357, 389);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(76, 23);
             this.btnCancelar.TabIndex = 8;
@@ -173,7 +176,7 @@
             "X",
             "Y",
             "Z"});
-            this.CBNumeroTicket.Location = new System.Drawing.Point(364, 79);
+            this.CBNumeroTicket.Location = new System.Drawing.Point(357, 109);
             this.CBNumeroTicket.Name = "CBNumeroTicket";
             this.CBNumeroTicket.Size = new System.Drawing.Size(76, 21);
             this.CBNumeroTicket.TabIndex = 0;
@@ -209,7 +212,7 @@
             "X",
             "Y",
             "Z"});
-            this.CBNomeCliente.Location = new System.Drawing.Point(364, 116);
+            this.CBNomeCliente.Location = new System.Drawing.Point(357, 146);
             this.CBNomeCliente.Name = "CBNomeCliente";
             this.CBNomeCliente.Size = new System.Drawing.Size(76, 21);
             this.CBNomeCliente.TabIndex = 1;
@@ -245,7 +248,7 @@
             "X",
             "Y",
             "Z"});
-            this.CBCategoria.Location = new System.Drawing.Point(364, 153);
+            this.CBCategoria.Location = new System.Drawing.Point(357, 183);
             this.CBCategoria.Name = "CBCategoria";
             this.CBCategoria.Size = new System.Drawing.Size(76, 21);
             this.CBCategoria.TabIndex = 2;
@@ -281,7 +284,7 @@
             "X",
             "Y",
             "Z"});
-            this.CBDataAbertura.Location = new System.Drawing.Point(364, 190);
+            this.CBDataAbertura.Location = new System.Drawing.Point(357, 220);
             this.CBDataAbertura.Name = "CBDataAbertura";
             this.CBDataAbertura.Size = new System.Drawing.Size(76, 21);
             this.CBDataAbertura.TabIndex = 3;
@@ -317,7 +320,7 @@
             "X",
             "Y",
             "Z"});
-            this.CBDataResolvido.Location = new System.Drawing.Point(364, 227);
+            this.CBDataResolvido.Location = new System.Drawing.Point(357, 257);
             this.CBDataResolvido.Name = "CBDataResolvido";
             this.CBDataResolvido.Size = new System.Drawing.Size(76, 21);
             this.CBDataResolvido.TabIndex = 4;
@@ -353,7 +356,7 @@
             "X",
             "Y",
             "Z"});
-            this.CBTecnico.Location = new System.Drawing.Point(364, 264);
+            this.CBTecnico.Location = new System.Drawing.Point(357, 294);
             this.CBTecnico.Name = "CBTecnico";
             this.CBTecnico.Size = new System.Drawing.Size(76, 21);
             this.CBTecnico.TabIndex = 5;
@@ -389,14 +392,20 @@
             "X",
             "Y",
             "Z"});
-            this.CBCarteira.Location = new System.Drawing.Point(364, 302);
+            this.CBCarteira.Location = new System.Drawing.Point(357, 332);
             this.CBCarteira.Name = "CBCarteira";
             this.CBCarteira.Size = new System.Drawing.Size(76, 21);
             this.CBCarteira.TabIndex = 6;
             // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = null;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Red;
+            // 
             // frmConfiguracaoExcel
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 442);
             this.Controls.Add(this.CBCarteira);
             this.Controls.Add(this.CBTecnico);
@@ -415,12 +424,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "frmConfiguracaoExcel";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuração CSV";
+            this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.frmConfiguracaoExcel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,5 +452,6 @@
         private System.Windows.Forms.ComboBox CBDataResolvido;
         private System.Windows.Forms.ComboBox CBTecnico;
         private System.Windows.Forms.ComboBox CBCarteira;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }
