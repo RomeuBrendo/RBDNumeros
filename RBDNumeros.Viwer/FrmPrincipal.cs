@@ -59,228 +59,6 @@ namespace RBDNumeros.Viwer
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public void HideAllMenu()
         {
             pnCadastro.Visible = false;
@@ -326,44 +104,6 @@ namespace RBDNumeros.Viwer
 
         }
 
-        private void importarPlanilhaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                
-
-                this.openFileCsv.ShowDialog();
-                Thread t1 = new Thread(new ThreadStart(run));
-                t1.Name = "Secundária";
-
-                backgroundWorker1.RunWorkerAsync(); //Chamo em uma theread separada importação
-                t1.Start(); // Inicio theread que vai alimentar barra de progresso.
-
-                frmBarra.ShowInTaskbar = false;
-                frmBarra.StartPosition = FormStartPosition.CenterParent; 
-                DialogResult result = frmBarra.ShowDialog(FrmPrincipal.ActiveForm); //Para que funcione, é nessario exibir em show modal, por este motivo só deixo ele na theread principal.
-
-                t1.Abort();
-                if (result == DialogResult.OK)
-                {
-                   MessageBox.Show("Importação Realizada com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-               
-                if (result == DialogResult.Cancel)
-                {
-                    _serviceTicket.CancelarImportacao(); 
-                    MessageBox.Show("Operação Cancelada!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-                   
-            }
-            catch(Exception ex)
-            {
-                
-                MessageBox.Show("Erro ao realizar importação." + ex);
-            }
-            
-        }
 
         public  void run()
         {
@@ -401,6 +141,44 @@ namespace RBDNumeros.Viwer
             frmConf.ShowInTaskbar = false;
             frmConf.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = frmConf.ShowDialog(FrmPrincipal.ActiveForm);
+        }
+
+        private void btnCadImportarPlanilha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+                this.openFileCsv.ShowDialog();
+                Thread t1 = new Thread(new ThreadStart(run));
+                t1.Name = "Secundária";
+
+                backgroundWorker1.RunWorkerAsync(); //Chamo em uma theread separada importação
+                t1.Start(); // Inicio theread que vai alimentar barra de progresso.
+
+                frmBarra.ShowInTaskbar = false;
+                frmBarra.StartPosition = FormStartPosition.CenterParent;
+                DialogResult result = frmBarra.ShowDialog(FrmPrincipal.ActiveForm); //Para que funcione, é nessario exibir em show modal, por este motivo só deixo ele na theread principal.
+
+                t1.Abort();
+                if (result == DialogResult.OK)
+                {
+                    MessageBox.Show("Importação Realizada com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+                if (result == DialogResult.Cancel)
+                {
+                    _serviceTicket.CancelarImportacao();
+                    MessageBox.Show("Operação Cancelada!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao realizar importação." + ex);
+            }
         }
 
         private void tmMenu_Tick(object sender, EventArgs e)

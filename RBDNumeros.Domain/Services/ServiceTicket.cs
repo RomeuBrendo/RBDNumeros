@@ -119,8 +119,8 @@ namespace RBDNumeros.Domain.Services
                 if (tecnicoNovos.Count > 0)
                     _repositoryTecnico.AdicionarLista(tecnicoNovos);
 
-                if (categorias.Count > 0)
-                    _repositoryCategoria.AdicionarLista(categorias);
+                if (categoriaNovas.Count > 0)
+                    _repositoryCategoria.AdicionarLista(categoriaNovas);
 
                 _repositoryTicket.AdicionarLista(listaTicket);
 

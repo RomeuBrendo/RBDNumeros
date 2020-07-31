@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer.Formulario.Barra
 {
-    public partial class frmBarraProgresso : Form
+    public partial class frmBarraProgresso : MetroFramework.Forms.MetroForm
     {
         public frmBarraProgresso()
         {
 
             InitializeComponent();
-            progressBar1.Style = ProgressBarStyle.Blocks;
+            this.StyleManager = metroStyleManager1;
             progressBar1.Value = 0;
           
         }
