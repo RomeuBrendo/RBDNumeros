@@ -13,6 +13,7 @@ namespace RBDNumeros.Infra.Repositories
         public DbSet<Tecnico> Tecnicos { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<ConfiguracaoPlanilha> ConfiguracaoPlanilhas { get; set; }
+        public DbSet<Sla> Sla { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,6 +37,7 @@ namespace RBDNumeros.Infra.Repositories
             modelBuilder.ApplyConfiguration(new MapTecnico());
             modelBuilder.ApplyConfiguration(new MapTicket());
             modelBuilder.ApplyConfiguration(new MapConfiguracaoPlanilha());
+            modelBuilder.ApplyConfiguration(new MapSla());
 
             base.OnModelCreating(modelBuilder);
         }
