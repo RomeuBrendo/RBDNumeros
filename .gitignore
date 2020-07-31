@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.Migrations
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -397,6 +397,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-/RBDNumeros.Infra/Migrations/
-Migrations
