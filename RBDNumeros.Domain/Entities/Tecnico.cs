@@ -15,10 +15,10 @@ namespace RBDNumeros.Domain.Entities
             ContabilizarNumeros = contabilizarNumeros;
         }
 
-        public Tecnico(string nome, bool contabilizarNumeros)
+        public Tecnico(string nome, bool contabilizarNumeros, EnumCarteira carteira)
         {
             Nome = nome;
-            //Carteira = carteira;
+            Carteira = carteira;
             ContabilizarNumeros = contabilizarNumeros;
 
             //new AddNotifications<Tecnico>(this)
@@ -27,7 +27,7 @@ namespace RBDNumeros.Domain.Entities
         }
 
         public string Nome { get; private set; }
-        //public EnumCarteira Carteira { get; private set; }
+        public EnumCarteira Carteira { get; private set; }
         public bool ContabilizarNumeros { get; set; }
     }
 }

@@ -78,7 +78,7 @@ namespace RBDNumeros.Domain.Services
 
                 if (tecnico == null)
                 {
-                    tecnico = new Tecnico(ticket.Tecnico, true);
+                    tecnico = new Tecnico(ticket.Tecnico, true, (EnumCarteira)ticket.Carteira);
                     tecnicoNovos.Add(tecnico);
                 }
 
@@ -96,7 +96,7 @@ namespace RBDNumeros.Domain.Services
                 if (dataAbertura == null)
                     continue;
 
-                var ticketNovo = new Ticket(numeroTicket, cliente, categoria, dataAbertura, dataResolvido, tecnico, (EnumCarteira)ticket.Carteira);
+                var ticketNovo = new Ticket(numeroTicket, cliente, categoria, dataAbertura, dataResolvido, tecnico);
 
                 AddNotifications(ticketNovo);
 
@@ -147,70 +147,64 @@ namespace RBDNumeros.Domain.Services
         public int ImportarCsv(string caminho)
         {
             _cancelarImportacao = false;
-            var wb = new XLWorkbook(@caminho);
-            var planilha = wb.Worksheet(1);
-            var linha = 2;
-
-            var conf = _repositoryConfiguracaoPlanilha.BuscarFirst();
-
-            this.proceso = "Lendo CSV, Aguarde...";
-            var ListaTicket = new List<ImportarTicketRequest>();
-
-            var quantidade = planilha.Rows().Count();
-
-            while (true)
+            try
             {
-                if (_cancelarImportacao)
-                    return 0;
 
-                this.porcentagem = (linha * 90) / quantidade;
-                
-                var ticket = new ImportarTicketRequest();
-                
-                ticket.NumeroTicket = planilha.Cell(conf.NumeroTicket + linha.ToString()).Value.ToString().Trim();
+                var wb = new XLWorkbook(@caminho);
+                var planilha = wb.Worksheet(1);
+                var linha = 2;
+                var conf = _repositoryConfiguracaoPlanilha.BuscarFirst();
 
-                if (string.IsNullOrEmpty(ticket.NumeroTicket)) break;
+                this.proceso = "Lendo CSV, Aguarde...";
+                var ListaTicket = new List<ImportarTicketRequest>();
 
-                ticket.ClienteNome = planilha.Cell(conf.ClienteNome + linha.ToString()).Value.ToString().Trim();
-                ticket.Categoria = planilha.Cell(conf.Categoria + linha.ToString()).Value.ToString().Trim();
-                ticket.DataAberturaTicket = planilha.Cell(conf.DataAberturaTicket + linha.ToString()).Value.ToString().Trim();
-                ticket.DataResolvido = planilha.Cell(conf.DataResolvido + linha.ToString()).Value.ToString().Trim();
-                ticket.Tecnico = planilha.Cell(conf.Tecnico + linha.ToString()).Value.ToString().Trim();
+                var quantidade = planilha.Rows().Count();
 
-                switch ((planilha.Cell(conf.Carteira + linha.ToString()).Value.ToString().Trim()))
+                while (true)
                 {
-                    case "Carteira A":
+                    if (_cancelarImportacao)
+                        return 0;
+
+                    this.porcentagem = (linha * 90) / quantidade;
+
+                    var ticket = new ImportarTicketRequest();
+
+                    ticket.NumeroTicket = planilha.Cell(conf.NumeroTicket + linha.ToString()).Value.ToString().Trim();
+
+                    if (string.IsNullOrEmpty(ticket.NumeroTicket)) break;
+
+                    ticket.ClienteNome = planilha.Cell(conf.ClienteNome + linha.ToString()).Value.ToString().Trim();
+                    ticket.Categoria = planilha.Cell(conf.Categoria + linha.ToString()).Value.ToString().Trim();
+                    ticket.DataAberturaTicket = planilha.Cell(conf.DataAberturaTicket + linha.ToString()).Value.ToString().Trim();
+                    ticket.DataResolvido = planilha.Cell(conf.DataResolvido + linha.ToString()).Value.ToString().Trim();
+                    ticket.Tecnico = planilha.Cell(conf.Tecnico + linha.ToString()).Value.ToString().Trim();
+
+                    if (ticket.Tecnico.Contains("A_"))
                         ticket.Carteira = 0;
-                        break;            
-                   
-                    case "Carteira B":
+                    else if (ticket.Tecnico.Contains("B_"))
                         ticket.Carteira = 1;
-                        break;
-                    
-                    case "Carteira C":
+                    else if (ticket.Tecnico.Contains("C_"))
                         ticket.Carteira = 2;
-                        break;
-                    
-                    case "Carteira D":
-                        ticket.Carteira = 3;
-                        break;
-
-                    case "Nível II":
+                    else if (ticket.Tecnico.Contains("D_"))
+                        ticket.Carteira = 2;
+                    else
                         ticket.Carteira = 4;
-                        break;
 
-                    default:
-                        ticket.Carteira = 5;
-                        break;
-
+                    ListaTicket.Add(ticket);
+                    linha++;
                 }
 
-                ListaTicket.Add(ticket);
-                linha++;
+
+                return ImportarTickets(ListaTicket);
+
+            }
+            catch (Exception)
+            {
+                AddNotification("Planilha", "Verifique se a mesma não se encontra aberta.");
+                return 0;
             }
 
-            
-            return ImportarTickets(ListaTicket);
+
         }
 
         public int RetornaPorcentagem()
