@@ -13,6 +13,7 @@ namespace RBDNumeros.Infra.Repositories.MAP
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome).HasMaxLength(50).IsRequired();
+            builder.Property(x => x.ContabilizarNumeros);
         }
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.openFileCsv = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -57,7 +57,7 @@
             this.btnMovNaoResolvido = new System.Windows.Forms.Button();
             this.pnCadastro = new MetroFramework.Controls.MetroPanel();
             this.btnCadTecnicos = new System.Windows.Forms.Button();
-            this.btnCadCliente = new System.Windows.Forms.Button();
+            this.btnCadCategoria = new System.Windows.Forms.Button();
             this.btnCadImportarPlanilha = new System.Windows.Forms.Button();
             this.tmMenu = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
@@ -107,16 +107,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.HorizontalCenter;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(80, 57);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(17)))), ((int)(((byte)(49)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(963, 609);
             this.chart1.TabIndex = 10;
             // 
@@ -426,7 +426,7 @@
             // pnCadastro
             // 
             this.pnCadastro.Controls.Add(this.btnCadTecnicos);
-            this.pnCadastro.Controls.Add(this.btnCadCliente);
+            this.pnCadastro.Controls.Add(this.btnCadCategoria);
             this.pnCadastro.Controls.Add(this.btnCadImportarPlanilha);
             this.pnCadastro.HorizontalScrollbarBarColor = true;
             this.pnCadastro.HorizontalScrollbarHighlightOnWheel = false;
@@ -456,22 +456,22 @@
             this.btnCadTecnicos.UseVisualStyleBackColor = false;
             this.btnCadTecnicos.Click += new System.EventHandler(this.btnCadTecnicos_Click);
             // 
-            // btnCadCliente
+            // btnCadCategoria
             // 
-            this.btnCadCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnCadCliente.FlatAppearance.BorderSize = 0;
-            this.btnCadCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadCliente.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadCliente.ForeColor = System.Drawing.Color.White;
-            this.btnCadCliente.Location = new System.Drawing.Point(0, 30);
-            this.btnCadCliente.Name = "btnCadCliente";
-            this.btnCadCliente.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnCadCliente.Size = new System.Drawing.Size(318, 31);
-            this.btnCadCliente.TabIndex = 3;
-            this.btnCadCliente.Text = "CLIENTE";
-            this.btnCadCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadCliente.UseVisualStyleBackColor = false;
-            this.btnCadCliente.Click += new System.EventHandler(this.btnCadCliente_Click);
+            this.btnCadCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCadCategoria.FlatAppearance.BorderSize = 0;
+            this.btnCadCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadCategoria.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnCadCategoria.Location = new System.Drawing.Point(0, 30);
+            this.btnCadCategoria.Name = "btnCadCategoria";
+            this.btnCadCategoria.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnCadCategoria.Size = new System.Drawing.Size(318, 31);
+            this.btnCadCategoria.TabIndex = 3;
+            this.btnCadCategoria.Text = "CATEGORIA";
+            this.btnCadCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadCategoria.UseVisualStyleBackColor = false;
+            this.btnCadCategoria.Click += new System.EventHandler(this.btnCadCategoria_Click);
             // 
             // btnCadImportarPlanilha
             // 
@@ -532,7 +532,7 @@
         private System.Windows.Forms.Button btnCadastro;
         private MetroFramework.Controls.MetroPanel pnCadastro;
         private System.Windows.Forms.Button btnCadTecnicos;
-        private System.Windows.Forms.Button btnCadCliente;
+        private System.Windows.Forms.Button btnCadCategoria;
         private System.Windows.Forms.Button btnCadImportarPlanilha;
         private System.Windows.Forms.Button btnRelatorio;
         private MetroFramework.Controls.MetroPanel pnRelatorio;

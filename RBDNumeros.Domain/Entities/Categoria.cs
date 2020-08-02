@@ -1,23 +1,22 @@
-﻿using prmToolkit.NotificationPattern;
-using RBDNumeros.Domain.Entities.Base;
+﻿using RBDNumeros.Domain.Entities.Base;
 
 namespace RBDNumeros.Domain.Entities
 {
     public class Categoria : EntityBase
     {
+        public Categoria(string nome, bool contabilizarNumeros)
+        {
+            Nome = nome;
+            ContabilizarNumeros = contabilizarNumeros;
+        }
+
         protected Categoria()
         {
 
         }
-        public Categoria(string nome)
-        {
-            Nome = nome;
-
-            new AddNotifications<Categoria>(this)
-                .IfNullOrEmpty(x => x.Nome);
-        }
 
         public string Nome { get; private set; }
+        public bool ContabilizarNumeros { get; set; }
     }
 
 }

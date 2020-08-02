@@ -5,6 +5,7 @@ using RBDNumeros.Domain.Services;
 using RBDNumeros.Infra.Repositories;
 using RBDNumeros.Infra.Repositories.Transactions;
 using RBDNumeros.Viwer.Formulario.Barra;
+using RBDNumeros.Viwer.Formulario.Categoria;
 using RBDNumeros.Viwer.Formulario.Configuracao;
 using RBDNumeros.Viwer.Formulario.Tecnico;
 using System;
@@ -180,10 +181,6 @@ namespace RBDNumeros.Viwer
             }
         }
 
-        private void btnCadCliente_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCadTecnicos_Click(object sender, EventArgs e)
         {
@@ -237,6 +234,12 @@ namespace RBDNumeros.Viwer
         private void btnCadastro_Click(object sender, EventArgs e)
         {
             ShowSubMenu(pnCadastro);
+        }
+
+        private void btnCadCategoria_Click(object sender, EventArgs e)
+        {
+            var frmCategoria = new frmCategoria();
+            AbrirFormulario<frmCategoria>();
         }
 
         private void btnMovimentacao_Click(object sender, EventArgs e)

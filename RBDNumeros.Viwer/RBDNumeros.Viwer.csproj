@@ -282,6 +282,12 @@
     <Compile Include="Formulario\Barra\frmBarraProgresso.Designer.cs">
       <DependentUpon>frmBarraProgresso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Categoria\frmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\Categoria\frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\Configuracao\frmTempoSla.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formulario\Barra\frmBarraProgresso.resx">
       <DependentUpon>frmBarraProgresso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\Categoria\frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\Configuracao\frmConfiguracaoExcel.resx">
       <DependentUpon>frmConfiguracaoExcel.cs</DependentUpon>

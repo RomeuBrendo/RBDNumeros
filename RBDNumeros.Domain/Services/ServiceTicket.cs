@@ -86,7 +86,7 @@ namespace RBDNumeros.Domain.Services
 
                 if (categoria == null)
                 {
-                    categoria = new Categoria(ticket.Categoria);
+                    categoria = new Categoria(ticket.Categoria, true);
                     categoriaNovas.Add(categoria);
                 }
 
