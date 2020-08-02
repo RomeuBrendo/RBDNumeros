@@ -16,9 +16,13 @@ namespace RBDNumeros.Domain.Services
             _repositoryCategoria = repositoryCategoria;
         }
 
-        public List<Categoria> ListarCategoria()
+        public List<Categoria> ListarCategoria(string categoria)
         {
-            return _repositoryCategoria.Listar().OrderBy(a => a.Nome).ToList();
+            if(categoria == "")
+              return _repositoryCategoria.Listar().OrderBy(a => a.Nome).ToList();
+            else
+                return _repositoryCategoria.ListarFiltro(categoria).OrderBy(a => a.Nome).ToList();
         }
+
     }
 }

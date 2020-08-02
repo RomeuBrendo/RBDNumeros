@@ -43,35 +43,37 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(243, 470);
+            this.btnCancelar.Location = new System.Drawing.Point(249, 470);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(144, 470);
+            this.btnSalvar.Location = new System.Drawing.Point(150, 470);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 14;
+            this.btnSalvar.TabIndex = 2;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Location = new System.Drawing.Point(52, 71);
+            this.txtPesquisar.Location = new System.Drawing.Point(58, 71);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(402, 20);
-            this.txtPesquisar.TabIndex = 13;
+            this.txtPesquisar.TabIndex = 0;
+            this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
+            this.txtPesquisar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmCategoria_PreviewKeyDown);
             // 
             // lblPesquisa
             // 
             this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Location = new System.Drawing.Point(8, 74);
+            this.lblPesquisa.Location = new System.Drawing.Point(14, 74);
             this.lblPesquisa.Name = "lblPesquisa";
             this.lblPesquisa.Size = new System.Drawing.Size(38, 13);
             this.lblPesquisa.TabIndex = 12;
@@ -80,18 +82,20 @@
             // dataGridCategoria
             // 
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Empty;
             this.dataGridCategoria.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
             this.ContabilizarNumeros});
-            this.dataGridCategoria.Location = new System.Drawing.Point(9, 105);
+            this.dataGridCategoria.Location = new System.Drawing.Point(15, 105);
             this.dataGridCategoria.MultiSelect = false;
             this.dataGridCategoria.Name = "dataGridCategoria";
             this.dataGridCategoria.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridCategoria.Size = new System.Drawing.Size(445, 338);
-            this.dataGridCategoria.TabIndex = 11;
+            this.dataGridCategoria.TabIndex = 1;
+            this.dataGridCategoria.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmCategoria_PreviewKeyDown);
             // 
             // Nome
             // 
@@ -118,16 +122,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(474, 516);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.lblPesquisa);
             this.Controls.Add(this.dataGridCategoria);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Categoria";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmCategoria_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

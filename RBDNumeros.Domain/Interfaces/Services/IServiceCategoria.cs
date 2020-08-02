@@ -6,6 +6,6 @@ namespace RBDNumeros.Domain.Interfaces.Services
 {
     public interface IServiceCategoria : IServiceBase
     {
-        List<Categoria> ListarCategoria();
+        List<Categoria> ListarCategoria(string categoria);
     }
 }
