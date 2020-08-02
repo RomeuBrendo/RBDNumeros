@@ -306,6 +306,7 @@
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\ConfiguracaoPlanilha.cs" />
+    <Compile Include="Entities\KPI\ChamadosPorCarteira.cs" />
     <Compile Include="Entities\Sla.cs" />
     <Compile Include="Entities\Tecnico.cs" />
     <Compile Include="Entities\Ticket.cs" />
@@ -318,6 +319,7 @@
     <Compile Include="Interfaces\Repositories\IRepositoryTecnico.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryTicket.cs" />
     <Compile Include="Interfaces\Services\Base\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\IServiceKPI.cs" />
     <Compile Include="Interfaces\Services\IServiceConfiguracaoPlanilha.cs" />
     <Compile Include="Interfaces\Services\IServiceCategoria.cs" />
     <Compile Include="Interfaces\Services\IServiceCliente.cs" />
@@ -328,6 +330,7 @@
     <Compile Include="Services\ServiceCategoria.cs" />
     <Compile Include="Services\ServiceCliente.cs" />
     <Compile Include="Services\ServiceConfiguracaoPlanilha.cs" />
+    <Compile Include="Services\ServiceKPI.cs" />
     <Compile Include="Services\ServiceSla.cs" />
     <Compile Include="Services\ServiceTecnico.cs" />
     <Compile Include="Services\ServiceTicket.cs" />

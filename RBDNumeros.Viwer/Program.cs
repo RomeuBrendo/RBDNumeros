@@ -48,6 +48,7 @@ namespace RBDNumeros.Viwer
             services.AddTransient<IServiceTecnico, ServiceTecnico>();
             services.AddTransient<IServiceTicket, ServiceTicket>();
             services.AddTransient<IServiceSla, ServiceSla>();
+            services.AddTransient<IServiceKPI, ServiceKPI>();
 
             ServiceProvider = services.BuildServiceProvider();
 

@@ -186,7 +186,7 @@ namespace RBDNumeros.Domain.Services
                     else if (ticket.Tecnico.Contains("C_"))
                         ticket.Carteira = 2;
                     else if (ticket.Tecnico.Contains("D_"))
-                        ticket.Carteira = 2;
+                        ticket.Carteira = 3;
                     else
                         ticket.Carteira = 4;
 
