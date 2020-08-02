@@ -8,5 +8,7 @@ namespace RBDNumeros.Domain.Interfaces.Services
         int RetornaPorcentagem();
         string RetornaProcesso();
         void CancelarImportacao();
+
+        int RetorneNumerosCarteira(int Carteira);
     }
 }

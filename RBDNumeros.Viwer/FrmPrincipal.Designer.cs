@@ -109,7 +109,7 @@
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.HorizontalCenter;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(172, 18);
+            this.chart1.Location = new System.Drawing.Point(80, 57);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
@@ -117,7 +117,7 @@
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(847, 592);
+            this.chart1.Size = new System.Drawing.Size(963, 609);
             this.chart1.TabIndex = 10;
             // 
             // pnMenu
@@ -164,7 +164,7 @@
             this.metroPanel2.HorizontalScrollbarSize = 10;
             this.metroPanel2.Location = new System.Drawing.Point(0, 0);
             this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(321, 119);
+            this.metroPanel2.Size = new System.Drawing.Size(324, 119);
             this.metroPanel2.TabIndex = 11;
             this.metroPanel2.UseCustomBackColor = true;
             this.metroPanel2.UseCustomForeColor = true;
@@ -201,9 +201,9 @@
             this.btnConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracao.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracao.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguracao.Location = new System.Drawing.Point(0, 469);
+            this.btnConfiguracao.Location = new System.Drawing.Point(0, 488);
             this.btnConfiguracao.Name = "btnConfiguracao";
-            this.btnConfiguracao.Size = new System.Drawing.Size(244, 38);
+            this.btnConfiguracao.Size = new System.Drawing.Size(324, 38);
             this.btnConfiguracao.TabIndex = 9;
             this.btnConfiguracao.Text = "CONFIGURAÇÕES";
             this.btnConfiguracao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -217,9 +217,9 @@
             this.pnConfiguracao.HorizontalScrollbarBarColor = true;
             this.pnConfiguracao.HorizontalScrollbarHighlightOnWheel = false;
             this.pnConfiguracao.HorizontalScrollbarSize = 10;
-            this.pnConfiguracao.Location = new System.Drawing.Point(0, 504);
+            this.pnConfiguracao.Location = new System.Drawing.Point(3, 522);
             this.pnConfiguracao.Name = "pnConfiguracao";
-            this.pnConfiguracao.Size = new System.Drawing.Size(241, 61);
+            this.pnConfiguracao.Size = new System.Drawing.Size(315, 63);
             this.pnConfiguracao.TabIndex = 10;
             this.pnConfiguracao.VerticalScrollbarBarColor = true;
             this.pnConfiguracao.VerticalScrollbarHighlightOnWheel = false;
@@ -232,14 +232,15 @@
             this.btnTempoSla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTempoSla.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTempoSla.ForeColor = System.Drawing.Color.White;
-            this.btnTempoSla.Location = new System.Drawing.Point(0, 31);
+            this.btnTempoSla.Location = new System.Drawing.Point(-6, 29);
             this.btnTempoSla.Name = "btnTempoSla";
             this.btnTempoSla.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnTempoSla.Size = new System.Drawing.Size(241, 31);
+            this.btnTempoSla.Size = new System.Drawing.Size(324, 34);
             this.btnTempoSla.TabIndex = 3;
             this.btnTempoSla.Text = "TEMPO SLA";
             this.btnTempoSla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTempoSla.UseVisualStyleBackColor = false;
+            this.btnTempoSla.Click += new System.EventHandler(this.btnTempoSla_Click);
             // 
             // btnConfPlanilha
             // 
@@ -248,10 +249,10 @@
             this.btnConfPlanilha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfPlanilha.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfPlanilha.ForeColor = System.Drawing.Color.White;
-            this.btnConfPlanilha.Location = new System.Drawing.Point(0, 0);
+            this.btnConfPlanilha.Location = new System.Drawing.Point(-6, -7);
             this.btnConfPlanilha.Name = "btnConfPlanilha";
             this.btnConfPlanilha.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnConfPlanilha.Size = new System.Drawing.Size(241, 33);
+            this.btnConfPlanilha.Size = new System.Drawing.Size(330, 43);
             this.btnConfPlanilha.TabIndex = 2;
             this.btnConfPlanilha.Text = "IMPORTAÇÃO PLANILHA";
             this.btnConfPlanilha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -268,7 +269,7 @@
             this.btnRelatorio.ForeColor = System.Drawing.Color.White;
             this.btnRelatorio.Location = new System.Drawing.Point(0, 346);
             this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(244, 38);
+            this.btnRelatorio.Size = new System.Drawing.Size(318, 38);
             this.btnRelatorio.TabIndex = 7;
             this.btnRelatorio.Text = "RELATÓRIOS";
             this.btnRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -285,7 +286,7 @@
             this.pnRelatorio.HorizontalScrollbarSize = 10;
             this.pnRelatorio.Location = new System.Drawing.Point(0, 380);
             this.pnRelatorio.Name = "pnRelatorio";
-            this.pnRelatorio.Size = new System.Drawing.Size(241, 93);
+            this.pnRelatorio.Size = new System.Drawing.Size(318, 102);
             this.pnRelatorio.TabIndex = 8;
             this.pnRelatorio.VerticalScrollbarBarColor = true;
             this.pnRelatorio.VerticalScrollbarHighlightOnWheel = false;
@@ -298,10 +299,10 @@
             this.btnRelClienteRede.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelClienteRede.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelClienteRede.ForeColor = System.Drawing.Color.White;
-            this.btnRelClienteRede.Location = new System.Drawing.Point(0, 58);
+            this.btnRelClienteRede.Location = new System.Drawing.Point(-3, 64);
             this.btnRelClienteRede.Name = "btnRelClienteRede";
             this.btnRelClienteRede.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnRelClienteRede.Size = new System.Drawing.Size(241, 38);
+            this.btnRelClienteRede.Size = new System.Drawing.Size(324, 38);
             this.btnRelClienteRede.TabIndex = 4;
             this.btnRelClienteRede.Text = "CLIENTES REDE";
             this.btnRelClienteRede.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -314,10 +315,10 @@
             this.btnRelClientePrio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelClientePrio.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelClientePrio.ForeColor = System.Drawing.Color.White;
-            this.btnRelClientePrio.Location = new System.Drawing.Point(0, 31);
+            this.btnRelClientePrio.Location = new System.Drawing.Point(-3, 39);
             this.btnRelClientePrio.Name = "btnRelClientePrio";
             this.btnRelClientePrio.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnRelClientePrio.Size = new System.Drawing.Size(241, 31);
+            this.btnRelClientePrio.Size = new System.Drawing.Size(324, 31);
             this.btnRelClientePrio.TabIndex = 3;
             this.btnRelClientePrio.Text = "CHAMADOS CLIENTE P/ PRIOR.";
             this.btnRelClientePrio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,14 +331,15 @@
             this.btnRelTecnico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelTecnico.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRelTecnico.ForeColor = System.Drawing.Color.White;
-            this.btnRelTecnico.Location = new System.Drawing.Point(0, 0);
+            this.btnRelTecnico.Location = new System.Drawing.Point(-3, 3);
             this.btnRelTecnico.Name = "btnRelTecnico";
             this.btnRelTecnico.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnRelTecnico.Size = new System.Drawing.Size(241, 33);
+            this.btnRelTecnico.Size = new System.Drawing.Size(321, 40);
             this.btnRelTecnico.TabIndex = 2;
             this.btnRelTecnico.Text = "CHAMADOS P/ TECNICO";
             this.btnRelTecnico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRelTecnico.UseVisualStyleBackColor = false;
+            this.btnRelTecnico.Click += new System.EventHandler(this.btnRelTecnico_Click);
             // 
             // btnMovimentacao
             // 
@@ -349,7 +351,7 @@
             this.btnMovimentacao.ForeColor = System.Drawing.Color.White;
             this.btnMovimentacao.Location = new System.Drawing.Point(0, 255);
             this.btnMovimentacao.Name = "btnMovimentacao";
-            this.btnMovimentacao.Size = new System.Drawing.Size(244, 32);
+            this.btnMovimentacao.Size = new System.Drawing.Size(318, 32);
             this.btnMovimentacao.TabIndex = 5;
             this.btnMovimentacao.Text = "MOVIMENTAÇÃO";
             this.btnMovimentacao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -366,7 +368,7 @@
             this.btnCadastro.ForeColor = System.Drawing.Color.White;
             this.btnCadastro.Location = new System.Drawing.Point(0, 129);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(244, 32);
+            this.btnCadastro.Size = new System.Drawing.Size(318, 32);
             this.btnCadastro.TabIndex = 3;
             this.btnCadastro.Text = "CADASTRO";
             this.btnCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -382,7 +384,7 @@
             this.pnMovimentacao.HorizontalScrollbarSize = 10;
             this.pnMovimentacao.Location = new System.Drawing.Point(0, 289);
             this.pnMovimentacao.Name = "pnMovimentacao";
-            this.pnMovimentacao.Size = new System.Drawing.Size(241, 61);
+            this.pnMovimentacao.Size = new System.Drawing.Size(318, 61);
             this.pnMovimentacao.TabIndex = 6;
             this.pnMovimentacao.VerticalScrollbarBarColor = true;
             this.pnMovimentacao.VerticalScrollbarHighlightOnWheel = false;
@@ -395,14 +397,15 @@
             this.btnMovDesempenho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovDesempenho.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMovDesempenho.ForeColor = System.Drawing.Color.White;
-            this.btnMovDesempenho.Location = new System.Drawing.Point(0, 31);
+            this.btnMovDesempenho.Location = new System.Drawing.Point(-3, 30);
             this.btnMovDesempenho.Name = "btnMovDesempenho";
             this.btnMovDesempenho.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnMovDesempenho.Size = new System.Drawing.Size(241, 31);
+            this.btnMovDesempenho.Size = new System.Drawing.Size(324, 31);
             this.btnMovDesempenho.TabIndex = 3;
             this.btnMovDesempenho.Text = "DESEMPENHO EQUIPE";
             this.btnMovDesempenho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMovDesempenho.UseVisualStyleBackColor = false;
+            this.btnMovDesempenho.Click += new System.EventHandler(this.btnMovDesempenho_Click);
             // 
             // btnMovNaoResolvido
             // 
@@ -411,10 +414,10 @@
             this.btnMovNaoResolvido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovNaoResolvido.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMovNaoResolvido.ForeColor = System.Drawing.Color.White;
-            this.btnMovNaoResolvido.Location = new System.Drawing.Point(0, 0);
+            this.btnMovNaoResolvido.Location = new System.Drawing.Point(-3, 0);
             this.btnMovNaoResolvido.Name = "btnMovNaoResolvido";
             this.btnMovNaoResolvido.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnMovNaoResolvido.Size = new System.Drawing.Size(241, 33);
+            this.btnMovNaoResolvido.Size = new System.Drawing.Size(321, 33);
             this.btnMovNaoResolvido.TabIndex = 2;
             this.btnMovNaoResolvido.Text = "NAO RESOLVIDOS";
             this.btnMovNaoResolvido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -430,7 +433,7 @@
             this.pnCadastro.HorizontalScrollbarSize = 10;
             this.pnCadastro.Location = new System.Drawing.Point(0, 160);
             this.pnCadastro.Name = "pnCadastro";
-            this.pnCadastro.Size = new System.Drawing.Size(241, 96);
+            this.pnCadastro.Size = new System.Drawing.Size(318, 96);
             this.pnCadastro.TabIndex = 4;
             this.pnCadastro.VerticalScrollbarBarColor = true;
             this.pnCadastro.VerticalScrollbarHighlightOnWheel = false;
@@ -446,11 +449,12 @@
             this.btnCadTecnicos.Location = new System.Drawing.Point(0, 58);
             this.btnCadTecnicos.Name = "btnCadTecnicos";
             this.btnCadTecnicos.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnCadTecnicos.Size = new System.Drawing.Size(241, 38);
+            this.btnCadTecnicos.Size = new System.Drawing.Size(318, 38);
             this.btnCadTecnicos.TabIndex = 4;
             this.btnCadTecnicos.Text = "TECNICOS";
             this.btnCadTecnicos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadTecnicos.UseVisualStyleBackColor = false;
+            this.btnCadTecnicos.Click += new System.EventHandler(this.btnCadTecnicos_Click);
             // 
             // btnCadCliente
             // 
@@ -459,14 +463,15 @@
             this.btnCadCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadCliente.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadCliente.ForeColor = System.Drawing.Color.White;
-            this.btnCadCliente.Location = new System.Drawing.Point(0, 31);
+            this.btnCadCliente.Location = new System.Drawing.Point(0, 30);
             this.btnCadCliente.Name = "btnCadCliente";
             this.btnCadCliente.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnCadCliente.Size = new System.Drawing.Size(241, 31);
+            this.btnCadCliente.Size = new System.Drawing.Size(318, 31);
             this.btnCadCliente.TabIndex = 3;
             this.btnCadCliente.Text = "CLIENTE";
             this.btnCadCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCadCliente.UseVisualStyleBackColor = false;
+            this.btnCadCliente.Click += new System.EventHandler(this.btnCadCliente_Click);
             // 
             // btnCadImportarPlanilha
             // 
@@ -478,7 +483,7 @@
             this.btnCadImportarPlanilha.Location = new System.Drawing.Point(0, 0);
             this.btnCadImportarPlanilha.Name = "btnCadImportarPlanilha";
             this.btnCadImportarPlanilha.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnCadImportarPlanilha.Size = new System.Drawing.Size(241, 33);
+            this.btnCadImportarPlanilha.Size = new System.Drawing.Size(318, 33);
             this.btnCadImportarPlanilha.TabIndex = 2;
             this.btnCadImportarPlanilha.Text = "IMPORTAR PLANILHA";
             this.btnCadImportarPlanilha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -499,6 +504,7 @@
             this.Controls.Add(this.metroPanel1);
             this.IsMdiContainer = true;
             this.Name = "FrmPrincipal";
+            this.Style = MetroFramework.MetroColorStyle.Red;
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
