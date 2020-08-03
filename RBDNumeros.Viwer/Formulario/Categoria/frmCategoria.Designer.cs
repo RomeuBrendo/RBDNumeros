@@ -134,6 +134,7 @@
             this.Name = "frmCategoria";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Categoria";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmCategoria_PreviewKeyDown);
