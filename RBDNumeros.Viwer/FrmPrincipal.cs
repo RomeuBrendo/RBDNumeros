@@ -26,7 +26,7 @@ namespace RBDNumeros.Viwer
     public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
 
     {
-        int glb_PosicaoBotaoBase1, glb_PosicaoBotaoBase2, glb_PosicaoBotaoBase3;
+        int glb_PosicaoBotaoBase1, glb_PosicaoBotaoBase2;
         int glb_TopCadastro, glb_TopMovimentacao, glb_TopRelatorio, glb_TopConfiguracao;
         bool glb_HideMenu;
 
@@ -48,23 +48,21 @@ namespace RBDNumeros.Viwer
             InitializeComponent();
 
             glb_PosicaoBotaoBase1 = pnCadastro.Top;
-            glb_PosicaoBotaoBase2 = btnMovimentacao.Height;
-            glb_PosicaoBotaoBase3 = btnRelatorio.Height;
+            glb_PosicaoBotaoBase2 = btnKpi.Height;
 
             glb_TopCadastro = pnCadastro.Top;
             glb_TopMovimentacao = pnMovimentacao.Top;
-            glb_TopRelatorio = pnRelatorio.Top;
             glb_TopConfiguracao = pnConfiguracao.Top;
 
             HideAllMenu();
 
-            dtAte.Value = DateTime.Now;
-            dtDe.Value = DateTime.Now.AddDays(-7);
+            //dtAte.Value = DateTime.Now;
+            //dtDe.Value = DateTime.Now.AddDays(-7);
 
-            chart1.Series.Clear();
-            chart1.Series.Add("Carteiras");
+            //chart1.Series.Clear();
+            //chart1.Series.Add("Carteiras");
 
-            CarregarGrafico(dtDe.Value, dtAte.Value);
+            //CarregarGrafico(dtDe.Value, dtAte.Value);
 
             this.StyleManager = metroStyleManager1;
             pnMenu.Left = -272;
@@ -78,11 +76,9 @@ namespace RBDNumeros.Viwer
         {
             pnCadastro.Visible = false;
             pnMovimentacao.Visible = false;
-            pnRelatorio.Visible = false;
             pnConfiguracao.Visible = false;
-            btnMovimentacao.Top = glb_PosicaoBotaoBase1;
-            btnRelatorio.Top = glb_PosicaoBotaoBase1 + glb_PosicaoBotaoBase2;
-            btnConfiguracao.Top = glb_PosicaoBotaoBase1 + glb_PosicaoBotaoBase2 + glb_PosicaoBotaoBase3;
+            btnKpi.Top = glb_PosicaoBotaoBase1;
+            btnConfiguracao.Top = glb_PosicaoBotaoBase1 + glb_PosicaoBotaoBase2;
 
         }
 
@@ -91,28 +87,26 @@ namespace RBDNumeros.Viwer
             HideAllMenu();
             if (Painel.Name == "pnCadastro")
             {
-                btnMovimentacao.Top = btnMovimentacao.Top + pnCadastro.Height;
-                btnRelatorio.Top = btnRelatorio.Top + pnCadastro.Height;
+                btnKpi.Top = btnKpi.Top + pnCadastro.Height;
                 btnConfiguracao.Top = btnConfiguracao.Top + pnCadastro.Height;
                 Painel.Top = glb_TopCadastro;
                 Painel.Visible = true;
             }
             if (Painel.Name == "pnMovimentacao")
             {
-                btnRelatorio.Top = btnRelatorio.Top + pnMovimentacao.Height;
                 btnConfiguracao.Top = btnConfiguracao.Top + pnMovimentacao.Height;
-                Painel.Top = glb_TopMovimentacao - pnCadastro.Height;
+                Painel.Top = glb_TopMovimentacao - pnCadastro.Height -5;
                 Painel.Visible = true;
             }
             if (Painel.Name == "pnRelatorio")
             {
-                btnConfiguracao.Top = btnConfiguracao.Top + pnRelatorio.Height - 5;
+                btnConfiguracao.Top = btnConfiguracao.Top;
                 Painel.Top = glb_TopRelatorio - pnMovimentacao.Height - pnCadastro.Height;
                 Painel.Visible = true;
             }
             if (Painel.Name == "pnConfiguracao")
             {
-                Painel.Top = glb_TopConfiguracao - pnRelatorio.Height - pnMovimentacao.Height - pnCadastro.Height + 10;
+                Painel.Top = glb_TopConfiguracao - pnMovimentacao.Height - pnCadastro.Height -5;
                 Painel.Visible = true;
             }
 
@@ -254,41 +248,41 @@ namespace RBDNumeros.Viwer
             AbrirFormulario<frmCategoria>();
         }
 
-        private void dtAte_ValueChanged(object sender, EventArgs e)
-        {
-            lblRefresh.Visible = true;
-        }
+        //private void dtAte_ValueChanged(object sender, EventArgs e)
+        //{
+        //    lblRefresh.Visible = true;
+        //}
 
-        private void dtDe_ValueChanged(object sender, EventArgs e)
-        {
-            lblRefresh.Visible = true;
-        }
+        //private void dtDe_ValueChanged(object sender, EventArgs e)
+        //{
+        //    lblRefresh.Visible = true;
+        //}
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            CarregarGrafico(dtDe.Value, dtAte.Value);
-        }
+        //private void label5_Click(object sender, EventArgs e)
+        //{
+        //    CarregarGrafico(dtDe.Value, dtAte.Value);
+        //}
 
-        private void lblGraphicPizza_Click(object sender, EventArgs e)
-        {
-            ValoresNoGrafico(false);
+        //private void lblGraphicPizza_Click(object sender, EventArgs e)
+        //{
+        //    ValoresNoGrafico(false);
 
-            chart1.Series[0].ChartType = SeriesChartType.Pie;
+        //    chart1.Series[0].ChartType = SeriesChartType.Pie;
 
-        }
+        //}
 
-        private void lblGraphicColumn_Click(object sender, EventArgs e)
-        {
-            ValoresNoGrafico(true);
+        //private void lblGraphicColumn_Click(object sender, EventArgs e)
+        //{
+        //    ValoresNoGrafico(true);
 
-            chart1.Series[0].ChartType = SeriesChartType.Column;
-        }
+        //    chart1.Series[0].ChartType = SeriesChartType.Column;
+        //}
 
-        private void lblLineGraphic_Click(object sender, EventArgs e)
-        {
-            ValoresNoGrafico(true);
-            chart1.Series[0].ChartType = SeriesChartType.Line;
-        }
+        //private void lblLineGraphic_Click(object sender, EventArgs e)
+        //{
+        //    ValoresNoGrafico(true);
+        //    chart1.Series[0].ChartType = SeriesChartType.Line;
+        //}
 
         private void btnMovimentacao_Click(object sender, EventArgs e)
         {
@@ -297,7 +291,6 @@ namespace RBDNumeros.Viwer
 
         private void btnRelatorio_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnRelatorio);
         }
 
         private void btnConfiguracao_Click(object sender, EventArgs e)
@@ -316,43 +309,43 @@ namespace RBDNumeros.Viwer
             DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
         
-        private void CarregarGrafico(DateTime de, DateTime ate)
-        {
+        //private void CarregarGrafico(DateTime de, DateTime ate)
+        //{
 
-            var cat = _serviceKPI.ChamadosPorCarteira(de, ate);
+        //    var cat = _serviceKPI.ChamadosPorCarteira(de, ate);
 
-           int CarteiraA = cat.A;
-           int CarteiraB = cat.B;
-           int CarteiraC = cat.C;
-           int CarteiraD = cat.D;
+        //   int CarteiraA = cat.A;
+        //   int CarteiraB = cat.B;
+        //   int CarteiraC = cat.C;
+        //   int CarteiraD = cat.D;
 
-           string[] series = { "Carteira A", "Carteira B", "Carteira C", "Carteira D" };
-           int[] pontos = { CarteiraA, CarteiraB, CarteiraC, CarteiraD };
+        //   string[] series = { "Carteira A", "Carteira B", "Carteira C", "Carteira D" };
+        //   int[] pontos = { CarteiraA, CarteiraB, CarteiraC, CarteiraD };
 
-            chart1.Series["Carteiras"].Points.Clear();
-
-
-            for (int i = 0; i < series.Length; i++)
-            {
-
-                chart1.Series["Carteiras"].Points.AddXY(series[i], pontos[i]);
-                chart1.Series["Carteiras"].Points[i].IsValueShownAsLabel = true;
+        //    chart1.Series["Carteiras"].Points.Clear();
 
 
-            }
+        //    for (int i = 0; i < series.Length; i++)
+        //    {
 
-            this.Refresh();
+        //        chart1.Series["Carteiras"].Points.AddXY(series[i], pontos[i]);
+        //        chart1.Series["Carteiras"].Points[i].IsValueShownAsLabel = true;
 
-            lblRefresh.Visible = false;
 
-        }
+        //    }
 
-        public void ValoresNoGrafico(Boolean Status)
-        {
-            chart1.Series["Carteiras"].Points[0].IsValueShownAsLabel = Status;
-            chart1.Series["Carteiras"].Points[1].IsValueShownAsLabel = Status;
-            chart1.Series["Carteiras"].Points[2].IsValueShownAsLabel = Status;
-            chart1.Series["Carteiras"].Points[3].IsValueShownAsLabel = Status;
-        }
+        //    this.Refresh();
+
+        //    lblRefresh.Visible = false;
+
+        //}
+
+        //public void ValoresNoGrafico(Boolean Status)
+        //{
+        //    chart1.Series["Carteiras"].Points[0].IsValueShownAsLabel = Status;
+        //    chart1.Series["Carteiras"].Points[1].IsValueShownAsLabel = Status;
+        //    chart1.Series["Carteiras"].Points[2].IsValueShownAsLabel = Status;
+        //    chart1.Series["Carteiras"].Points[3].IsValueShownAsLabel = Status;
+        //}
     }
 }
