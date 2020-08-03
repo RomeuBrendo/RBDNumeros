@@ -1,8 +1,10 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using prmToolkit.NotificationPattern;
 using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities;
 using RBDNumeros.Domain.Interfaces.Repositories;
 using RBDNumeros.Domain.Interfaces.Services;
+using System;
 using System.Linq;
 
 namespace RBDNumeros.Domain.Services
@@ -41,9 +43,14 @@ namespace RBDNumeros.Domain.Services
             return true;
         }
 
-        public Sla ObterRegistro()
+        public SlaResponse ObterRegistro()
         {
-            return _repositorySla.Listar().FirstOrDefault();
+            var sla = _repositorySla.Listar().FirstOrDefault();
+
+            if (sla == null)
+                return new SlaResponse("", "", "");
+
+            return (SlaResponse)sla;
         }
     }
 }

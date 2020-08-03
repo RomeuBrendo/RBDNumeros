@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
@@ -81,9 +81,8 @@
             // 
             // dataGridCategoria
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Empty;
-            this.dataGridCategoria.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dataGridCategoria.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
@@ -100,8 +99,8 @@
             // Nome
             // 
             this.Nome.DataPropertyName = "Nome";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle2;
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
@@ -110,9 +109,9 @@
             // ContabilizarNumeros
             // 
             this.ContabilizarNumeros.DataPropertyName = "ContabilizarNumeros";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.NullValue = "False";
-            this.ContabilizarNumeros.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "False";
+            this.ContabilizarNumeros.DefaultCellStyle = dataGridViewCellStyle3;
             this.ContabilizarNumeros.HeaderText = "Contabilizar Números";
             this.ContabilizarNumeros.Name = "ContabilizarNumeros";
             this.ContabilizarNumeros.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -133,6 +132,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCategoria";
+            this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Categoria";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;

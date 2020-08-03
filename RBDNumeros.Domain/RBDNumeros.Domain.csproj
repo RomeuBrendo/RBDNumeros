@@ -302,6 +302,7 @@
     <Compile Include="Commands\AdicionarAlterarSlaRequest.cs" />
     <Compile Include="Commands\AdicionarConfiguracaoPlanilhaRequest.cs" />
     <Compile Include="Commands\ImportarTicketRequest.cs" />
+    <Compile Include="Commands\SlaResponse.cs" />
     <Compile Include="Entities\Base\EntityBase.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Cliente.cs" />

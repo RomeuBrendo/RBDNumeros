@@ -1,4 +1,5 @@
-﻿using RBDNumeros.Domain.Interfaces.Services;
+﻿using RBDNumeros.Domain.Commands;
+using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
 using System;
 using System.Collections.Generic;
@@ -74,11 +75,14 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("G2","titulo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error);
+            var request = new AdicionarAlterarSlaRequest();
+            request.Dentro = TimeSpan.Parse(txtDentroSla.Text);
+            request.Acima20 = TimeSpan.Parse(txtAcima20.Text);
+            request.Estourado = TimeSpan.Parse(txtEstourado.Text);
 
-
-
-
+            _serviceSla.InserirAlterar(request);
+            _unitOfWork.SaveChanges();
+            MessageBox.Show("Salvo com Sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 

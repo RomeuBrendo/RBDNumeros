@@ -12,6 +12,6 @@ namespace RBDNumeros.Domain.Interfaces.Services
     public interface IServiceSla : IServiceBase
     {
         bool InserirAlterar(AdicionarAlterarSlaRequest adicionarAlterarSlaRequest);
-        Sla ObterRegistro();
+        SlaResponse ObterRegistro();
     }
 }
