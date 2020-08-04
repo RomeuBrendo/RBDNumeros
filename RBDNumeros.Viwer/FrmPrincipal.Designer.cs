@@ -39,8 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfiguracao = new System.Windows.Forms.Button();
             this.pnConfiguracao = new MetroFramework.Controls.MetroPanel();
-            this.btnTempoSla = new System.Windows.Forms.Button();
             this.btnConfPlanilha = new System.Windows.Forms.Button();
+            this.btnTempoSla = new System.Windows.Forms.Button();
             this.btnKpi = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.pnMovimentacao = new MetroFramework.Controls.MetroPanel();
@@ -51,6 +51,7 @@
             this.btnCadCategoria = new System.Windows.Forms.Button();
             this.btnCadImportarPlanilha = new System.Windows.Forms.Button();
             this.tmMenu = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.pnMenu.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -92,7 +93,7 @@
             this.pnMenu.HorizontalScrollbarBarColor = false;
             this.pnMenu.HorizontalScrollbarHighlightOnWheel = false;
             this.pnMenu.HorizontalScrollbarSize = 0;
-            this.pnMenu.Location = new System.Drawing.Point(0, 4);
+            this.pnMenu.Location = new System.Drawing.Point(-1, 1);
             this.pnMenu.MaximumSize = new System.Drawing.Size(321, 10000);
             this.pnMenu.MinimumSize = new System.Drawing.Size(321, 0);
             this.pnMenu.Name = "pnMenu";
@@ -153,9 +154,9 @@
             this.btnConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracao.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracao.ForeColor = System.Drawing.Color.White;
-            this.btnConfiguracao.Location = new System.Drawing.Point(-3, 364);
+            this.btnConfiguracao.Location = new System.Drawing.Point(0, 364);
             this.btnConfiguracao.Name = "btnConfiguracao";
-            this.btnConfiguracao.Size = new System.Drawing.Size(324, 36);
+            this.btnConfiguracao.Size = new System.Drawing.Size(318, 36);
             this.btnConfiguracao.TabIndex = 9;
             this.btnConfiguracao.Text = "CONFIGURAÇÕES";
             this.btnConfiguracao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,23 +178,6 @@
             this.pnConfiguracao.VerticalScrollbarHighlightOnWheel = false;
             this.pnConfiguracao.VerticalScrollbarSize = 10;
             // 
-            // btnTempoSla
-            // 
-            this.btnTempoSla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnTempoSla.FlatAppearance.BorderSize = 0;
-            this.btnTempoSla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTempoSla.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTempoSla.ForeColor = System.Drawing.Color.White;
-            this.btnTempoSla.Location = new System.Drawing.Point(-3, 34);
-            this.btnTempoSla.Name = "btnTempoSla";
-            this.btnTempoSla.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnTempoSla.Size = new System.Drawing.Size(324, 34);
-            this.btnTempoSla.TabIndex = 3;
-            this.btnTempoSla.Text = "TEMPO SLA";
-            this.btnTempoSla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTempoSla.UseVisualStyleBackColor = false;
-            this.btnTempoSla.Click += new System.EventHandler(this.btnTempoSla_Click);
-            // 
             // btnConfPlanilha
             // 
             this.btnConfPlanilha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -210,6 +194,23 @@
             this.btnConfPlanilha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfPlanilha.UseVisualStyleBackColor = false;
             this.btnConfPlanilha.Click += new System.EventHandler(this.btnConfPlanilha_Click);
+            // 
+            // btnTempoSla
+            // 
+            this.btnTempoSla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnTempoSla.FlatAppearance.BorderSize = 0;
+            this.btnTempoSla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTempoSla.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTempoSla.ForeColor = System.Drawing.Color.White;
+            this.btnTempoSla.Location = new System.Drawing.Point(-3, 34);
+            this.btnTempoSla.Name = "btnTempoSla";
+            this.btnTempoSla.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnTempoSla.Size = new System.Drawing.Size(324, 34);
+            this.btnTempoSla.TabIndex = 3;
+            this.btnTempoSla.Text = "TEMPO SLA";
+            this.btnTempoSla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTempoSla.UseVisualStyleBackColor = false;
+            this.btnTempoSla.Click += new System.EventHandler(this.btnTempoSla_Click);
             // 
             // btnKpi
             // 
@@ -365,12 +366,27 @@
             this.tmMenu.Interval = 1;
             this.tmMenu.Tick += new System.EventHandler(this.tmMenu_Tick);
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoEllipsis = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            this.label3.Location = new System.Drawing.Point(309, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(522, 341);
+            this.label3.TabIndex = 2;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1140, 728);
             this.Controls.Add(this.pnMenu);
+            this.Controls.Add(this.label3);
             this.Name = "FrmPrincipal";
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.TransparencyKey = System.Drawing.Color.Empty;
@@ -409,5 +425,6 @@
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private System.Windows.Forms.Label label2;
         public MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private System.Windows.Forms.Label label3;
     }
 }

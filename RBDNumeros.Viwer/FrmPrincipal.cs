@@ -27,7 +27,7 @@ namespace RBDNumeros.Viwer
 
     {
         int glb_PosicaoBotaoBase1, glb_PosicaoBotaoBase2;
-        int glb_TopCadastro, glb_TopMovimentacao, glb_TopRelatorio, glb_TopConfiguracao;
+        int glb_TopCadastro, glb_TopMovimentacao, glb_TopConfiguracao;
         bool glb_HideMenu;
 
         private IServiceTicket _serviceTicket;
@@ -64,7 +64,7 @@ namespace RBDNumeros.Viwer
 
             //CarregarGrafico(dtDe.Value, dtAte.Value);
 
-            this.StyleManager = metroStyleManager1;
+           // this.StyleManager = metroStyleManager1;
             pnMenu.Left = -272;
             
             glb_HideMenu = true;
@@ -101,7 +101,7 @@ namespace RBDNumeros.Viwer
             if (Painel.Name == "pnRelatorio")
             {
                 btnConfiguracao.Top = btnConfiguracao.Top;
-                Painel.Top = glb_TopRelatorio - pnMovimentacao.Height - pnCadastro.Height;
+                Painel.Top = pnMovimentacao.Height - pnCadastro.Height;
                 Painel.Visible = true;
             }
             if (Painel.Name == "pnConfiguracao")
@@ -200,6 +200,7 @@ namespace RBDNumeros.Viwer
             if (glb_HideMenu)
             {
                 pnMenu.Left += 16;
+                label3.Left += 16;
                 if (pnMenu.Left == 0)
                 {
                     glb_HideMenu = false;
@@ -210,6 +211,7 @@ namespace RBDNumeros.Viwer
             else
             {
                 pnMenu.Left -= 16;
+                label3.Left -= 16;
                 if (pnMenu.Left == -272)
                 {
                     glb_HideMenu = true;
@@ -246,6 +248,11 @@ namespace RBDNumeros.Viwer
         {
             var frmCategoria = new frmCategoria();
             AbrirFormulario<frmCategoria>();
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
 
         //private void dtAte_ValueChanged(object sender, EventArgs e)
