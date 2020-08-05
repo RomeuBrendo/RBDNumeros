@@ -47,6 +47,8 @@
             this.CBTecnico = new System.Windows.Forms.ComboBox();
             this.CBCarteira = new System.Windows.Forms.ComboBox();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.cbcTempoVida = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,27 +93,27 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(194, 265);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Data Resolvido";
+            this.label5.Text = "Data Resolvido:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(194, 302);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Tecnico";
+            this.label6.Text = "Tecnico:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(194, 340);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Carteira";
+            this.label7.Text = "Carteira:";
             // 
             // label8
             // 
@@ -127,7 +129,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(197, 389);
+            this.btnSalvar.Location = new System.Drawing.Point(197, 442);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(76, 23);
             this.btnSalvar.TabIndex = 7;
@@ -137,7 +139,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(357, 389);
+            this.btnCancelar.Location = new System.Drawing.Point(357, 442);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(76, 23);
             this.btnCancelar.TabIndex = 8;
@@ -402,11 +404,58 @@
             this.metroStyleManager1.Owner = null;
             this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Red;
             // 
+            // cbcTempoVida
+            // 
+            this.cbcTempoVida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbcTempoVida.FormattingEnabled = true;
+            this.cbcTempoVida.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbcTempoVida.Location = new System.Drawing.Point(357, 368);
+            this.cbcTempoVida.Name = "cbcTempoVida";
+            this.cbcTempoVida.Size = new System.Drawing.Size(76, 21);
+            this.cbcTempoVida.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(194, 376);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Tempo Vida Ticket:";
+            // 
             // frmConfiguracaoExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 442);
+            this.ClientSize = new System.Drawing.Size(640, 488);
+            this.Controls.Add(this.cbcTempoVida);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.CBCarteira);
             this.Controls.Add(this.CBTecnico);
             this.Controls.Add(this.CBDataResolvido);
@@ -453,5 +502,7 @@
         private System.Windows.Forms.ComboBox CBTecnico;
         private System.Windows.Forms.ComboBox CBCarteira;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private System.Windows.Forms.ComboBox cbcTempoVida;
+        private System.Windows.Forms.Label label9;
     }
 }

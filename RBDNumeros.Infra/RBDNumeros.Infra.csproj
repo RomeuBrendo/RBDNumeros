@@ -304,6 +304,14 @@
     <Compile Include="Migrations\20200802130202_InclusaoContabilizarNumeros.designer.cs">
       <DependentUpon>20200802130202_InclusaoContabilizarNumeros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200804235203_InclusaoTempoSLA.cs" />
+    <Compile Include="Migrations\20200804235203_InclusaoTempoSLA.designer.cs">
+      <DependentUpon>20200804235203_InclusaoTempoSLA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200805004908_AjusteTamanhoCampo.cs" />
+    <Compile Include="Migrations\20200805004908_AjusteTamanhoCampo.designer.cs">
+      <DependentUpon>20200805004908_AjusteTamanhoCampo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RBDNumerosContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\RepositoryBase.cs" />

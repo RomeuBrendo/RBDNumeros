@@ -11,7 +11,7 @@ namespace RBDNumeros.Domain.Entities
         {
 
         }
-        public Ticket(long numeroTicket, Cliente cliente, Categoria categoria, DateTime dataAberturaTicket, DateTime? dataResolvido, Tecnico tecnico)
+        public Ticket(long numeroTicket, Cliente cliente, Categoria categoria, DateTime dataAberturaTicket, DateTime? dataResolvido, Tecnico tecnico, TimeSpan tempoVida)
         {
             NumeroTicket = numeroTicket;
             Cliente = cliente;
@@ -20,6 +20,7 @@ namespace RBDNumeros.Domain.Entities
             DataResolvido = dataResolvido;
             Tecnico = tecnico;
             Carteira = tecnico.Carteira;
+            TempoVida = tempoVida;
 
             if (NumeroTicket < 1)
                 AddNotification("NumeroTicket", "Invalido");
@@ -39,5 +40,6 @@ namespace RBDNumeros.Domain.Entities
         public DateTime? DataResolvido { get; private set; }
         public Tecnico Tecnico { get; private set; }
         public EnumCarteira Carteira { get; private set; }
+        public TimeSpan TempoVida { get; private set; }
     }
 }

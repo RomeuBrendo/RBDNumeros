@@ -15,5 +15,6 @@ namespace RBDNumeros.Domain.Commands
         public char DataResolvido { get; set; }
         public char Tecnico { get; set; }
         public char Carteira { get; set; }
+        public char TempoVida { get; set; }
     }
 }

@@ -1,14 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
-using prmToolkit.NotificationPattern;
-using RBDNumeros.Domain.Commands;
-using RBDNumeros.Domain.Entities.Base;
-using System;
+﻿using RBDNumeros.Domain.Entities.Base;
 
 namespace RBDNumeros.Domain.Entities
 {
     public class ConfiguracaoPlanilha : EntityBase
     {
-        public ConfiguracaoPlanilha(char numeroTicket, char clienteNome, char categoria, char dataAberturaTicket, char dataResolvido, char tecnico, char carteira)
+        public ConfiguracaoPlanilha(char numeroTicket, char clienteNome, char categoria, char dataAberturaTicket, char dataResolvido, char tecnico, char carteira, char tempoVida)
         {
             NumeroTicket = numeroTicket;
             ClienteNome = clienteNome;
@@ -17,15 +13,7 @@ namespace RBDNumeros.Domain.Entities
             DataResolvido = dataResolvido;
             Tecnico = tecnico;
             Carteira = carteira;
-            
-            //new AddNotifications<ConfiguracaoPlanilha>(this)
-            //    .IfNullOrEmpty(x => x.NumeroTicket.ToString())
-            //    .IfNullOrEmpty(x => x.ClienteNome.ToString())
-            //    .IfNullOrEmpty(x => x.Carteira.ToString())
-            //    .IfNullOrEmpty(x => x.Categoria.ToString())
-            //    .IfNullOrEmpty(x => x.DataAberturaTicket.ToString())
-            //    .IfNullOrEmpty(x => x.DataResolvido.ToString())
-            //    .IfNullOrEmpty(x => x.Tecnico.ToString());
+            TempoVida = tempoVida;
         }
 
         protected ConfiguracaoPlanilha()
@@ -39,5 +27,6 @@ namespace RBDNumeros.Domain.Entities
         public char DataResolvido { get; private set; }
         public char Tecnico { get; private set; }
         public char Carteira { get; private set; }
+        public char TempoVida { get; private set; }
     }
 }

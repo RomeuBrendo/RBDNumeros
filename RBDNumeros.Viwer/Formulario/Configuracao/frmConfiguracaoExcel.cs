@@ -54,7 +54,8 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
                 CBDataAbertura.Text == "" || 
                 CBDataResolvido.Text == "" || 
                 CBTecnico.Text == "" || 
-                CBCarteira.Text == "")
+                CBCarteira.Text == "" ||
+                cbcTempoVida.Text == "")
               {
                  return false;
               } 
@@ -78,6 +79,7 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
                 confRequest.DataResolvido = char.Parse(CBDataResolvido.Text);
                 confRequest.Tecnico = char.Parse(CBTecnico.Text);
                 confRequest.Carteira = char.Parse(CBCarteira.Text);
+                confRequest.TempoVida = char.Parse(cbcTempoVida.Text);
 
                 _serviceConfiguracaoPlanilha.Adicionar(confRequest);
 

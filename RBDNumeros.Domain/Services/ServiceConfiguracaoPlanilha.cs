@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Math.EC.Rfc7748;
-using prmToolkit.NotificationPattern;
+﻿using prmToolkit.NotificationPattern;
 using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities;
 using RBDNumeros.Domain.Interfaces.Repositories;
@@ -25,7 +24,7 @@ namespace RBDNumeros.Domain.Services
                 if (confSalvo != null)
                     _repositoryConfiguracaoPlanilha.Remover(confSalvo);
 
-                var conf = new ConfiguracaoPlanilha(r.NumeroTicket, r.ClienteNome, r.Categoria, r.DataAberturaTicket, r.DataResolvido, r.Tecnico, r.Carteira);
+                var conf = new ConfiguracaoPlanilha(r.NumeroTicket, r.ClienteNome, r.Categoria, r.DataAberturaTicket, r.DataResolvido, r.Tecnico, r.Carteira, r.TempoVida);
 
                 _repositoryConfiguracaoPlanilha.Adicionar(conf);
 

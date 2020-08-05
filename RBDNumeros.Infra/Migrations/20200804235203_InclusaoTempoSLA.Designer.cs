@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RBDNumeros.Infra.Repositories;
 
 namespace RBDNumeros.Infra.Migrations
 {
     [DbContext(typeof(RBDNumerosContext))]
-    partial class RBDNumerosContextModelSnapshot : ModelSnapshot
+    [Migration("20200804235203_InclusaoTempoSLA")]
+    partial class InclusaoTempoSLA
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,9 +174,7 @@ namespace RBDNumeros.Infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<TimeSpan>("TempoVida")
-                        .HasColumnName("TempoVida")
-                        .HasColumnType("time(6)")
-                        .HasMaxLength(30);
+                        .HasColumnType("time(6)");
 
                     b.HasKey("Id");
 

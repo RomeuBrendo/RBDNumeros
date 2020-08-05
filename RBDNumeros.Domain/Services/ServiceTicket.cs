@@ -96,7 +96,9 @@ namespace RBDNumeros.Domain.Services
                 if (dataAbertura == null)
                     continue;
 
-                var ticketNovo = new Ticket(numeroTicket, cliente, categoria, dataAbertura, dataResolvido, tecnico);
+                var tempoVida = TimeSpan.Parse(ticket.TempoVida);
+
+                var ticketNovo = new Ticket(numeroTicket, cliente, categoria, dataAbertura, dataResolvido, tecnico, tempoVida);
 
                 AddNotifications(ticketNovo);
 
@@ -177,8 +179,14 @@ namespace RBDNumeros.Domain.Services
                     ticket.Categoria = planilha.Cell(conf.Categoria + linha.ToString()).Value.ToString().Trim();
                     ticket.DataAberturaTicket = planilha.Cell(conf.DataAberturaTicket + linha.ToString()).Value.ToString().Trim();
                     ticket.DataResolvido = planilha.Cell(conf.DataResolvido + linha.ToString()).Value.ToString().Trim();
+
+                    ticket.TempoVida = planilha.Cell(conf.TempoVida + linha.ToString()).Value.ToString();
+                    ticket.TempoVida = DateTime.Parse(ticket.TempoVida).ToLongTimeString();
+
                     ticket.Tecnico = planilha.Cell(conf.Tecnico + linha.ToString()).Value.ToString().Trim();
 
+                    
+             
                     if (ticket.Tecnico.Contains("A_"))
                         ticket.Carteira = 0;
                     else if (ticket.Tecnico.Contains("B_"))
@@ -194,11 +202,12 @@ namespace RBDNumeros.Domain.Services
                     linha++;
                 }
 
+                
 
                 return ImportarTickets(ListaTicket);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 AddNotification("Planilha", "Verifique se a mesma não se encontra aberta.");
                 return 0;

@@ -9,6 +9,7 @@
         public string DataResolvido { get; set; }
         public string Tecnico { get; set; }
         public int Carteira { get; set; }
+        public string TempoVida { get; set; }
     }
 }
 
