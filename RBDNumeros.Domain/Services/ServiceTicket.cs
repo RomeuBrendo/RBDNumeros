@@ -236,22 +236,18 @@ namespace RBDNumeros.Domain.Services
             switch (Carteira)
             {
                 case 0: return 5;
-                    break;
-
+                    
                 case 1: return 7;
-                    break;
-
+                
                 case 2:
                     return 23;
-                    break;
-
+                  
                 case 3:
                     return 4;
-                    break;
-
+                 
                 case 4:
                     return 1;
-                    break;
+                
             }
 
             return 0;

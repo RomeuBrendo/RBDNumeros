@@ -18,9 +18,10 @@ namespace RBDNumeros.Domain.Services
         private readonly IRepositoryTicket _repositoryTicket;
         private readonly IRepositorySla _repositorySla;
 
-        public ServiceKPI(IRepositoryTicket repositoryTicket)
+        public ServiceKPI(IRepositoryTicket repositoryTicket, IRepositorySla repositorySla)
         {
             _repositoryTicket = repositoryTicket;
+            _repositorySla = repositorySla;
         }
 
         public ChamadosPorCarteira ChamadosPorCarteira(DateTime dataInicio, DateTime dataFim)
@@ -56,20 +57,39 @@ namespace RBDNumeros.Domain.Services
             return new ChamadosPorCarteira(A, B, C, D, 0);
         }
 
-        //public List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim)
-        //{
-        //    var sla = _repositorySla.Listar().FirstOrDefault();
-        //    List<ChamadosPorSlaRequest> ChamadosLista = new List<ChamadosPorSlaRequest>();
+        public List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim)
+        {
+            var sla = _repositorySla.Listar().FirstOrDefault();
+            List<ChamadosPorSlaRequest> chamadosLista = new List<ChamadosPorSlaRequest>();
 
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        var total = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
-        //                                                a.DataAberturaTicket.Date <= dataFim.Date &&
-        //                                                a.Carteira == (EnumCarteira)i &&
-        //                                                a.Tecnico.ContabilizarNumeros &&
-        //                                                a.Categoria.ContabilizarNumeros &&
-        //                                                a.).Count();
-        //    }
-        //}
+            for (int i = 0; i < 4; i++)
+            {
+                var chamados = new ChamadosPorSlaRequest();
+                chamados.DentroSla = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+                                                        a.DataAberturaTicket.Date <= dataFim.Date &&
+                                                        a.Carteira == (EnumCarteira)i &&
+                                                        a.Tecnico.ContabilizarNumeros &&
+                                                        a.Categoria.ContabilizarNumeros &&
+                                                        a.TempoVida <= sla.Dentro).Count();
+
+                chamados.Acima20 = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+                                                        a.DataAberturaTicket.Date <= dataFim.Date &&
+                                                        a.Carteira == (EnumCarteira)i &&
+                                                        a.Tecnico.ContabilizarNumeros &&
+                                                        a.Categoria.ContabilizarNumeros &&
+                                                        a.TempoVida >= sla.Acima20 && a.TempoVida < sla.Estourado).Count();
+
+                chamados.Estourado = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+                                                        a.DataAberturaTicket.Date <= dataFim.Date &&
+                                                        a.Carteira == (EnumCarteira)i &&
+                                                        a.Tecnico.ContabilizarNumeros &&
+                                                        a.Categoria.ContabilizarNumeros &&
+                                                        a.TempoVida >= sla.Estourado).Count();
+
+                chamadosLista.Add(chamados);
+            }
+
+            return chamadosLista;
+        }
     }
 }
