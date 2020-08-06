@@ -293,6 +293,7 @@
             this.btnKpiChamadPorSla.Text = "CHAMADOS POR SLA";
             this.btnKpiChamadPorSla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnKpiChamadPorSla.UseVisualStyleBackColor = false;
+            this.btnKpiChamadPorSla.Click += new System.EventHandler(this.btnKpiChamadPorSla_Click);
             // 
             // pnCadastro
             // 

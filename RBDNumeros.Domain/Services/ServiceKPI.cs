@@ -65,6 +65,7 @@ namespace RBDNumeros.Domain.Services
             for (int i = 0; i < 4; i++)
             {
                 var chamados = new ChamadosPorSlaRequest();
+
                 chamados.DentroSla = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&
                                                         a.Carteira == (EnumCarteira)i &&
@@ -77,7 +78,7 @@ namespace RBDNumeros.Domain.Services
                                                         a.Carteira == (EnumCarteira)i &&
                                                         a.Tecnico.ContabilizarNumeros &&
                                                         a.Categoria.ContabilizarNumeros &&
-                                                        a.TempoVida >= sla.Acima20 && a.TempoVida < sla.Estourado).Count();
+                                                        a.TempoVida > sla.Dentro && a.TempoVida < sla.Estourado).Count();
 
                 chamados.Estourado = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&

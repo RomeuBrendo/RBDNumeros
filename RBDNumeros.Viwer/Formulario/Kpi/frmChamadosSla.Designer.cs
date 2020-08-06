@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtAte = new System.Windows.Forms.DateTimePicker();
             this.dtDe = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -53,12 +52,11 @@
             this.metroPanel1.Controls.Add(this.lblLineGraphic);
             this.metroPanel1.Controls.Add(this.lblGraphicPizza);
             this.metroPanel1.Controls.Add(this.lblGraphicColumn);
+            this.metroPanel1.Controls.Add(this.chart1);
             this.metroPanel1.Controls.Add(this.lblRefresh);
             this.metroPanel1.Controls.Add(this.label4);
             this.metroPanel1.Controls.Add(this.dtAte);
             this.metroPanel1.Controls.Add(this.dtDe);
-            this.metroPanel1.Controls.Add(this.label3);
-            this.metroPanel1.Controls.Add(this.chart1);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
@@ -79,6 +77,7 @@
             this.lblLineGraphic.Name = "lblLineGraphic";
             this.lblLineGraphic.Size = new System.Drawing.Size(60, 58);
             this.lblLineGraphic.TabIndex = 18;
+            this.lblLineGraphic.Click += new System.EventHandler(this.lblLineGraphic_Click);
             // 
             // lblGraphicPizza
             // 
@@ -89,6 +88,7 @@
             this.lblGraphicPizza.Name = "lblGraphicPizza";
             this.lblGraphicPizza.Size = new System.Drawing.Size(63, 58);
             this.lblGraphicPizza.TabIndex = 17;
+            this.lblGraphicPizza.Click += new System.EventHandler(this.lblGraphicPizza_Click);
             // 
             // lblGraphicColumn
             // 
@@ -99,59 +99,50 @@
             this.lblGraphicColumn.Name = "lblGraphicColumn";
             this.lblGraphicColumn.Size = new System.Drawing.Size(63, 58);
             this.lblGraphicColumn.TabIndex = 16;
+            this.lblGraphicColumn.Click += new System.EventHandler(this.lblGraphicColumn_Click);
             // 
             // lblRefresh
             // 
             this.lblRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRefresh.Image = ((System.Drawing.Image)(resources.GetObject("lblRefresh.Image")));
-            this.lblRefresh.Location = new System.Drawing.Point(332, 73);
+            this.lblRefresh.Location = new System.Drawing.Point(383, 21);
             this.lblRefresh.Name = "lblRefresh";
-            this.lblRefresh.Size = new System.Drawing.Size(39, 35);
+            this.lblRefresh.Size = new System.Drawing.Size(39, 38);
             this.lblRefresh.TabIndex = 15;
             this.lblRefresh.Visible = false;
+            this.lblRefresh.Click += new System.EventHandler(this.lblRefresh_Click);
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(162, 85);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(230, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 14);
+            this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "até";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dtAte
             // 
-            this.dtAte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtAte.Location = new System.Drawing.Point(209, 79);
+            this.dtAte.Location = new System.Drawing.Point(263, 31);
             this.dtAte.MaximumSize = new System.Drawing.Size(98, 20);
             this.dtAte.MinimumSize = new System.Drawing.Size(98, 20);
             this.dtAte.Name = "dtAte";
             this.dtAte.Size = new System.Drawing.Size(98, 20);
             this.dtAte.TabIndex = 13;
+            this.dtAte.ValueChanged += new System.EventHandler(this.dtAte_ValueChanged);
             // 
             // dtDe
             // 
-            this.dtDe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDe.Location = new System.Drawing.Point(58, 79);
+            this.dtDe.Location = new System.Drawing.Point(122, 31);
             this.dtDe.MaximumSize = new System.Drawing.Size(98, 20);
             this.dtDe.MinimumSize = new System.Drawing.Size(98, 20);
             this.dtDe.Name = "dtDe";
             this.dtDe.Size = new System.Drawing.Size(98, 20);
             this.dtDe.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, -3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(626, 39);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Relação de chamados abertos no periodo";
+            this.dtDe.ValueChanged += new System.EventHandler(this.dtDe_ValueChanged);
             // 
             // chart1
             // 
@@ -161,18 +152,19 @@
             this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.HorizontalCenter;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(58, 102);
+            this.chart1.Location = new System.Drawing.Point(58, 62);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(17)))), ((int)(((byte)(49))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(17)))), ((int)(((byte)(49))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(17)))), ((int)(((byte)(49))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(17)))), ((int)(((byte)(49)))))};
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(17)))), ((int)(((byte)(49))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(17)))), ((int)(((byte)(49))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(17)))), ((int)(((byte)(49))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(17)))), ((int)(((byte)(49)))))};
             series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(758, 452);
+            this.chart1.Size = new System.Drawing.Size(758, 457);
             this.chart1.TabIndex = 10;
             // 
             // frmChamadosSla
@@ -183,7 +175,7 @@
             this.Controls.Add(this.metroPanel1);
             this.Name = "frmChamadosSla";
             this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Text = "Chamados por SLA";
+            this.Text = "Relação de chamados por SLA";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -202,7 +194,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtAte;
         private System.Windows.Forms.DateTimePicker dtDe;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

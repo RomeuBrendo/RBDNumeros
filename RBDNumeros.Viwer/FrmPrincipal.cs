@@ -8,6 +8,7 @@ using RBDNumeros.Viwer.Formulario.Barra;
 using RBDNumeros.Viwer.Formulario.Categoria;
 using RBDNumeros.Viwer.Formulario.Configuracao;
 using RBDNumeros.Viwer.Formulario.Tecnico;
+using RBDNumeros.Viwer.Formulario.Kpi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RBDNumeros.Viwer
 {
@@ -31,14 +31,13 @@ namespace RBDNumeros.Viwer
         bool glb_HideMenu;
 
         private IServiceTicket _serviceTicket;
-        private IServiceKPI _serviceKPI;
+
 
         private IUnitOfWork _unitOfWork;
         frmBarraProgresso frmBarra = new frmBarraProgresso();
         void ConsultarDepedencias()
         {
             _serviceTicket = (IServiceTicket)Program.ServiceProvider.GetService(typeof(IServiceTicket));
-            _serviceKPI = (IServiceKPI)Program.ServiceProvider.GetService(typeof(IServiceKPI));
             _unitOfWork = (IUnitOfWork)Program.ServiceProvider.GetService(typeof(IUnitOfWork));
         }
 
@@ -56,15 +55,8 @@ namespace RBDNumeros.Viwer
 
             HideAllMenu();
 
-            //dtAte.Value = DateTime.Now;
-            //dtDe.Value = DateTime.Now.AddDays(-7);
 
-            //chart1.Series.Clear();
-            //chart1.Series.Add("Carteiras");
-
-            //CarregarGrafico(dtDe.Value, dtAte.Value);
-
-           // this.StyleManager = metroStyleManager1;
+            this.StyleManager = metroStyleManager1;
             pnMenu.Left = -272;
             
             glb_HideMenu = true;
@@ -143,12 +135,14 @@ namespace RBDNumeros.Viwer
 
         private void btnConfPlanilha_Click(object sender, EventArgs e)
         {
-            var frmConf = new frmConfiguracaoExcel();
-            //frmConf.MdiParent = this;
-           // frmConf.Show();
-            frmConf.ShowInTaskbar = false;
-            frmConf.StartPosition = FormStartPosition.CenterParent;
-            DialogResult result = frmConf.ShowDialog(FrmPrincipal.ActiveForm);
+           // var frmConf = new frmConfiguracaoExcel();
+           // //frmConf.MdiParent = this;
+           //// frmConf.Show();
+           // frmConf.ShowInTaskbar = false;
+           // frmConf.StartPosition = FormStartPosition.CenterParent;
+           // DialogResult result = frmConf.ShowDialog(FrmPrincipal.ActiveForm);
+
+            AbrirFormulario< frmConfiguracaoExcel>();
         }
 
         private void btnCadImportarPlanilha_Click(object sender, EventArgs e)
@@ -182,7 +176,6 @@ namespace RBDNumeros.Viwer
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Erro ao realizar importação." + ex);
             }
         }
@@ -190,8 +183,6 @@ namespace RBDNumeros.Viwer
 
         private void btnCadTecnicos_Click(object sender, EventArgs e)
         {
-            var frmTecnico = new frmTecnico();
-
             AbrirFormulario<frmTecnico>();
         }
 
@@ -224,8 +215,6 @@ namespace RBDNumeros.Viwer
 
         private void btnTempoSla_Click(object sender, EventArgs e)
         {
-            var frmTempoSLA = new frmTempoSla();
-
             AbrirFormulario<frmTempoSla>();
         }
 
@@ -246,7 +235,6 @@ namespace RBDNumeros.Viwer
 
         private void btnCadCategoria_Click(object sender, EventArgs e)
         {
-            var frmCategoria = new frmCategoria();
             AbrirFormulario<frmCategoria>();
         }
 
@@ -255,45 +243,14 @@ namespace RBDNumeros.Viwer
 
         }
 
-        //private void dtAte_ValueChanged(object sender, EventArgs e)
-        //{
-        //    lblRefresh.Visible = true;
-        //}
-
-        //private void dtDe_ValueChanged(object sender, EventArgs e)
-        //{
-        //    lblRefresh.Visible = true;
-        //}
-
-        //private void label5_Click(object sender, EventArgs e)
-        //{
-        //    CarregarGrafico(dtDe.Value, dtAte.Value);
-        //}
-
-        //private void lblGraphicPizza_Click(object sender, EventArgs e)
-        //{
-        //    ValoresNoGrafico(false);
-
-        //    chart1.Series[0].ChartType = SeriesChartType.Pie;
-
-        //}
-
-        //private void lblGraphicColumn_Click(object sender, EventArgs e)
-        //{
-        //    ValoresNoGrafico(true);
-
-        //    chart1.Series[0].ChartType = SeriesChartType.Column;
-        //}
-
-        //private void lblLineGraphic_Click(object sender, EventArgs e)
-        //{
-        //    ValoresNoGrafico(true);
-        //    chart1.Series[0].ChartType = SeriesChartType.Line;
-        //}
-
         private void btnMovimentacao_Click(object sender, EventArgs e)
         {
             ShowSubMenu(pnMovimentacao);
+        }
+
+        private void btnKpiChamadPorSla_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmChamadosSla>();
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)
@@ -309,50 +266,11 @@ namespace RBDNumeros.Viwer
         private void AbrirFormulario<teste>() where teste : Form, new()
         {
             Form frmForm = new teste();
-            //frmConf.MdiParent = this;
-            // frmConf.Show();
             frmForm.ShowInTaskbar = false;
             frmForm.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
         
-        //private void CarregarGrafico(DateTime de, DateTime ate)
-        //{
-
-        //    var cat = _serviceKPI.ChamadosPorCarteira(de, ate);
-
-        //   int CarteiraA = cat.A;
-        //   int CarteiraB = cat.B;
-        //   int CarteiraC = cat.C;
-        //   int CarteiraD = cat.D;
-
-        //   string[] series = { "Carteira A", "Carteira B", "Carteira C", "Carteira D" };
-        //   int[] pontos = { CarteiraA, CarteiraB, CarteiraC, CarteiraD };
-
-        //    chart1.Series["Carteiras"].Points.Clear();
-
-
-        //    for (int i = 0; i < series.Length; i++)
-        //    {
-
-        //        chart1.Series["Carteiras"].Points.AddXY(series[i], pontos[i]);
-        //        chart1.Series["Carteiras"].Points[i].IsValueShownAsLabel = true;
-
-
-        //    }
-
-        //    this.Refresh();
-
-        //    lblRefresh.Visible = false;
-
-        //}
-
-        //public void ValoresNoGrafico(Boolean Status)
-        //{
-        //    chart1.Series["Carteiras"].Points[0].IsValueShownAsLabel = Status;
-        //    chart1.Series["Carteiras"].Points[1].IsValueShownAsLabel = Status;
-        //    chart1.Series["Carteiras"].Points[2].IsValueShownAsLabel = Status;
-        //    chart1.Series["Carteiras"].Points[3].IsValueShownAsLabel = Status;
-        //}
+      
     }
 }
