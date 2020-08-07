@@ -162,6 +162,9 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             chart1.Series["Dentro SLA"].Points.Clear();
             chart1.Series["SLA +20"].Points.Clear();
             chart1.Series["Acima SLA"].Points.Clear();
+            
+            DataGridDados.Rows.Clear();
+            
 
             foreach (var Item in cat)
             {
@@ -169,11 +172,17 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
                 chart1.Series["Dentro SLA"].Points.AddXY(Carteiras[contador], Item.DentroSla.ToString());
                 chart1.Series["SLA +20"].Points.AddXY(Carteiras[contador], Item.Acima20.ToString());
                 chart1.Series["Acima SLA"].Points.AddXY(Carteiras[contador], Item.Estourado.ToString());
+                DataGridDados.Rows.Add(Carteiras[contador], Item.DentroSla.ToString(), Item.Acima20.ToString(), Item.Estourado.ToString());
+
                 contador++;
 
             }
 
+            DataGridDados.ClearSelection();
+
             this.Refresh();
+
+            
 
             lblRefresh.Visible = false;
         }
@@ -184,7 +193,6 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
         private void lblGraphicColumn_Click(object sender, EventArgs e)
         {
-            ValoresNoGrafico(true);
 
             if (glb_TemChartAreas)
                 RemoverChartAreas();
@@ -198,7 +206,6 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
         private void lblGraphicPizza_Click(object sender, EventArgs e)
         {
-            ValoresNoGrafico(false);
 
             if (!glb_TemChartAreas)
                 AdcionarChartAreas();
@@ -216,7 +223,6 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
        
         private void lblLineGraphic_Click(object sender, EventArgs e)
         {
-            ValoresNoGrafico(true);
 
             if (!glb_TemChartAreas)
                 AdcionarChartAreas();
@@ -229,13 +235,6 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             chart1.Series[1].ChartType = SeriesChartType.Line;
             chart1.Series[2].ChartType = SeriesChartType.Line;
             
-        }
-
-        public void ValoresNoGrafico(Boolean Status)
-        {
-            //chart1.Series[0].Points[0].IsValueShownAsLabel = Status;
-            //chart1.Series[1].Points[1].IsValueShownAsLabel = Status;
-            //chart1.Series[2].Points[2].IsValueShownAsLabel = Status;
         }
 
         private void lblRefresh_Click(object sender, EventArgs e)
@@ -251,6 +250,20 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
         private void dtAte_ValueChanged(object sender, EventArgs e)
         {
             lblRefresh.Visible = true;
+        }
+
+        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!panel1.Visible && metroCheckBox1.Checked)
+            {
+                panel1.Visible = true;
+            }else if (panel1.Visible && !metroCheckBox1.Checked)
+            {
+                panel1.Visible = false;
+            }
+
+
+
         }
     }
 }
