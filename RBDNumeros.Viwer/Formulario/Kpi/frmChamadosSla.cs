@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms.DataVisualization.Charting;
 using RBDNumeros.Domain.Interfaces.Services;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 namespace RBDNumeros.Viwer.Formulario.Kpi
 {
@@ -155,9 +156,14 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
         private void CarregarGrafico(DateTime de, DateTime ate)
         {
-            String[] Carteiras = { "Carteira A", "Carteira B", "Carteira C", "Carteira D" };
+            String[] Carteiras = { "Carteira A", "Carteira B", "Carteira C", "Carteira D"};
             int contador = 0;
             var cat = _serviceKPI.ChamadosPorSla(de.Date, ate.Date);
+            double TotalDentro, TotalSla20, TotalEstourado;
+
+            TotalDentro = 0;
+            TotalSla20 = 0;
+            TotalEstourado = 0;
 
             chart1.Series["Dentro SLA"].Points.Clear();
             chart1.Series["SLA +20"].Points.Clear();
@@ -165,7 +171,6 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             
             DataGridDados.Rows.Clear();
             
-
             foreach (var Item in cat)
             {
 
@@ -174,10 +179,17 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
                 chart1.Series["Acima SLA"].Points.AddXY(Carteiras[contador], Item.Estourado.ToString());
                 DataGridDados.Rows.Add(Carteiras[contador], Item.DentroSla.ToString(), Item.Acima20.ToString(), Item.Estourado.ToString());
 
+                TotalDentro += Double.Parse(Item.DentroSla.ToString());
+                TotalSla20 += Double.Parse(Item.Acima20.ToString());
+                TotalEstourado += Double.Parse(Item.Estourado.ToString());
+
                 contador++;
 
             }
 
+            DataGridDados.Rows.Add("");
+
+            DataGridDados.Rows.Add("Total", TotalDentro.ToString(), TotalSla20.ToString(), TotalEstourado.ToString());
             DataGridDados.ClearSelection();
 
             this.Refresh();
