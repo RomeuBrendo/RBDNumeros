@@ -36,8 +36,13 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DataGridDados = new MetroFramework.Controls.MetroGrid();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDentroSla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSla20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEstourado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblLineGraphic = new System.Windows.Forms.Label();
             this.lblGraphicPizza = new System.Windows.Forms.Label();
             this.lblGraphicColumn = new System.Windows.Forms.Label();
@@ -46,11 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dtAte = new System.Windows.Forms.DateTimePicker();
             this.dtDe = new System.Windows.Forms.DateTimePicker();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDentroSla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSla20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEstourado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.metroPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridDados)).BeginInit();
@@ -83,6 +83,19 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(81, 718);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(124, 15);
+            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroCheckBox1.TabIndex = 21;
+            this.metroCheckBox1.Text = "Visualizar Numeros";
+            this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -105,7 +118,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridDados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -119,7 +132,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridDados.DefaultCellStyle = dataGridViewCellStyle2;
@@ -136,7 +149,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridDados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
@@ -157,6 +170,34 @@
             this.DataGridDados.Style = MetroFramework.MetroColorStyle.Red;
             this.DataGridDados.TabIndex = 0;
             this.DataGridDados.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // Column1
+            // 
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // ColumnDentroSla
+            // 
+            this.ColumnDentroSla.Frozen = true;
+            this.ColumnDentroSla.HeaderText = "DentroSla";
+            this.ColumnDentroSla.Name = "ColumnDentroSla";
+            this.ColumnDentroSla.ReadOnly = true;
+            // 
+            // ColumnSla20
+            // 
+            this.ColumnSla20.Frozen = true;
+            this.ColumnSla20.HeaderText = "SLA +20";
+            this.ColumnSla20.Name = "ColumnSla20";
+            this.ColumnSla20.ReadOnly = true;
+            // 
+            // ColumnEstourado
+            // 
+            this.ColumnEstourado.Frozen = true;
+            this.ColumnEstourado.HeaderText = "Acima SLA";
+            this.ColumnEstourado.Name = "ColumnEstourado";
+            this.ColumnEstourado.ReadOnly = true;
             // 
             // lblLineGraphic
             // 
@@ -257,53 +298,13 @@
             this.dtDe.TabIndex = 12;
             this.dtDe.ValueChanged += new System.EventHandler(this.dtDe_ValueChanged);
             // 
-            // Column1
-            // 
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // ColumnDentroSla
-            // 
-            this.ColumnDentroSla.Frozen = true;
-            this.ColumnDentroSla.HeaderText = "DentroSla";
-            this.ColumnDentroSla.Name = "ColumnDentroSla";
-            this.ColumnDentroSla.ReadOnly = true;
-            // 
-            // ColumnSla20
-            // 
-            this.ColumnSla20.Frozen = true;
-            this.ColumnSla20.HeaderText = "SLA +20";
-            this.ColumnSla20.Name = "ColumnSla20";
-            this.ColumnSla20.ReadOnly = true;
-            // 
-            // ColumnEstourado
-            // 
-            this.ColumnEstourado.Frozen = true;
-            this.ColumnEstourado.HeaderText = "Acima SLA";
-            this.ColumnEstourado.Name = "ColumnEstourado";
-            this.ColumnEstourado.ReadOnly = true;
-            // 
-            // metroCheckBox1
-            // 
-            this.metroCheckBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(81, 718);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(124, 15);
-            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroCheckBox1.TabIndex = 21;
-            this.metroCheckBox1.Text = "Visualizar Numeros";
-            this.metroCheckBox1.UseSelectable = true;
-            this.metroCheckBox1.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
-            // 
             // frmChamadosSla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1251, 813);
             this.Controls.Add(this.metroPanel1);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1024, 720);
             this.Name = "frmChamadosSla";
             this.Resizable = false;

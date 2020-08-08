@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer.Formulario.Tecnico
 {
-    public partial class frmTecnico : Form
+    public partial class frmTecnico : MetroFramework.Forms.MetroForm
     {
         private IServiceTecnico _serviceTicket;
         private IUnitOfWork _unitOfWork;
@@ -12,6 +12,7 @@ namespace RBDNumeros.Viwer.Formulario.Tecnico
         {
             InitializeComponent();
             ConsultarDepedencias();
+            this.StyleManager = metroStyleManager1;
             dataGridTecnico.AutoGenerateColumns = false;
             AtualizaGrid();
         }
@@ -37,6 +38,11 @@ namespace RBDNumeros.Viwer.Formulario.Tecnico
         {
             _unitOfWork.SaveChanges();
             MessageBox.Show("Alterações realizada com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, System.EventArgs e)
+        {
             this.Close();
         }
     }

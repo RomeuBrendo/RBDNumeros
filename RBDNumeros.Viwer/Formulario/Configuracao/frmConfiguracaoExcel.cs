@@ -111,6 +111,7 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
                 CBDataResolvido.Text = conf.DataResolvido.ToString();
                 CBTecnico.Text = conf.Tecnico.ToString();
                 CBCarteira.Text = conf.Carteira.ToString();
+                cbcTempoVida.Text = conf.TempoVida.ToString();
 
             }
         }
