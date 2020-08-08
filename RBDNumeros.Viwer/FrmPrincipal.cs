@@ -149,7 +149,12 @@ namespace RBDNumeros.Viwer
         {
             try
             {
+
                 this.openFileCsv.ShowDialog();
+
+                if (this.openFileCsv.FileName.Equals(""))
+                    return;
+
                 Thread t1 = new Thread(new ThreadStart(run));
                 t1.Name = "Secundária";
 
