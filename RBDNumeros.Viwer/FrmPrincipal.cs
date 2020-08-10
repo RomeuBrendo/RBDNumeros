@@ -255,7 +255,8 @@ namespace RBDNumeros.Viwer
 
         private void btnKpiChamadPorSla_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frmChamadosSla>();
+            //   AbrirFormulario<frmChamadosSla>();
+            AbrirFormulario<frmChamadoSlaV2>();
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)
@@ -272,10 +273,11 @@ namespace RBDNumeros.Viwer
         {
             Form frmForm = new teste();
             frmForm.ShowInTaskbar = false;
-            frmForm.StartPosition = FormStartPosition.CenterParent;
+           // frmForm.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
-        
-      
+
+
+
     }
 }

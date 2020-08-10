@@ -60,12 +60,16 @@ namespace RBDNumeros.Domain.Services
         public List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim)
         {
             var sla = _repositorySla.Listar().FirstOrDefault();
+            var chamadosTotal = new ChamadosPorSlaRequest();
+
             List<ChamadosPorSlaRequest> chamadosLista = new List<ChamadosPorSlaRequest>();
 
             for (int i = 0; i < 4; i++)
             {
                 var chamados = new ChamadosPorSlaRequest();
 
+                EnumCarteira enumCarteira = (EnumCarteira)i;
+                chamados.Carteira = enumCarteira.ToString();
                 chamados.DentroSla = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&
                                                         a.Carteira == (EnumCarteira)i &&
@@ -86,9 +90,16 @@ namespace RBDNumeros.Domain.Services
                                                         a.Tecnico.ContabilizarNumeros &&
                                                         a.Categoria.ContabilizarNumeros &&
                                                         a.TempoVida >= sla.Estourado).Count();
+                
+                chamadosTotal.DentroSla += chamados.DentroSla;
+                chamadosTotal.Acima20 += chamados.Acima20;
+                chamadosTotal.Estourado += chamados.Estourado;
 
                 chamadosLista.Add(chamados);
             }
+            
+            chamadosTotal.Carteira = "Total";
+            chamadosLista.Add(chamadosTotal);
 
             return chamadosLista;
         }
