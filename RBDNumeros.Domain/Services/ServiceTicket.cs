@@ -66,6 +66,13 @@ namespace RBDNumeros.Domain.Services
                 if (!Int64.TryParse(ticket.NumeroTicket, out var numeroTicket))
                     continue;
 
+                var ticketBanco = _repositoryTicket.ObterPor(x => x.NumeroTicket == Convert.ToInt64(ticket.NumeroTicket));
+
+                if (ticketBanco != null)
+                {
+                    _repositoryTicket.Remover(ticketBanco);
+                }
+
                 var cliente = clientes.FirstOrDefault(x => x.Nome == ticket.ClienteNome && x.Carteira == (EnumCarteira)ticket.Carteira);
 
                 if (cliente == null)
