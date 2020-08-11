@@ -45,5 +45,14 @@ namespace RBDNumeros.Viwer.Formulario.Tecnico
         {
             this.Close();
         }
+
+        private void frmTecnico_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                btnSalvar.PerformClick();
+        }
     }
 }

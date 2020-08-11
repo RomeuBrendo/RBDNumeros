@@ -57,6 +57,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTecnico_PreviewKeyDown);
             // 
             // btnSalvar
             // 
@@ -67,6 +68,7 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTecnico_PreviewKeyDown);
             // 
             // txtPesquisar
             // 
@@ -74,6 +76,7 @@
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(361, 20);
             this.txtPesquisar.TabIndex = 8;
+            this.txtPesquisar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTecnico_PreviewKeyDown);
             // 
             // lblPesquisa
             // 
@@ -137,6 +140,7 @@
             this.dataGridTecnico.ShowEditingIcon = false;
             this.dataGridTecnico.Size = new System.Drawing.Size(404, 338);
             this.dataGridTecnico.TabIndex = 6;
+            this.dataGridTecnico.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTecnico_PreviewKeyDown);
             // 
             // Nome
             // 
@@ -183,6 +187,7 @@
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.lblPesquisa);
             this.Controls.Add(this.dataGridTecnico);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmTecnico";
@@ -190,6 +195,7 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Cadastro Técnico";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTecnico_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTecnico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
