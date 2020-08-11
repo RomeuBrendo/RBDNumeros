@@ -1,4 +1,5 @@
-﻿using RBDNumeros.Domain.Interfaces.Services;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
 using System.Windows.Forms;
 
@@ -53,6 +54,12 @@ namespace RBDNumeros.Viwer.Formulario.Tecnico
 
             if (e.KeyCode == Keys.F4)
                 btnSalvar.PerformClick();
+        }
+
+        private void dataGridTecnico_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+                e.Handled = true;
         }
     }
 }

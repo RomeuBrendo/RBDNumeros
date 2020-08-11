@@ -140,6 +140,7 @@
             this.dataGridTecnico.ShowEditingIcon = false;
             this.dataGridTecnico.Size = new System.Drawing.Size(404, 338);
             this.dataGridTecnico.TabIndex = 6;
+            this.dataGridTecnico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridTecnico_KeyDown);
             this.dataGridTecnico.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTecnico_PreviewKeyDown);
             // 
             // Nome
