@@ -69,5 +69,10 @@ namespace RBDNumeros.Viwer.Formulario.Categoria
                 AtualizaGrid("");
         }
 
+        private void dataGridCategoria_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+                e.Handled = true;
+        }
     }
 }
