@@ -36,6 +36,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // reportViewerChamadosPorSla
@@ -44,11 +47,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewerChamadosPorSla.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reportViewerChamadosPorSla.CausesValidation = false;
             this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportChamadoSla.rdlc";
-            this.reportViewerChamadosPorSla.Location = new System.Drawing.Point(18, 112);
+            this.reportViewerChamadosPorSla.LocalReport.ReportPath = "";
+            this.reportViewerChamadosPorSla.Location = new System.Drawing.Point(18, 126);
             this.reportViewerChamadosPorSla.Name = "reportViewerChamadosPorSla";
             this.reportViewerChamadosPorSla.ServerReport.BearerToken = null;
-            this.reportViewerChamadosPorSla.Size = new System.Drawing.Size(924, 461);
+            this.reportViewerChamadosPorSla.ShowToolBar = false;
+            this.reportViewerChamadosPorSla.Size = new System.Drawing.Size(764, 622);
             this.reportViewerChamadosPorSla.TabIndex = 0;
             this.reportViewerChamadosPorSla.Visible = false;
             // 
@@ -56,7 +62,7 @@
             // 
             this.lblRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRefresh.Image = ((System.Drawing.Image)(resources.GetObject("lblRefresh.Image")));
-            this.lblRefresh.Location = new System.Drawing.Point(284, 53);
+            this.lblRefresh.Location = new System.Drawing.Point(307, 88);
             this.lblRefresh.Name = "lblRefresh";
             this.lblRefresh.Size = new System.Drawing.Size(39, 38);
             this.lblRefresh.TabIndex = 19;
@@ -65,7 +71,7 @@
             // DataFim
             // 
             this.DataFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DataFim.Location = new System.Drawing.Point(170, 63);
+            this.DataFim.Location = new System.Drawing.Point(193, 98);
             this.DataFim.MaximumSize = new System.Drawing.Size(98, 20);
             this.DataFim.MinimumSize = new System.Drawing.Size(98, 20);
             this.DataFim.Name = "DataFim";
@@ -75,7 +81,7 @@
             // DataInicio
             // 
             this.DataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DataInicio.Location = new System.Drawing.Point(18, 63);
+            this.DataInicio.Location = new System.Drawing.Point(41, 98);
             this.DataInicio.MaximumSize = new System.Drawing.Size(98, 20);
             this.DataInicio.MinimumSize = new System.Drawing.Size(98, 20);
             this.DataInicio.Name = "DataInicio";
@@ -85,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(132, 69);
+            this.label4.Location = new System.Drawing.Point(155, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 20;
@@ -94,25 +100,55 @@
             // 
             // label1
             // 
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(948, 222);
+            this.label1.Location = new System.Drawing.Point(760, 272);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 55);
             this.label1.TabIndex = 21;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(948, 288);
+            this.label2.Location = new System.Drawing.Point(760, 462);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 55);
             this.label2.TabIndex = 22;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            this.label3.Location = new System.Drawing.Point(760, 557);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 55);
+            this.label3.TabIndex = 23;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label5
+            // 
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
+            this.label5.Location = new System.Drawing.Point(760, 367);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 55);
+            this.label5.TabIndex = 24;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // frmChamadoSlaV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 670);
+            this.ClientSize = new System.Drawing.Size(851, 752);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -144,5 +180,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label label5;
     }
 }

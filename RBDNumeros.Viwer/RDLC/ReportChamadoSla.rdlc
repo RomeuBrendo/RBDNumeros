@@ -49,7 +49,7 @@
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Carteira">
+                  <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
                       <GroupExpression>=Fields!Carteira.Value</GroupExpression>
                     </GroupExpressions>
@@ -95,7 +95,6 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Subtype>Stacked</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -106,6 +105,12 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <CustomProperties>
+                    <CustomProperty>
+                      <Name>DrawingStyle</Name>
+                      <Value>Cylinder</Value>
+                    </CustomProperty>
+                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -130,7 +135,6 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Subtype>Stacked</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -141,6 +145,12 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <CustomProperties>
+                    <CustomProperty>
+                      <Name>DrawingStyle</Name>
+                      <Value>Cylinder</Value>
+                    </CustomProperty>
+                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -165,7 +175,6 @@
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Subtype>Stacked</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -176,6 +185,12 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <CustomProperties>
+                    <CustomProperty>
+                      <Name>DrawingStyle</Name>
+                      <Value>Cylinder</Value>
+                    </CustomProperty>
+                  </CustomProperties>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -411,6 +426,10 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
+                <ChartThreeDProperties>
+                  <Enabled>true</Enabled>
+                  <Clustered>true</Clustered>
+                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>#00ffffff</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -455,8 +474,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetChamadoPorSla</DataSetName>
-            <Height>10.89703cm</Height>
-            <Width>14.49916cm</Width>
+            <Height>11.14777cm</Height>
+            <Width>16.85395cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -471,16 +490,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.2751cm</Width>
+                  <Width>2.61244cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.2751cm</Width>
+                  <Width>2.61244cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.2751cm</Width>
+                  <Width>2.61244cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.2751cm</Width>
+                  <Width>2.61244cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -787,10 +806,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetChamadoPorSla</DataSetName>
-            <Top>0.26458cm</Top>
-            <Left>14.67555cm</Left>
+            <Top>11.53583cm</Top>
+            <Left>3.21533cm</Left>
             <Height>1.2cm</Height>
-            <Width>9.10042cm</Width>
+            <Width>10.44976cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -799,10 +818,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.29017in</Height>
+        <Height>5.26934in</Height>
         <Style />
       </Body>
-      <Width>9.39583in</Width>
+      <Width>6.64583in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
