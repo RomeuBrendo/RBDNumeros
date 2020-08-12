@@ -125,6 +125,7 @@
             this.dataGridCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridCategoria.Size = new System.Drawing.Size(405, 323);
             this.dataGridCategoria.TabIndex = 1;
+            this.dataGridCategoria.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridCategoria_KeyDown);
             this.dataGridCategoria.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmCategoria_PreviewKeyDown);
             // 
             // Nome
