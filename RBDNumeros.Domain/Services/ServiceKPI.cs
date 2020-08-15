@@ -59,49 +59,60 @@ namespace RBDNumeros.Domain.Services
 
         public List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim)
         {
-            var sla = _repositorySla.Listar().FirstOrDefault();
-            var chamadosTotal = new ChamadosPorSlaRequest();
-
-            List<ChamadosPorSlaRequest> chamadosLista = new List<ChamadosPorSlaRequest>();
-
-            for (int i = 0; i < 4; i++)
+            try
             {
-                var chamados = new ChamadosPorSlaRequest();
+                var sla = _repositorySla.Listar().FirstOrDefault();
+                var chamadosTotal = new ChamadosPorSlaRequest();
 
-                EnumCarteira enumCarteira = (EnumCarteira)i;
-                chamados.Carteira = enumCarteira.ToString();
-                chamados.DentroSla = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
-                                                        a.DataAberturaTicket.Date <= dataFim.Date &&
-                                                        a.Carteira == (EnumCarteira)i &&
-                                                        a.Tecnico.ContabilizarNumeros &&
-                                                        a.Categoria.ContabilizarNumeros &&
-                                                        a.TempoVida <= sla.Dentro).Count();
+                List<ChamadosPorSlaRequest> chamadosLista = new List<ChamadosPorSlaRequest>();
 
-                chamados.Acima20 = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
-                                                        a.DataAberturaTicket.Date <= dataFim.Date &&
-                                                        a.Carteira == (EnumCarteira)i &&
-                                                        a.Tecnico.ContabilizarNumeros &&
-                                                        a.Categoria.ContabilizarNumeros &&
-                                                        a.TempoVida > sla.Dentro && a.TempoVida < sla.Estourado).Count();
+                for (int i = 0; i < 4; i++)
+                {
+                    var chamados = new ChamadosPorSlaRequest();
 
-                chamados.Estourado = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
-                                                        a.DataAberturaTicket.Date <= dataFim.Date &&
-                                                        a.Carteira == (EnumCarteira)i &&
-                                                        a.Tecnico.ContabilizarNumeros &&
-                                                        a.Categoria.ContabilizarNumeros &&
-                                                        a.TempoVida >= sla.Estourado).Count();
-                
-                chamadosTotal.DentroSla += chamados.DentroSla;
-                chamadosTotal.Acima20 += chamados.Acima20;
-                chamadosTotal.Estourado += chamados.Estourado;
+                    EnumCarteira enumCarteira = (EnumCarteira)i;
+                    chamados.Carteira = enumCarteira.ToString();
+                    chamados.DentroSla = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+                                                            a.DataAberturaTicket.Date <= dataFim.Date &&
+                                                            a.Carteira == (EnumCarteira)i &&
+                                                            a.Tecnico.ContabilizarNumeros &&
+                                                            a.Categoria.ContabilizarNumeros &&
+                                                            a.TempoVida <= sla.Dentro).Count();
 
-                chamadosLista.Add(chamados);
+                    chamados.Acima20 = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+                                                            a.DataAberturaTicket.Date <= dataFim.Date &&
+                                                            a.Carteira == (EnumCarteira)i &&
+                                                            a.Tecnico.ContabilizarNumeros &&
+                                                            a.Categoria.ContabilizarNumeros &&
+                                                            a.TempoVida > sla.Dentro && a.TempoVida < sla.Estourado).Count();
+
+                    chamados.Estourado = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+                                                            a.DataAberturaTicket.Date <= dataFim.Date &&
+                                                            a.Carteira == (EnumCarteira)i &&
+                                                            a.Tecnico.ContabilizarNumeros &&
+                                                            a.Categoria.ContabilizarNumeros &&
+                                                            a.TempoVida >= sla.Estourado).Count();
+
+                    chamadosTotal.DentroSla += chamados.DentroSla;
+                    chamadosTotal.Acima20 += chamados.Acima20;
+                    chamadosTotal.Estourado += chamados.Estourado;
+
+                    chamadosLista.Add(chamados);
+                }
+
+                chamadosTotal.Carteira = "Total";
+                chamadosLista.Add(chamadosTotal);
+
+                return chamadosLista;
+
             }
-            
-            chamadosTotal.Carteira = "Total";
-            chamadosLista.Add(chamadosTotal);
+            catch (Exception)
+            {
 
-            return chamadosLista;
+                AddNotification("Banco","Erro ao carregar informações do banco de dados") ;
+                return null;
+            }
+
         }
     }
 }
