@@ -103,6 +103,7 @@
             this.txtDentroSla.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDentroSla.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtDentroSla.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDentroSla_KeyDown);
+            this.txtDentroSla.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTempoSla_PreviewKeyDown);
             // 
             // txtAcima20
             // 
@@ -135,6 +136,7 @@
             this.txtAcima20.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtAcima20.Click += new System.EventHandler(this.txtAcima20_Click);
             this.txtAcima20.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAcima20_KeyDown);
+            this.txtAcima20.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTempoSla_PreviewKeyDown);
             // 
             // txtEstourado
             // 
@@ -166,6 +168,7 @@
             this.txtEstourado.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtEstourado.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtEstourado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEstourado_KeyDown);
+            this.txtEstourado.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTempoSla_PreviewKeyDown);
             // 
             // btnSalvar
             // 
@@ -176,6 +179,7 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseSelectable = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTempoSla_PreviewKeyDown);
             // 
             // btnCancelar
             // 
@@ -186,6 +190,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseSelectable = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTempoSla_PreviewKeyDown);
             // 
             // frmTempoSla
             // 
@@ -200,6 +205,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmTempoSla";
@@ -207,7 +213,7 @@
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Tempo SLA";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
-            this.Load += new System.EventHandler(this.frmTempoSla_Load);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmTempoSla_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

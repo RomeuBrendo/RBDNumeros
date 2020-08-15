@@ -76,19 +76,35 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             var request = new AdicionarAlterarSlaRequest();
-            request.Dentro = TimeSpan.Parse(txtDentroSla.Text);
-            request.Acima20 = TimeSpan.Parse(txtAcima20.Text);
-            request.Estourado = TimeSpan.Parse(txtEstourado.Text);
+            try
+            {
+                request.Dentro = TimeSpan.Parse(txtDentroSla.Text);
+                request.Acima20 = TimeSpan.Parse(txtAcima20.Text);
+                request.Estourado = TimeSpan.Parse(txtEstourado.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Verifique Formatação dos campos", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             _serviceSla.InserirAlterar(request);
             _unitOfWork.SaveChanges();
             MessageBox.Show("Salvo com Sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
 
         }
 
-        private void frmTempoSla_Load(object sender, EventArgs e)
-        {
 
+        private void frmTempoSla_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                btnSalvar.PerformClick();
         }
     }
 }
