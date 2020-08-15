@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer.Toast
 {
     public partial class frmToast : Form
     {
-        public frmToast(String Message, Color bgColor, String Action)
+        public frmToast(String Message, String Action)
         {
             InitializeComponent();
 
@@ -22,14 +16,24 @@ namespace RBDNumeros.Viwer.Toast
             okay.Visible = false;
 
             label1.Text = Message;
-            this.BackColor = bgColor;
 
             if (Action == "Okay" || Action == "okay")
+            {
+                this.BackColor = Color.FromArgb(43, 148, 50);
                 okay.Visible = true;
+            }            
             else if (Action == "Erro" || Action == "erro")
+            {
+                this.BackColor = Color.FromArgb(255, 80, 66);
                 error.Visible = true;
+            }
+
             else
+            {
+                this.BackColor = Color.FromArgb(66, 147, 255);
                 Info.Visible = true;
+            }
+               
 
 
 

@@ -2,7 +2,9 @@
 using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
 using RBDNumeros.Viwer;
+using RBDNumeros.Viwer.Toast;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer.Formulario.Configuracao
@@ -32,13 +34,16 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
         {
             if (!ValidaCampo())
             {
-                MessageBox.Show("Verifique os campos!");
+                frmToast toast = new frmToast("Revise os campos antes de prosseguir!!", "Erro");
+                toast.Show();
                 return;
             }
 
             if (SalvarConfiguração())
             {
-                MessageBox.Show("Registro salvo com sucesso!");
+                frmToast toast = new frmToast("Salvo com Sucesso!!", "Okay");
+                toast.Show();
+                this.Close();
             }
             else
             {

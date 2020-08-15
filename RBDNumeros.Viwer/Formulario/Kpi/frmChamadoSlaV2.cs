@@ -85,7 +85,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             var bytes = reportViewerChamadosPorSla.LocalReport.Render(Formato);
             System.IO.File.WriteAllBytes(NomeArquivo, bytes);
 
-            frmToast Toast = new frmToast("Exportado com Sucesso!!", Color.FromArgb(43, 148, 50), "Okay");
+            frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
             Toast.Show();
             this.Focus();
         }
@@ -113,7 +113,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
                 stream.Write(Bytes, 0, Bytes.Length);
             }
 
-            frmToast Toast = new frmToast("Exportado com Sucesso!!", Color.FromArgb(43, 148, 50), "Okay");
+            frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
             Toast.Show();
             this.Focus();
         }
