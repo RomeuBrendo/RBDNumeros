@@ -50,7 +50,7 @@
             // 
             // TimerClose
             // 
-            this.TimerClose.Interval = 2000;
+            this.TimerClose.Interval = 3500;
             this.TimerClose.Tick += new System.EventHandler(this.TimerClose_Tick);
             // 
             // Info
