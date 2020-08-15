@@ -20,6 +20,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RBDNumeros.Viwer.Toast;
 
 namespace RBDNumeros.Viwer
 {
@@ -168,20 +169,23 @@ namespace RBDNumeros.Viwer
                 t1.Abort();
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Importação Realizada com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmToast toast = new frmToast("Importação Realizada com sucesso!!", "Okay");
+                    toast.Show();
                 }
 
 
                 if (result == DialogResult.Cancel)
                 {
                     _serviceTicket.CancelarImportacao();
-                    MessageBox.Show("Operação Cancelada!", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    frmToast toast = new frmToast("Importação Cancelada!!", "");
+                    toast.Show();
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao realizar importação." + ex);
+                frmToast toast = new frmToast("Erro ao realizar importação. Tente Novamente!!", "Erro");
+                toast.Show();
             }
         }
 

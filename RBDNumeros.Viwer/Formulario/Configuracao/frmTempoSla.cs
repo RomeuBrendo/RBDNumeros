@@ -1,6 +1,7 @@
 ﻿using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
+using RBDNumeros.Viwer.Toast;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,19 +81,21 @@ namespace RBDNumeros.Viwer.Formulario.Configuracao
             {
                 request.Dentro = TimeSpan.Parse(txtDentroSla.Text);
                 request.Acima20 = TimeSpan.Parse(txtAcima20.Text);
-                request.Estourado = TimeSpan.Parse(txtEstourado.Text);
+                request.Estourado =TimeSpan.Parse(txtEstourado.Text);
             }
             catch (Exception)
             {
-
-                MessageBox.Show("Verifique Formatação dos campos", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                frmToast taoastErro = new frmToast("Verifique Formatação dos campos", "Erro");
+                taoastErro.Show();
+                this.Focus();
                 return;
             }
 
 
             _serviceSla.InserirAlterar(request);
             _unitOfWork.SaveChanges();
-            MessageBox.Show("Salvo com Sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmToast toast = new frmToast("Salvo com Sucesso!!", "Okay");
+            toast.Show();
             this.Close();
 
         }

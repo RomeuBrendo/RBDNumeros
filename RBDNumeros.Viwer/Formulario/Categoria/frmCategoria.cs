@@ -1,5 +1,6 @@
 ﻿using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
+using RBDNumeros.Viwer.Toast;
 using System;
 using System.Windows.Forms;
 
@@ -41,9 +42,20 @@ namespace RBDNumeros.Viwer.Formulario.Categoria
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            _unitOfWork.SaveChanges();
-            MessageBox.Show("Alteração Salva com Sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            try
+            {
+                _unitOfWork.SaveChanges();
+                frmToast toast = new frmToast("Alteração Salva com Sucesso!!", "Okay");
+                toast.Show();
+                this.Close();
+            }
+            catch (Exception)
+            {
+                frmToast taoastErro = new frmToast("Erro ao Salvar informações no Banco de dados", "Erro");
+                taoastErro.Show();
+                this.Focus();
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
