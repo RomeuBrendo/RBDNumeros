@@ -7,40 +7,76 @@ using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using System.IO;
 using RBDNumeros.Viwer.Toast;
-
+using RBDNumeros.Domain.Enum;
 
 namespace RBDNumeros.Viwer.Formulario.Kpi
 {
     public partial class frmChamadoSlaV2 : MetroFramework.Forms.MetroForm
     {
         private IServiceKPI _serviceKPI;
-        List<ChamadosPorSlaRequest> chamados = new List<ChamadosPorSlaRequest>();
+        EnumKPI _enumKPI;
+        
         void ConsultarDepedencias()
         {
             _serviceKPI = (IServiceKPI)Program.ServiceProvider.GetService(typeof(IServiceKPI));
         }
-        public frmChamadoSlaV2()
+        public frmChamadoSlaV2(EnumKPI enumKPI)
         {
             this.Location = new Point(322, 35);
             InitializeComponent();
             ConsultarDepedencias();
+            _enumKPI = enumKPI;
+
+            if (_enumKPI == EnumKPI.ChamadosPorCarteira)
+            {
+                this.Text = "Chamados por Carteira";
+            }
     
         }
 
         private void frmChamadoSlaV2_Load(object sender, EventArgs e)
         {
 
-
             this.reportViewerChamadosPorSla.RefreshReport();
         }
 
         private void lblRefresh_Click(object sender, EventArgs e)
         {
-            chamados.Clear();
+            if (_enumKPI == EnumKPI.ChamadosPorCarteira)
+                CarregaChamadosPorCarteira();
+            else
+                CarregaChamadosPorSla();
+
+            return;
+        }
+
+        public void CarregaChamadosPorCarteira()
+        {
+            var chamados = new List<ChamadosPorCarteiraRequest>();
+
+            this.Text = "Chamados por Carteira";
+
+            chamados.Add(_serviceKPI.ChamadosPorCarteira(DateTime.Parse("05/06/2020"), DateTime.Parse("18/06/2020")));
+
+            var dataSourceChamado = new ReportDataSource("DataSetChamadoPorCarteira", chamados);
+
+            this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportChamadoPorCarteira.rdlc";
+
+            this.reportViewerChamadosPorSla.LocalReport.DataSources.Add(dataSourceChamado);
+
+            this.reportViewerChamadosPorSla.Visible = true;
+
+            this.reportViewerChamadosPorSla.RefreshReport();
+        }
+
+        public void CarregaChamadosPorSla()
+        {
+            List<ChamadosPorSlaRequest> chamados = new List<ChamadosPorSlaRequest>();
+
             //  chamados = _serviceKPI.ChamadosPorSla(DataInicio.Value, DataFim.Value);
             chamados = _serviceKPI.ChamadosPorSla(DateTime.Parse("05/06/2020"), DateTime.Parse("18/06/2020"));
 
-            var dataSourceChamado = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetChamadoPorSla", chamados);
+            var dataSourceChamado = new ReportDataSource("DataSetChamadoPorSla", chamados);
 
             this.reportViewerChamadosPorSla.LocalReport.DataSources.Clear();
 
@@ -49,7 +85,6 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             this.reportViewerChamadosPorSla.Visible = true;
 
             this.reportViewerChamadosPorSla.RefreshReport();
-
         }
 
         private void frmChamadoSlaV2_KeyDown(object sender, KeyEventArgs e)

@@ -301,6 +301,7 @@
   <ItemGroup>
     <Compile Include="Commands\AdicionarAlterarSlaRequest.cs" />
     <Compile Include="Commands\AdicionarConfiguracaoPlanilhaRequest.cs" />
+    <Compile Include="Commands\ChamadosPorCarteiraRequest.cs" />
     <Compile Include="Commands\ChamadosPorSlaRequest.cs" />
     <Compile Include="Commands\ImportarTicketRequest.cs" />
     <Compile Include="Commands\SlaResponse.cs" />
@@ -313,6 +314,7 @@
     <Compile Include="Entities\Tecnico.cs" />
     <Compile Include="Entities\Ticket.cs" />
     <Compile Include="Enum\EnumCarteira.cs" />
+    <Compile Include="Enum\EnumKPI.cs" />
     <Compile Include="Interfaces\Repositories\Base\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryCategoria.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryCliente.cs" />

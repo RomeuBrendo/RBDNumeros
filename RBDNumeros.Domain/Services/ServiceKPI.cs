@@ -24,37 +24,39 @@ namespace RBDNumeros.Domain.Services
             _repositorySla = repositorySla;
         }
 
-        public ChamadosPorCarteira ChamadosPorCarteira(DateTime dataInicio, DateTime dataFim)
+        public ChamadosPorCarteiraRequest ChamadosPorCarteira(DateTime dataInicio, DateTime dataFim)
         {
-            var A = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date && 
+            var chamados = new ChamadosPorCarteiraRequest();
+
+            chamados.A = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date && 
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&
                                                         a.Carteira == Enum.EnumCarteira.A &&
                                                         a.Tecnico.ContabilizarNumeros &&
                                                         a.Categoria.ContabilizarNumeros).Count();
 
 
-            var B = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+            chamados.B = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&
                                                         a.Carteira == Enum.EnumCarteira.B &&
                                                         a.Tecnico.ContabilizarNumeros &&
                                                         a.Categoria.ContabilizarNumeros).Count();
 
 
-            var C = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+            chamados.C = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&
                                                         a.Carteira == Enum.EnumCarteira.C &&
                                                         a.Tecnico.ContabilizarNumeros &&
                                                         a.Categoria.ContabilizarNumeros).Count();
 
 
-            var D = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
+            chamados.D = _repositoryTicket.ListarPor(a => a.DataAberturaTicket.Date >= dataInicio.Date &&
                                                         a.DataAberturaTicket.Date <= dataFim.Date &&
                                                         a.Carteira == Enum.EnumCarteira.D &&
                                                         a.Tecnico.ContabilizarNumeros &&
                                                         a.Categoria.ContabilizarNumeros).Count();
 
 
-            return new ChamadosPorCarteira(A, B, C, D, 0);
+            return chamados;
         }
 
         public List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim)

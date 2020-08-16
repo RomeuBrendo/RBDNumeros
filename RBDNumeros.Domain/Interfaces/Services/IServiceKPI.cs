@@ -8,7 +8,7 @@ namespace RBDNumeros.Domain.Interfaces.Services
 {
     public interface IServiceKPI : IServiceBase
     {
-        ChamadosPorCarteira ChamadosPorCarteira(DateTime dataInicio, DateTime dataFim);
+        ChamadosPorCarteiraRequest ChamadosPorCarteira(DateTime dataInicio, DateTime dataFim);
         List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim);
     }
 }

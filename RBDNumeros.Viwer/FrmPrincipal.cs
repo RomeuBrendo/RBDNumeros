@@ -21,6 +21,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RBDNumeros.Viwer.Toast;
+using RBDNumeros.Domain.Enum;
 
 namespace RBDNumeros.Viwer
 {
@@ -229,7 +230,9 @@ namespace RBDNumeros.Viwer
 
         private void btnMovDesempenho_Click(object sender, EventArgs e)
         {
-
+            Form frmForm = new frmChamadoSlaV2(EnumKPI.ChamadosPorCarteira);
+            frmForm.ShowInTaskbar = false;
+            DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
 
         private void btnRelTecnico_Click(object sender, EventArgs e)
@@ -259,8 +262,9 @@ namespace RBDNumeros.Viwer
 
         private void btnKpiChamadPorSla_Click(object sender, EventArgs e)
         {
-            //   AbrirFormulario<frmChamadosSla>();
-            AbrirFormulario<frmChamadoSlaV2>();
+            Form frmForm = new frmChamadoSlaV2(EnumKPI.ChamadosPorSla);
+            frmForm.ShowInTaskbar = false;
+            DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)
@@ -272,7 +276,6 @@ namespace RBDNumeros.Viwer
             ShowSubMenu(pnConfiguracao);
         }
 
-        //      private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         private void AbrirFormulario<teste>() where teste : Form, new()
         {
             Form frmForm = new teste();
