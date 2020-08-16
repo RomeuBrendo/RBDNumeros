@@ -12,5 +12,6 @@ namespace RBDNumeros.Infra.Repositories
         {
             _context = context;
         }
+
     }
 }

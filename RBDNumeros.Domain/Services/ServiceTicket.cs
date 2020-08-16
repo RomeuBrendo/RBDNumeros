@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Threading;
 
 namespace RBDNumeros.Domain.Services
 {
@@ -260,5 +259,19 @@ namespace RBDNumeros.Domain.Services
             return 0;
         }
 
+        public bool DeletarTickets(DateTime inicio, DateTime fim)
+        {
+            try
+            {
+                var tickets = _repositoryTicket.ListarPor(x => x.DataAberturaTicket >= inicio.Date && x.DataAberturaTicket <= fim.Date);
+                _repositoryTicket.Remover(tickets);
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
     }
 }

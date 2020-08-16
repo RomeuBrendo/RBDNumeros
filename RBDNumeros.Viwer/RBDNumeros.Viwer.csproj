@@ -352,6 +352,12 @@
     <Compile Include="Formulario\Tecnico\frmTecnico.Designer.cs">
       <DependentUpon>frmTecnico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Ticket\frmDeletarTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\Ticket\frmDeletarTicket.Designer.cs">
+      <DependentUpon>frmDeletarTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\Tecnico\frmTecnico.resx">
       <DependentUpon>frmTecnico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\Ticket\frmDeletarTicket.resx">
+      <DependentUpon>frmDeletarTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

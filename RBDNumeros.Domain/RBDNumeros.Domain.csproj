@@ -303,6 +303,7 @@
     <Compile Include="Commands\AdicionarConfiguracaoPlanilhaRequest.cs" />
     <Compile Include="Commands\ChamadosPorCarteiraRequest.cs" />
     <Compile Include="Commands\ChamadosPorSlaRequest.cs" />
+    <Compile Include="Commands\DeletarTicketsRequest.cs" />
     <Compile Include="Commands\ImportarTicketRequest.cs" />
     <Compile Include="Commands\SlaResponse.cs" />
     <Compile Include="Entities\Base\EntityBase.cs" />

@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using RBDNumeros.Domain.Interfaces.Services;
+﻿using RBDNumeros.Domain.Interfaces.Services;
 using RBDNumeros.Infra.Repositories.Transactions;
 using RBDNumeros.Viwer.Toast;
 using System.Windows.Forms;

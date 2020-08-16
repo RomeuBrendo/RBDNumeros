@@ -1,4 +1,5 @@
 ﻿using RBDNumeros.Domain.Interfaces.Services.Base;
+using System;
 
 namespace RBDNumeros.Domain.Interfaces.Services
 {
@@ -8,7 +9,7 @@ namespace RBDNumeros.Domain.Interfaces.Services
         int RetornaPorcentagem();
         string RetornaProcesso();
         void CancelarImportacao();
-
         int RetorneNumerosCarteira(int Carteira);
+        bool DeletarTickets(DateTime inicio, DateTime fim);
     }
 }

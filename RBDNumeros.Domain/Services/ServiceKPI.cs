@@ -1,9 +1,5 @@
-﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
-using Microsoft.EntityFrameworkCore;
-using prmToolkit.NotificationPattern;
+﻿using prmToolkit.NotificationPattern;
 using RBDNumeros.Domain.Commands;
-using RBDNumeros.Domain.Entities;
-using RBDNumeros.Domain.Entities.KPI;
 using RBDNumeros.Domain.Enum;
 using RBDNumeros.Domain.Interfaces.Repositories;
 using RBDNumeros.Domain.Interfaces.Services;
