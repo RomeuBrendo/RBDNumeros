@@ -56,7 +56,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
             this.Text = "Chamados por Carteira";
 
-            chamados.Add(_serviceKPI.ChamadosPorCarteira(DateTime.Parse("05/06/2020"), DateTime.Parse("18/06/2020")));
+            chamados.Add(_serviceKPI.ChamadosPorCarteira(DataInicio.Value, DataFim.Value));
 
             var dataSourceChamado = new ReportDataSource("DataSetChamadoPorCarteira", chamados);
 
@@ -73,8 +73,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
         {
             List<ChamadosPorSlaRequest> chamados = new List<ChamadosPorSlaRequest>();
 
-            //  chamados = _serviceKPI.ChamadosPorSla(DataInicio.Value, DataFim.Value);
-            chamados = _serviceKPI.ChamadosPorSla(DateTime.Parse("05/06/2020"), DateTime.Parse("18/06/2020"));
+            chamados = _serviceKPI.ChamadosPorSla(DataInicio.Value, DataFim.Value);
 
             var dataSourceChamado = new ReportDataSource("DataSetChamadoPorSla", chamados);
 
