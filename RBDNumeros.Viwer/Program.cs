@@ -32,6 +32,8 @@ namespace RBDNumeros.Viwer
 
             services.AddScoped<RBDNumerosContext, RBDNumerosContext>();
 
+            
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<IRepositoryConfiguracaoPlanilha, RepositoryConfiguracaoPlanilha>();
@@ -40,7 +42,6 @@ namespace RBDNumeros.Viwer
             services.AddTransient<IRepositoryTecnico, RepositoryTecnico>();
             services.AddTransient<IRepositoryTicket, RepositoryTicket>();
             services.AddTransient<IRepositorySla, RepositorySla>();
-
             //Services
             services.AddTransient<IServiceConfiguracaoPlanilha, ServiceConfiguracaoPlanilha>();
             services.AddTransient<IServiceCategoria, ServiceCategoria>();
@@ -49,6 +50,8 @@ namespace RBDNumeros.Viwer
             services.AddTransient<IServiceTicket, ServiceTicket>();
             services.AddTransient<IServiceSla, ServiceSla>();
             services.AddTransient<IServiceKPI, ServiceKPI>();
+
+            
 
             ServiceProvider = services.BuildServiceProvider();
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RBDNumeros.Infra.Migrations
 {
-    public partial class Inicial2607 : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,8 @@ namespace RBDNumeros.Infra.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Nome = table.Column<string>(maxLength: 50, nullable: false)
+                    Nome = table.Column<string>(maxLength: 50, nullable: false),
+                    ContabilizarNumeros = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,11 +44,26 @@ namespace RBDNumeros.Infra.Migrations
                     DataAberturaTicket = table.Column<string>(nullable: false),
                     DataResolvido = table.Column<string>(nullable: false),
                     Tecnico = table.Column<string>(nullable: false),
-                    Carteira = table.Column<string>(nullable: false)
+                    Carteira = table.Column<string>(nullable: false),
+                    TempoVida = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ConfiguracaoPlanilha", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sla",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Dentro = table.Column<TimeSpan>(maxLength: 10, nullable: false),
+                    Acima20 = table.Column<TimeSpan>(maxLength: 10, nullable: false),
+                    Estourado = table.Column<TimeSpan>(maxLength: 10, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sla", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,7 +91,8 @@ namespace RBDNumeros.Infra.Migrations
                     DataFinalizacao = table.Column<DateTime>(nullable: false),
                     DataResolvido = table.Column<DateTime>(nullable: true),
                     TecnicoId = table.Column<Guid>(nullable: true),
-                    Carteira = table.Column<int>(nullable: false)
+                    Carteira = table.Column<int>(nullable: false),
+                    TempoVida = table.Column<TimeSpan>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,6 +137,9 @@ namespace RBDNumeros.Infra.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ConfiguracaoPlanilha");
+
+            migrationBuilder.DropTable(
+                name: "Sla");
 
             migrationBuilder.DropTable(
                 name: "Ticket");

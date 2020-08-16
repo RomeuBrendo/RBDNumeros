@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RBDNumeros.Viwer.Toast;
 using RBDNumeros.Domain.Enum;
+using RBDNumeros.Viwer.Formulario.Ticket;
 
 namespace RBDNumeros.Viwer
 {
@@ -47,6 +48,7 @@ namespace RBDNumeros.Viwer
         {
             ConsultarDepedencias();
             InitializeComponent();
+            _serviceTicket.VerificaEstruturaBanco();
 
             glb_PosicaoBotaoBase1 = pnCadastro.Top;
             glb_PosicaoBotaoBase2 = btnKpi.Height;
@@ -232,7 +234,7 @@ namespace RBDNumeros.Viwer
         {
             Form frmForm = new frmChamadoSlaV2(EnumKPI.ChamadosPorCarteira);
             frmForm.ShowInTaskbar = false;
-            frmForm.Show(FrmPrincipal.ActiveForm);
+            frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
 
         private void btnRelTecnico_Click(object sender, EventArgs e)
@@ -264,7 +266,12 @@ namespace RBDNumeros.Viwer
         {
             Form frmForm = new frmChamadoSlaV2(EnumKPI.ChamadosPorSla);
             frmForm.ShowInTaskbar = false;
-            frmForm.Show(FrmPrincipal.ActiveForm);
+            frmForm.ShowDialog(FrmPrincipal.ActiveForm);
+        }
+
+        private void btnExcluirTicket_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmDeletarTicket>();
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)
@@ -280,7 +287,7 @@ namespace RBDNumeros.Viwer
         {
             Form frmForm = new teste();
             frmForm.ShowInTaskbar = false;
-           // frmForm.StartPosition = FormStartPosition.CenterParent;
+            frmForm.StartPosition = FormStartPosition.CenterParent;
             DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
 

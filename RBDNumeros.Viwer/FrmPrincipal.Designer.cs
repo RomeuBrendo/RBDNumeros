@@ -52,6 +52,7 @@
             this.btnCadImportarPlanilha = new System.Windows.Forms.Button();
             this.tmMenu = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
+            this.btnExcluirTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.pnMenu.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             // pnConfiguracao
             // 
+            this.pnConfiguracao.Controls.Add(this.btnExcluirTicket);
             this.pnConfiguracao.Controls.Add(this.btnConfPlanilha);
             this.pnConfiguracao.Controls.Add(this.btnTempoSla);
             this.pnConfiguracao.HorizontalScrollbarBarColor = true;
@@ -172,7 +174,7 @@
             this.pnConfiguracao.HorizontalScrollbarSize = 10;
             this.pnConfiguracao.Location = new System.Drawing.Point(0, 399);
             this.pnConfiguracao.Name = "pnConfiguracao";
-            this.pnConfiguracao.Size = new System.Drawing.Size(318, 66);
+            this.pnConfiguracao.Size = new System.Drawing.Size(318, 100);
             this.pnConfiguracao.TabIndex = 10;
             this.pnConfiguracao.VerticalScrollbarBarColor = true;
             this.pnConfiguracao.VerticalScrollbarHighlightOnWheel = false;
@@ -380,6 +382,23 @@
             this.label3.TabIndex = 2;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnExcluirTicket
+            // 
+            this.btnExcluirTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnExcluirTicket.FlatAppearance.BorderSize = 0;
+            this.btnExcluirTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirTicket.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluirTicket.ForeColor = System.Drawing.Color.White;
+            this.btnExcluirTicket.Location = new System.Drawing.Point(-3, 66);
+            this.btnExcluirTicket.Name = "btnExcluirTicket";
+            this.btnExcluirTicket.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnExcluirTicket.Size = new System.Drawing.Size(324, 34);
+            this.btnExcluirTicket.TabIndex = 4;
+            this.btnExcluirTicket.Text = "EXCLUIR TICKETS";
+            this.btnExcluirTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluirTicket.UseVisualStyleBackColor = false;
+            this.btnExcluirTicket.Click += new System.EventHandler(this.btnExcluirTicket_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,5 +446,6 @@
         private System.Windows.Forms.Label label2;
         public MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnExcluirTicket;
     }
 }

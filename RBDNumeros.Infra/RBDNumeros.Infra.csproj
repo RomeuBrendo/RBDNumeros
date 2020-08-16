@@ -284,33 +284,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20200730122534_Sla.cs" />
-    <Compile Include="Migrations\20200730122534_Sla.Designer.cs">
-      <DependentUpon>20200730122534_Sla.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200730234224_RemocaoCarteira.cs" />
-    <Compile Include="Migrations\20200730234224_RemocaoCarteira.designer.cs">
-      <DependentUpon>20200730234224_RemocaoCarteira.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200731225133_g2.cs" />
-    <Compile Include="Migrations\20200731225133_g2.designer.cs">
-      <DependentUpon>20200731225133_g2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200801150347_Inclusao_Categoria.cs" />
-    <Compile Include="Migrations\20200801150347_Inclusao_Categoria.designer.cs">
-      <DependentUpon>20200801150347_Inclusao_Categoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200802130202_InclusaoContabilizarNumeros.cs" />
-    <Compile Include="Migrations\20200802130202_InclusaoContabilizarNumeros.designer.cs">
-      <DependentUpon>20200802130202_InclusaoContabilizarNumeros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200804235203_InclusaoTempoSLA.cs" />
-    <Compile Include="Migrations\20200804235203_InclusaoTempoSLA.designer.cs">
-      <DependentUpon>20200804235203_InclusaoTempoSLA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200805004908_AjusteTamanhoCampo.cs" />
-    <Compile Include="Migrations\20200805004908_AjusteTamanhoCampo.designer.cs">
-      <DependentUpon>20200805004908_AjusteTamanhoCampo.cs</DependentUpon>
+    <Compile Include="Migrations\20200816190156_Inicial.cs" />
+    <Compile Include="Migrations\20200816190156_Inicial.designer.cs">
+      <DependentUpon>20200816190156_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\RBDNumerosContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

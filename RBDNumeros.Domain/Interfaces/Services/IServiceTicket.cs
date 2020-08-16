@@ -11,5 +11,6 @@ namespace RBDNumeros.Domain.Interfaces.Services
         void CancelarImportacao();
         int RetorneNumerosCarteira(int Carteira);
         bool DeletarTickets(DateTime inicio, DateTime fim);
+        void VerificaEstruturaBanco();
     }
 }

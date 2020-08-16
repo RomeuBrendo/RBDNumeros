@@ -9,6 +9,8 @@ namespace RBDNumeros.Domain.Interfaces.Repositories.Base
      where TEntidade : class
      where TId : struct
     {
+        void VerificaEstruturaBanco();
+
         IQueryable<TEntidade> ListarPor(Expression<Func<TEntidade, bool>> where, params Expression<Func<TEntidade, object>>[] includeProperties);
 
         IQueryable<TEntidade> ListarEOrdenadosPor<TKey>(Expression<Func<TEntidade, bool>> where, Expression<Func<TEntidade, TKey>> ordem, bool ascendente = true, params Expression<Func<TEntidade, object>>[] includeProperties);

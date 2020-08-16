@@ -54,7 +54,7 @@
             this.reportViewerChamadosPorSla.Name = "reportViewerChamadosPorSla";
             this.reportViewerChamadosPorSla.ServerReport.BearerToken = null;
             this.reportViewerChamadosPorSla.ShowToolBar = false;
-            this.reportViewerChamadosPorSla.Size = new System.Drawing.Size(764, 622);
+            this.reportViewerChamadosPorSla.Size = new System.Drawing.Size(764, 530);
             this.reportViewerChamadosPorSla.TabIndex = 0;
             this.reportViewerChamadosPorSla.Visible = false;
             // 
@@ -103,7 +103,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(760, 272);
+            this.label1.Location = new System.Drawing.Point(760, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 55);
             this.label1.TabIndex = 21;
@@ -114,7 +114,7 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(760, 462);
+            this.label2.Location = new System.Drawing.Point(760, 393);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 55);
             this.label2.TabIndex = 22;
@@ -125,7 +125,7 @@
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.Location = new System.Drawing.Point(760, 557);
+            this.label3.Location = new System.Drawing.Point(760, 488);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 55);
             this.label3.TabIndex = 23;
@@ -136,7 +136,7 @@
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(760, 367);
+            this.label5.Location = new System.Drawing.Point(760, 298);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 55);
             this.label5.TabIndex = 24;
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 752);
+            this.ClientSize = new System.Drawing.Size(851, 660);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -158,6 +158,7 @@
             this.Controls.Add(this.reportViewerChamadosPorSla);
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmChamadoSlaV2";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

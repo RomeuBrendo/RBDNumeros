@@ -172,9 +172,7 @@ namespace RBDNumeros.Infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<TimeSpan>("TempoVida")
-                        .HasColumnName("TempoVida")
-                        .HasColumnType("time(6)")
-                        .HasMaxLength(30);
+                        .HasColumnType("time(6)");
 
                     b.HasKey("Id");
 

@@ -474,7 +474,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetChamadoPorSla</DataSetName>
-            <Height>11.14777cm</Height>
+            <Height>7.81402cm</Height>
             <Width>16.85395cm</Width>
             <Style>
               <Border>
@@ -806,7 +806,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetChamadoPorSla</DataSetName>
-            <Top>11.53583cm</Top>
+            <Top>8.04333cm</Top>
             <Left>3.21533cm</Left>
             <Height>1.2cm</Height>
             <Width>10.44976cm</Width>
@@ -818,7 +818,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>5.26934in</Height>
+        <Height>3.79017in</Height>
         <Style />
       </Body>
       <Width>6.64583in</Width>

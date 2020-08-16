@@ -273,5 +273,19 @@ namespace RBDNumeros.Domain.Services
                 return false;
             }
         }
+
+        public void VerificaEstruturaBanco()
+        {
+            try
+            {
+                _repositoryTicket.VerificaEstruturaBanco();
+            }
+            catch (Exception)
+            {
+
+                AddNotification("Erro", "Criar estrutura banco");
+            }
+            
+        }
     }
 }

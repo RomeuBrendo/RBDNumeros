@@ -20,6 +20,11 @@ namespace RBDNumeros.Infra.Repositories.Base
             _context = context;
         }
 
+        public void VerificaEstruturaBanco()
+        {
+            _context.Database.Migrate();
+        }
+
         public IQueryable<TEntidade> ListarPor(Expression<Func<TEntidade, bool>> where, params Expression<Func<TEntidade, object>>[] includeProperties)
         {
             return Listar(includeProperties).Where(where);

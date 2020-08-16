@@ -9,8 +9,8 @@ using RBDNumeros.Infra.Repositories;
 namespace RBDNumeros.Infra.Migrations
 {
     [DbContext(typeof(RBDNumerosContext))]
-    [Migration("20200805004908_AjusteTamanhoCampo")]
-    partial class AjusteTamanhoCampo
+    [Migration("20200816190156_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -174,9 +174,7 @@ namespace RBDNumeros.Infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<TimeSpan>("TempoVida")
-                        .HasColumnName("TempoVida")
-                        .HasColumnType("time(6)")
-                        .HasMaxLength(30);
+                        .HasColumnType("time(6)");
 
                     b.HasKey("Id");
 
