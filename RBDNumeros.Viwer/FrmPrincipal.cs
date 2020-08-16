@@ -232,7 +232,7 @@ namespace RBDNumeros.Viwer
         {
             Form frmForm = new frmChamadoSlaV2(EnumKPI.ChamadosPorCarteira);
             frmForm.ShowInTaskbar = false;
-            DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
+            frmForm.Show(FrmPrincipal.ActiveForm);
         }
 
         private void btnRelTecnico_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace RBDNumeros.Viwer
         {
             Form frmForm = new frmChamadoSlaV2(EnumKPI.ChamadosPorSla);
             frmForm.ShowInTaskbar = false;
-            DialogResult result = frmForm.ShowDialog(FrmPrincipal.ActiveForm);
+            frmForm.Show(FrmPrincipal.ActiveForm);
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)
