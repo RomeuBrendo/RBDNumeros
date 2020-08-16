@@ -1,28 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using RBDNumeros.Domain.Interfaces.Repositories;
+﻿using RBDNumeros.Domain.Enum;
 using RBDNumeros.Domain.Interfaces.Services;
-using RBDNumeros.Domain.Services;
-using RBDNumeros.Infra.Repositories;
 using RBDNumeros.Infra.Repositories.Transactions;
 using RBDNumeros.Viwer.Formulario.Barra;
 using RBDNumeros.Viwer.Formulario.Categoria;
 using RBDNumeros.Viwer.Formulario.Configuracao;
-using RBDNumeros.Viwer.Formulario.Tecnico;
 using RBDNumeros.Viwer.Formulario.Kpi;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using RBDNumeros.Viwer.Toast;
-using RBDNumeros.Domain.Enum;
+using RBDNumeros.Viwer.Formulario.Tecnico;
 using RBDNumeros.Viwer.Formulario.Ticket;
+using RBDNumeros.Viwer.Toast;
+using System;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace RBDNumeros.Viwer
 {
@@ -58,7 +47,6 @@ namespace RBDNumeros.Viwer
             glb_TopConfiguracao = pnConfiguracao.Top;
 
             HideAllMenu();
-
 
             this.StyleManager = metroStyleManager1;
             pnMenu.Left = -272;

@@ -62,6 +62,10 @@
   <PropertyGroup>
     <ApplicationIcon>Ico.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RBDNumeros.Viwer.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL" />
@@ -453,7 +457,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1491253400-7document-report_82877 %281%29.ico" />
     <Content Include="Ico.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

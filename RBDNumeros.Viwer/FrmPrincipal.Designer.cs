@@ -53,6 +53,7 @@
             this.btnCadImportarPlanilha = new System.Windows.Forms.Button();
             this.tmMenu = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
+            this.panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.pnMenu.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -399,6 +400,15 @@
             this.label3.TabIndex = 2;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.Location = new System.Drawing.Point(-1, 28);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(1143, 88);
+            this.panel.TabIndex = 3;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,10 +416,14 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1140, 728);
             this.Controls.Add(this.pnMenu);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
+            this.Text = "RG2 System";
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
@@ -448,5 +462,6 @@
         public MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExcluirTicket;
+        private System.Windows.Forms.Panel panel;
     }
 }
