@@ -87,6 +87,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBarraProgresso";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
