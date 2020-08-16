@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnConfiguracao = new System.Windows.Forms.Button();
             this.pnConfiguracao = new MetroFramework.Controls.MetroPanel();
+            this.btnExcluirTicket = new System.Windows.Forms.Button();
             this.btnConfPlanilha = new System.Windows.Forms.Button();
             this.btnTempoSla = new System.Windows.Forms.Button();
             this.btnKpi = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.btnCadImportarPlanilha = new System.Windows.Forms.Button();
             this.tmMenu = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
-            this.btnExcluirTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.pnMenu.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -179,6 +179,23 @@
             this.pnConfiguracao.VerticalScrollbarBarColor = true;
             this.pnConfiguracao.VerticalScrollbarHighlightOnWheel = false;
             this.pnConfiguracao.VerticalScrollbarSize = 10;
+            // 
+            // btnExcluirTicket
+            // 
+            this.btnExcluirTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnExcluirTicket.FlatAppearance.BorderSize = 0;
+            this.btnExcluirTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirTicket.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluirTicket.ForeColor = System.Drawing.Color.White;
+            this.btnExcluirTicket.Location = new System.Drawing.Point(-3, 66);
+            this.btnExcluirTicket.Name = "btnExcluirTicket";
+            this.btnExcluirTicket.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.btnExcluirTicket.Size = new System.Drawing.Size(324, 34);
+            this.btnExcluirTicket.TabIndex = 4;
+            this.btnExcluirTicket.Text = "EXCLUIR TICKETS";
+            this.btnExcluirTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluirTicket.UseVisualStyleBackColor = false;
+            this.btnExcluirTicket.Click += new System.EventHandler(this.btnExcluirTicket_Click);
             // 
             // btnConfPlanilha
             // 
@@ -382,23 +399,6 @@
             this.label3.TabIndex = 2;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnExcluirTicket
-            // 
-            this.btnExcluirTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnExcluirTicket.FlatAppearance.BorderSize = 0;
-            this.btnExcluirTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluirTicket.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirTicket.ForeColor = System.Drawing.Color.White;
-            this.btnExcluirTicket.Location = new System.Drawing.Point(-3, 66);
-            this.btnExcluirTicket.Name = "btnExcluirTicket";
-            this.btnExcluirTicket.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.btnExcluirTicket.Size = new System.Drawing.Size(324, 34);
-            this.btnExcluirTicket.TabIndex = 4;
-            this.btnExcluirTicket.Text = "EXCLUIR TICKETS";
-            this.btnExcluirTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluirTicket.UseVisualStyleBackColor = false;
-            this.btnExcluirTicket.Click += new System.EventHandler(this.btnExcluirTicket_Click);
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +407,7 @@
             this.ClientSize = new System.Drawing.Size(1140, 728);
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.TransparencyKey = System.Drawing.Color.Empty;
