@@ -77,6 +77,7 @@
             this.DataFim.Name = "DataFim";
             this.DataFim.Size = new System.Drawing.Size(98, 20);
             this.DataFim.TabIndex = 17;
+            this.DataFim.ValueChanged += new System.EventHandler(this.DataFim_ValueChanged);
             // 
             // DataInicio
             // 
@@ -87,6 +88,7 @@
             this.DataInicio.Name = "DataInicio";
             this.DataInicio.Size = new System.Drawing.Size(98, 20);
             this.DataInicio.TabIndex = 16;
+            this.DataInicio.ValueChanged += new System.EventHandler(this.DataInicio_ValueChanged);
             // 
             // label4
             // 
