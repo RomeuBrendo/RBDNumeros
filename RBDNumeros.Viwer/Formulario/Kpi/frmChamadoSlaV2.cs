@@ -73,6 +73,31 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             lblRefresh.Visible = false;
         }
 
+        public void Top10()
+        {
+            var chamados = new List<Top10Response>();
+            var request = new Top10Request();
+
+            request.DataInicio = DataInicio.Value;
+            request.DataFim = DataFim.Value;
+            //request.Carteira =
+
+            this.Text = "Top 10 por Cliente";
+
+            chamados = _serviceKPI.Top10(request);
+
+            var dataSourceChamado = new ReportDataSource("DataSetChamadoPorCarteira", chamados);
+
+            this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportChamadoPorCarteira.rdlc";
+
+            this.reportViewerChamadosPorSla.LocalReport.DataSources.Add(dataSourceChamado);
+
+            this.reportViewerChamadosPorSla.Visible = true;
+
+            this.reportViewerChamadosPorSla.RefreshReport();
+
+            lblRefresh.Visible = false;
+        }
         public void CarregaChamadosPorSla()
         {
             List<ChamadosPorSlaRequest> chamados = new List<ChamadosPorSlaRequest>();

@@ -3,6 +3,7 @@
     public enum EnumKPI
     {
         ChamadosPorSla = 0,
-        ChamadosPorCarteira =1
+        ChamadosPorCarteira =1,
+        Top10 = 2
     }
 }
