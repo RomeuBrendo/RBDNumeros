@@ -427,6 +427,7 @@
     </Compile>
     <EmbeddedResource Include="RDLC\ReportChamadoPorCarteira.rdlc" />
     <EmbeddedResource Include="RDLC\ReportChamadoSla.rdlc" />
+    <EmbeddedResource Include="RDLC\ReportTop10.rdlc" />
     <EmbeddedResource Include="Toast\frmToast.resx">
       <DependentUpon>frmToast.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,6 +437,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\RBDNumeros.Domain.Commands.ChamadosPorCarteiraRequest.datasource" />
     <None Include="Properties\DataSources\RBDNumeros.Domain.Commands.ChamadosPorSlaRequest.datasource" />
+    <None Include="Properties\DataSources\RBDNumeros.Domain.Commands.Top10Response.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

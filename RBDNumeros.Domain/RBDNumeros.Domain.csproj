@@ -326,6 +326,8 @@
     <Compile Include="Commands\DeletarTicketsRequest.cs" />
     <Compile Include="Commands\ImportarTicketRequest.cs" />
     <Compile Include="Commands\SlaResponse.cs" />
+    <Compile Include="Commands\Top10Request.cs" />
+    <Compile Include="Commands\Top10Response.cs" />
     <Compile Include="Entities\Base\EntityBase.cs" />
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Cliente.cs" />

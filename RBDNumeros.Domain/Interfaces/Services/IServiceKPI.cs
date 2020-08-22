@@ -10,5 +10,6 @@ namespace RBDNumeros.Domain.Interfaces.Services
     {
         ChamadosPorCarteiraRequest ChamadosPorCarteira(DateTime dataInicio, DateTime dataFim);
         List<ChamadosPorSlaRequest> ChamadosPorSla(DateTime dataInicio, DateTime dataFim);
+        List<Top10Response> Top10(Top10Request request);
     }
 }

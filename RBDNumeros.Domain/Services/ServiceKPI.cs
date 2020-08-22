@@ -1,4 +1,5 @@
-﻿using prmToolkit.NotificationPattern;
+﻿using Microsoft.EntityFrameworkCore;
+using prmToolkit.NotificationPattern;
 using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Enum;
 using RBDNumeros.Domain.Interfaces.Repositories;
@@ -111,6 +112,31 @@ namespace RBDNumeros.Domain.Services
                 return null;
             }
 
+        }
+
+        public List<Top10Response> Top10(Top10Request request)
+        {
+            if (request == null)
+            {
+                AddNotification("Request", "Não pode ser Nulo");
+                return null;
+            }
+
+            var teste = _repositoryTicket.Top10(request);
+
+            //var reponseList = new List<Top10Response>();
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    var chamados = _repositoryTicket.Listar(x => x.DataAberturaTicket.Date >= request.DataInicio.Date &&
+            //                      x.DataAberturaTicket.Date <= request.DataFim.Date &&
+            //                      x.Carteira == (EnumCarteira)i)
+            //                      .Include(x => x.Cliente)
+            //                      .GroupBy(x => x.Cliente.Nome).ToList();
+
+
+
+            //}
+            return null;                  
         }
     }
 }
