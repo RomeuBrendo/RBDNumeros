@@ -8,6 +8,7 @@ using Microsoft.Reporting.WinForms;
 using System.IO;
 using RBDNumeros.Viwer.Toast;
 using RBDNumeros.Domain.Enum;
+using System.CodeDom.Compiler;
 
 namespace RBDNumeros.Viwer.Formulario.Kpi
 {
@@ -15,7 +16,8 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
     {
         private IServiceKPI _serviceKPI;
         EnumKPI _enumKPI;
-        
+
+
         void ConsultarDepedencias()
         {
             _serviceKPI = (IServiceKPI)Program.ServiceProvider.GetService(typeof(IServiceKPI));
@@ -67,6 +69,8 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             this.reportViewerChamadosPorSla.Visible = true;
 
             this.reportViewerChamadosPorSla.RefreshReport();
+
+            lblRefresh.Visible = false;
         }
 
         public void CarregaChamadosPorSla()
@@ -84,6 +88,8 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             this.reportViewerChamadosPorSla.Visible = true;
 
             this.reportViewerChamadosPorSla.RefreshReport();
+
+            lblRefresh.Visible = false;
         }
 
         private void frmChamadoSlaV2_KeyDown(object sender, KeyEventArgs e)
@@ -96,17 +102,29 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-            ExportarRelatorio("EXCELOPENXML", "xlsx");
+        { 
+           ExportarRelatorio("EXCELOPENXML", "xlsx");
+
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            reportViewerChamadosPorSla.PrintDialog();
+            try
+            {
+                reportViewerChamadosPorSla.PrintDialog();
+            }
+            catch (Exception)
+            {
+                frmToast ToastC = new frmToast("Erro ao realizar impressão!", "erro");
+                ToastC.Show();
+                this.Focus();
+            }
+            
         }
 
         private void ExportarRelatorio(string Formato, string Extencao)
         {
+
             folderBrowserDialog1.ShowDialog();
 
             String NomeArquivo = folderBrowserDialog1.SelectedPath;
@@ -116,12 +134,21 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
             NomeArquivo += "\\" + frmChamadoSlaV2.ActiveForm.Text + DataInicio.Text.Replace("/", "") + "-" + DataFim.Text.Replace("/", "") + "." + Extencao;
 
-            var bytes = reportViewerChamadosPorSla.LocalReport.Render(Formato);
-            System.IO.File.WriteAllBytes(NomeArquivo, bytes);
+            try
+            {
+                var bytes = reportViewerChamadosPorSla.LocalReport.Render(Formato);
+                System.IO.File.WriteAllBytes(NomeArquivo, bytes);
 
-            frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
-            Toast.Show();
-            this.Focus();
+                frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
+                Toast.Show();
+                this.Focus();
+            }
+            catch(Exception)
+            {
+                frmToast ToastC = new frmToast("Erro ao realizar exportação!", "erro");
+                ToastC.Show();
+                this.Focus();
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -140,21 +167,46 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
             NomeArquivo += "\\" + frmChamadoSlaV2.ActiveForm.Text + DataInicio.Text.Replace("/", "") + "-" + DataFim.Text.Replace("/", "") + ".pdf";
 
-            byte[] Bytes = reportViewerChamadosPorSla.LocalReport.Render(format: "PDF", deviceInfo: "");
-
-            using (FileStream stream = new FileStream(NomeArquivo, FileMode.Create))
+            try
             {
-                stream.Write(Bytes, 0, Bytes.Length);
+
+                byte[] Bytes = reportViewerChamadosPorSla.LocalReport.Render(format: "PDF", deviceInfo: "");
+
+                using (FileStream stream = new FileStream(NomeArquivo, FileMode.Create))
+                {
+                    stream.Write(Bytes, 0, Bytes.Length);
+                }
+
+                frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
+                Toast.Show();
+                this.Focus();
+
+            }
+            catch(Exception)
+            {
+
+                frmToast ToastC = new frmToast("Erro ao realizar exportação!", "erro");
+                ToastC.Show();
+                this.Focus();
+
             }
 
-            frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
-            Toast.Show();
-            this.Focus();
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             ExportarRelatorio("WORDOPENXML", "docx");
+        }
+
+        private void DataInicio_ValueChanged(object sender, EventArgs e)
+        {
+            lblRefresh.Visible = true;
+        }
+
+        private void DataFim_ValueChanged(object sender, EventArgs e)
+        {
+            lblRefresh.Visible = true;
         }
     }
 }

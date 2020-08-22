@@ -18,6 +18,7 @@ namespace RBDNumeros.Viwer
     public partial class FrmPrincipal : MetroFramework.Forms.MetroForm
 
     {
+ 
         int glb_PosicaoBotaoBase1, glb_PosicaoBotaoBase2;
         int glb_TopCadastro, glb_TopMovimentacao, glb_TopConfiguracao;
         bool glb_HideMenu;
@@ -232,7 +233,15 @@ namespace RBDNumeros.Viwer
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnCadastro);
+           if (pnCadastro.Visible == false)
+            {
+                ShowSubMenu(pnCadastro);
+            }
+            else
+            {
+                HideAllMenu();
+            }
+               
         }
 
         private void btnCadCategoria_Click(object sender, EventArgs e)
@@ -247,7 +256,14 @@ namespace RBDNumeros.Viwer
 
         private void btnMovimentacao_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnMovimentacao);
+            if (pnMovimentacao.Visible == false)
+            {
+                ShowSubMenu(pnMovimentacao);
+            }
+            else
+            {
+                HideAllMenu();
+            }
         }
 
         private void btnKpiChamadPorSla_Click(object sender, EventArgs e)
@@ -268,7 +284,16 @@ namespace RBDNumeros.Viwer
 
         private void btnConfiguracao_Click(object sender, EventArgs e)
         {
-            ShowSubMenu(pnConfiguracao);
+
+            if (pnConfiguracao.Visible == false)
+            {
+                ShowSubMenu(pnConfiguracao);
+            }
+            else
+            {
+                HideAllMenu();
+            }
+
         }
 
         private void AbrirFormulario<teste>() where teste : Form, new()
