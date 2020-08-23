@@ -80,18 +80,18 @@ namespace RBDNumeros.Viwer
             if (Painel.Name == "pnMovimentacao")
             {
                 btnConfiguracao.Top = btnConfiguracao.Top + pnMovimentacao.Height;
-                Painel.Top = glb_TopMovimentacao - pnCadastro.Height -5;
+                Painel.Top = glb_TopMovimentacao - pnCadastro.Height;
                 Painel.Visible = true;
             }
             if (Painel.Name == "pnRelatorio")
             {
-                btnConfiguracao.Top = btnConfiguracao.Top;
+                btnConfiguracao.Top = btnConfiguracao.Top ;
                 Painel.Top = pnMovimentacao.Height - pnCadastro.Height;
                 Painel.Visible = true;
             }
             if (Painel.Name == "pnConfiguracao")
             {
-                Painel.Top = glb_TopConfiguracao - pnMovimentacao.Height - pnCadastro.Height -5;
+                Painel.Top = glb_TopConfiguracao - pnMovimentacao.Height - pnCadastro.Height;
                 Painel.Visible = true;
             }
 
@@ -276,6 +276,13 @@ namespace RBDNumeros.Viwer
         private void btnExcluirTicket_Click(object sender, EventArgs e)
         {
             AbrirFormulario<frmDeletarTicket>();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form frmForm = new frmChamadoSlaV2(EnumKPI.Top10);
+            frmForm.ShowInTaskbar = false;
+            frmForm.ShowDialog(FrmPrincipal.ActiveForm);
         }
 
         private void btnRelatorio_Click(object sender, EventArgs e)

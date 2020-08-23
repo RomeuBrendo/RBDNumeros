@@ -116,27 +116,25 @@ namespace RBDNumeros.Domain.Services
 
         public List<Top10Response> Top10(Top10Request request)
         {
-            if (request == null)
+            try
             {
-                AddNotification("Request", "Não pode ser Nulo");
+                if (request == null)
+                {
+                    AddNotification("Request", "Não pode ser Nulo");
+                    return null;
+                }
+
+                return _repositoryTicket.Top10(request);
+
+            }
+            catch
+            {
+
                 return null;
             }
 
-            var teste = _repositoryTicket.Top10(request);
 
-            //var reponseList = new List<Top10Response>();
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    var chamados = _repositoryTicket.Listar(x => x.DataAberturaTicket.Date >= request.DataInicio.Date &&
-            //                      x.DataAberturaTicket.Date <= request.DataFim.Date &&
-            //                      x.Carteira == (EnumCarteira)i)
-            //                      .Include(x => x.Cliente)
-            //                      .GroupBy(x => x.Cliente.Nome).ToList();
-
-
-
-            //}
-            return null;                  
+                            
         }
     }
 }

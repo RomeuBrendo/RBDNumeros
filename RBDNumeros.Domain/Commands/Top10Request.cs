@@ -7,7 +7,6 @@ namespace RBDNumeros.Domain.Commands
     {
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
-        public bool OrdenarAsc { get; set; }
         public EnumCarteira Carteira { get; set; }
     }
 }

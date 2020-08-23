@@ -9,6 +9,7 @@ using System.IO;
 using RBDNumeros.Viwer.Toast;
 using RBDNumeros.Domain.Enum;
 using System.CodeDom.Compiler;
+using System.Linq;
 
 namespace RBDNumeros.Viwer.Formulario.Kpi
 {
@@ -28,12 +29,33 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             InitializeComponent();
             ConsultarDepedencias();
             _enumKPI = enumKPI;
+            ConfiguraTela();
+        }
 
-            if (_enumKPI == EnumKPI.ChamadosPorCarteira)
+        void ConfiguraTela()
+        {
+            if (_enumKPI == EnumKPI.ChamadosPorSla)
+            {
+                this.Text = "Chamados por Sla";
+                this.Text = "Chamados por Carteira";
+                lblRefresh.Left = DataFim.Left + DataFim.Width + 20;
+                pnTop10.Visible = false;
+            } 
+            else if (_enumKPI == EnumKPI.ChamadosPorCarteira)
             {
                 this.Text = "Chamados por Carteira";
+                lblRefresh.Left = DataFim.Left + DataFim.Width + 20;
+                pnTop10.Visible = false;
+
             }
-    
+            else if (_enumKPI == EnumKPI.Top10)
+            {
+                this.Text = "Top 10 - Clientes";
+                lblRefresh.Left = pnTop10.Left + pnTop10.Width + 20;
+                pnTop10.Visible = true;
+
+
+            }
         }
 
         private void frmChamadoSlaV2_Load(object sender, EventArgs e)
@@ -46,10 +68,10 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
         {
             if (_enumKPI == EnumKPI.ChamadosPorCarteira)
                 CarregaChamadosPorCarteira();
-            else
+            else if (_enumKPI == EnumKPI.ChamadosPorSla)
                 CarregaChamadosPorSla();
-
-            return;
+            else
+               Top10();
         }
 
         public void CarregaChamadosPorCarteira()
@@ -63,6 +85,8 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             var dataSourceChamado = new ReportDataSource("DataSetChamadoPorCarteira", chamados);
 
             this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportChamadoPorCarteira.rdlc";
+           
+            this.reportViewerChamadosPorSla.LocalReport.DataSources.Clear();
 
             this.reportViewerChamadosPorSla.LocalReport.DataSources.Add(dataSourceChamado);
 
@@ -78,17 +102,26 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             var chamados = new List<Top10Response>();
             var request = new Top10Request();
 
-            request.DataInicio = DataInicio.Value;
-            request.DataFim = DataFim.Value;
-            //request.Carteira =
+            request.DataInicio = DataInicio.Value.Date;
+            request.DataFim = DataFim.Value.Date;
+            request.Carteira = (EnumCarteira)cbCarteira.SelectedIndex;
 
             this.Text = "Top 10 por Cliente";
 
             chamados = _serviceKPI.Top10(request);
 
-            var dataSourceChamado = new ReportDataSource("DataSetChamadoPorCarteira", chamados);
+            if(chamados == null)
+            {
+                var toasts = new frmToast("Verifique o filtro passado e tente novamente!!", "Erro");
+                toasts.Show();
+                return;
+            }
 
-            this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportChamadoPorCarteira.rdlc";
+            var dataSourceChamado = new ReportDataSource("DataSetTop10", chamados);
+
+            this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportTop10.rdlc";
+
+            this.reportViewerChamadosPorSla.LocalReport.DataSources.Clear();
 
             this.reportViewerChamadosPorSla.LocalReport.DataSources.Add(dataSourceChamado);
 
@@ -232,6 +265,21 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
         private void DataFim_ValueChanged(object sender, EventArgs e)
         {
             lblRefresh.Visible = true;
+        }
+
+        private void cbCarteira_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkAscendente_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

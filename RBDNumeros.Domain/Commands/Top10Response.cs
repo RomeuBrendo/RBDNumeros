@@ -11,6 +11,6 @@ namespace RBDNumeros.Domain.Commands
     {
         public string ClienteNome { get; set; }
         public Int64 Quantidade { get; set; }
-        public EnumCarteira Carteira { get; set; }
+        public String Carteira { get; set; }
     }
 }

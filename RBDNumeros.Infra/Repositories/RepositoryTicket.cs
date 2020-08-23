@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Org.BouncyCastle.Utilities;
 using RBDNumeros.Domain.Commands;
 using RBDNumeros.Domain.Entities;
 using RBDNumeros.Domain.Enum;
@@ -25,34 +26,92 @@ namespace RBDNumeros.Infra.Repositories
             {
                 var responseList = new List<Top10Response>();
 
-
-                request.Carteira = EnumCarteira.Outros;
-
-
-                var chamados = _context.Tickets.Where(x => x.DataAberturaTicket.Date >= request.DataInicio.Date &&
-                                                        x.DataAberturaTicket.Date <= request.DataFim.Date &&
-                                                        (request.Carteira == EnumCarteira.Outros) ? true : x.Carteira.Equals(request.Carteira) &&
-                                                        x.Tecnico.ContabilizarNumeros == true &&
-                                                        x.Categoria.ContabilizarNumeros == true)
-                                                        .Include(x => x.Cliente).ToList()
-                                                        .GroupBy(x => x.Cliente.Nome)
-                                                        .Select(x => new { T = x.Count(), x.Key }).OrderByDescending(x => x.T);
-
-                foreach (var item in chamados)
+                if (request.Carteira != EnumCarteira.Outros)
                 {
-                    var response = new Top10Response();
-                    response.Carteira = request.Carteira;
-                    response.ClienteNome = item.Key;
-                    response.Quantidade = item.T;
-                    responseList.Add(response);
+                    var chamados = _context.Tickets.Where(x => x.DataAberturaTicket.Date >= request.DataInicio.Date &&
+                                                                            x.DataAberturaTicket.Date <= request.DataFim.Date &&
+                                                                            x.Carteira == request.Carteira &&
+                                                                            x.Tecnico.ContabilizarNumeros == true &&
+                                                                            x.Categoria.ContabilizarNumeros == true)
+                                                                            .GroupBy(x => x.Cliente.Nome)
+                                                                            .Select(x => new { T = x.Count(), x.Key }).OrderByDescending(x => x.T).ToList();
+
+                    foreach (var item in chamados)
+                    {
+                        var response = new Top10Response();
+                        response.Carteira = ReturnCarteiraByCod(request.Carteira);
+                        response.ClienteNome = item.Key;
+                        response.Quantidade = item.T;
+                        responseList.Add(response);
+                    }
+
+                    return responseList;
                 }
 
-                return responseList;
+                else
+                {
+                    var chamados = _context.Tickets.Where(x => x.DataAberturaTicket.Date >= request.DataInicio.Date &&
+                                                                                x.DataAberturaTicket.Date <= request.DataFim.Date &&
+                                                                                x.Tecnico.ContabilizarNumeros == true &&
+                                                                                x.Categoria.ContabilizarNumeros == true)
+                                                                                .GroupBy(x => x.Cliente.Nome)
+                                                                                .Select(x => new { T = x.Count(), x.Key}).OrderByDescending(x => x.T).ToList(); ;
+
+                    foreach (var item in chamados)
+                    {
+                        var response = new Top10Response();
+                        response.Carteira = "";
+                        response.ClienteNome = item.Key;
+                        response.Quantidade = item.T;
+                        responseList.Add(response);
+                    }
+
+                    return responseList;
+
+                }
+
             }
             catch (Exception)
             {
                 return null;
             }
+
+        }
+
+        private String ReturnCarteiraByCod(EnumCarteira codCarteira)
+        {
+            String Carteira = "";
+
+            if (codCarteira == EnumCarteira.A)
+            {
+                Carteira = "A";
+            }
+            else if (codCarteira == EnumCarteira.B)
+            {
+                Carteira = "B";
+            }
+            else if (codCarteira == EnumCarteira.C)
+            {
+                Carteira = "C";
+            }
+            else if (codCarteira == EnumCarteira.D)
+            {
+                Carteira = "D";
+            }
+            else if (codCarteira == EnumCarteira.Outros)
+            {
+                Carteira = "OUTROS";
+            }
+            else if (codCarteira == EnumCarteira.N2)
+            {
+                Carteira = "N2";
+            }
+            else
+            {
+                Carteira = "Não definido";
+            }
+
+            return Carteira;
 
         }
 
