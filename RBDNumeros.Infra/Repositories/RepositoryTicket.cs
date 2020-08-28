@@ -39,7 +39,8 @@ namespace RBDNumeros.Infra.Repositories
                     foreach (var item in chamados)
                     {
                         var response = new Top10Response();
-                        response.Carteira = ReturnCarteiraByCod(request.Carteira);
+                        // response.Carteira = ReturnCarteiraByCod(request.Carteira);
+                        response.Carteira = ((EnumCarteira)request.Carteira).ToString();
                         response.ClienteNome = item.Key;
                         response.Quantidade = item.T;
                         responseList.Add(response);
@@ -54,13 +55,13 @@ namespace RBDNumeros.Infra.Repositories
                                                                                 x.DataAberturaTicket.Date <= request.DataFim.Date &&
                                                                                 x.Tecnico.ContabilizarNumeros == true &&
                                                                                 x.Categoria.ContabilizarNumeros == true)
-                                                                                .GroupBy(x => x.Cliente.Nome)
+                                                                                .GroupBy(x => x.Cliente.Nome, x => x.Carteira)
                                                                                 .Select(x => new { T = x.Count(), x.Key}).OrderByDescending(x => x.T).ToList(); ;
 
                     foreach (var item in chamados)
                     {
                         var response = new Top10Response();
-                        response.Carteira = "";
+                        response.Carteira = "-";
                         response.ClienteNome = item.Key;
                         response.Quantidade = item.T;
                         responseList.Add(response);

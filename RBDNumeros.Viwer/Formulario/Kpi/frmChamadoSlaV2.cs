@@ -51,6 +51,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
             else if (_enumKPI == EnumKPI.Top10)
             {
                 this.Text = "Top 10 - Clientes";
+                cbCarteira.SelectedIndex = 4;
                 lblRefresh.Left = pnTop10.Left + pnTop10.Width + 20;
                 pnTop10.Visible = true;
 
@@ -94,11 +95,12 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
             this.reportViewerChamadosPorSla.RefreshReport();
 
-            lblRefresh.Visible = false;
+         //   lblRefresh.Visible = false;
         }
 
         public void Top10()
         {
+            
             var chamados = new List<Top10Response>();
             var request = new Top10Request();
 
@@ -117,6 +119,9 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
                 return;
             }
 
+            if (checkAscendente.Checked)
+                chamados = chamados.OrderBy(x => x.Quantidade).ToList();
+
             var dataSourceChamado = new ReportDataSource("DataSetTop10", chamados);
 
             this.reportViewerChamadosPorSla.LocalReport.ReportEmbeddedResource = "RBDNumeros.Viwer.RDLC.ReportTop10.rdlc";
@@ -129,7 +134,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
             this.reportViewerChamadosPorSla.RefreshReport();
 
-            lblRefresh.Visible = false;
+          //  lblRefresh.Visible = false;
         }
         public void CarregaChamadosPorSla()
         {
@@ -147,7 +152,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
             this.reportViewerChamadosPorSla.RefreshReport();
 
-            lblRefresh.Visible = false;
+            //lblRefresh.Visible = false;
         }
 
         private void frmChamadoSlaV2_KeyDown(object sender, KeyEventArgs e)
@@ -199,6 +204,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
                 frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
                 Toast.Show();
+                System.Diagnostics.Process.Start(NomeArquivo);
                 this.Focus();
             }
             catch(Exception)
@@ -237,6 +243,7 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
                 frmToast Toast = new frmToast("Exportado com Sucesso!!", "Okay");
                 Toast.Show();
+                System.Diagnostics.Process.Start(NomeArquivo);
                 this.Focus();
 
             }
@@ -259,12 +266,12 @@ namespace RBDNumeros.Viwer.Formulario.Kpi
 
         private void DataInicio_ValueChanged(object sender, EventArgs e)
         {
-            lblRefresh.Visible = true;
+            //lblRefresh.Visible = true;
         }
 
         private void DataFim_ValueChanged(object sender, EventArgs e)
         {
-            lblRefresh.Visible = true;
+            //lblRefresh.Visible = true;
         }
 
         private void cbCarteira_SelectedIndexChanged(object sender, EventArgs e)

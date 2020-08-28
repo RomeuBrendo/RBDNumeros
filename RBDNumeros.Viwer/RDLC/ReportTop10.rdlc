@@ -28,7 +28,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Carteira</Value>
+                              <Value>Nº</Value>
                               <Style>
                                 <FontFamily>Arial Black</FontFamily>
                                 <Color>White</Color>
@@ -153,7 +153,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Carteira.Value</Value>
+                              <Value>=RowNumber("DataSetTop10")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
